@@ -48,8 +48,8 @@
           >
         </a>
         <nav class="page-header__nav" aria-label="Page navigation">
-          <a href="index.html">Home</a>
-          <a href="divisions/trucking.html">Trucking Division</a>
+          <a href="index.html" data-i18n>Home</a>
+          <a href="divisions/trucking.html" data-i18n>Trucking Division</a>
           <a href="tel:+15759413311">(575) 941-3311</a>
         </nav>
       </div>
@@ -58,9 +58,9 @@
     <main class="page-main">
       <div class="page-panel quote-panel">
         <div class="page-hero">
-          <p class="page-hero__eyebrow">Request a Quote</p>
-          <h1 class="page-hero__title">Trucking <span class="text-accent">Quote</span></h1>
-          <p class="page-hero__lead">Request a quote for aggregate trucking, dumps, or heavy haul across SE New Mexico and West Texas.</p>
+          <p class="page-hero__eyebrow" data-i18n>Request a Quote</p>
+          <h1 class="page-hero__title" data-i18n>Trucking <span class="text-accent">Quote</span></h1>
+          <p class="page-hero__lead" data-i18n>Request a quote for aggregate trucking, dumps, or heavy haul across SE New Mexico and West Texas.</p>
         </div>
 
         <form
@@ -71,59 +71,59 @@
           data-subject-prefix="[Trucking Quote]"
           novalidate
         >
-          <p class="quote-form__note">
+          <p class="quote-form__note" data-i18n>
             Submissions are routed to our <strong>Trucking Division</strong> team at
             <a href="mailto:PURCHASING@4ELEMENTSOILFIELD.COM">PURCHASING@4ELEMENTSOILFIELD.COM</a>.
           </p>
 
           <div class="form__row">
             <div class="form__group">
-              <label for="name">Name <span aria-hidden="true">*</span></label>
+              <label for="name" data-i18n>Name <span aria-hidden="true">*</span></label>
               <input type="text" id="name" name="name" autocomplete="name" required>
             </div>
             <div class="form__group">
-              <label for="company">Company</label>
+              <label for="company" data-i18n>Company</label>
               <input type="text" id="company" name="company" autocomplete="organization">
             </div>
           </div>
 
           <div class="form__row">
             <div class="form__group">
-              <label for="phone">Phone <span aria-hidden="true">*</span></label>
+              <label for="phone" data-i18n>Phone <span aria-hidden="true">*</span></label>
               <input type="tel" id="phone" name="phone" autocomplete="tel" required>
             </div>
             <div class="form__group">
-              <label for="email">Email <span aria-hidden="true">*</span></label>
+              <label for="email" data-i18n>Email <span aria-hidden="true">*</span></label>
               <input type="email" id="email" name="email" autocomplete="email" required>
             </div>
           </div>
 
           <div class="form__group">
-            <label for="service">Service Needed <span aria-hidden="true">*</span></label>
+            <label for="service" data-i18n>Service Needed <span aria-hidden="true">*</span></label>
             <select id="service" name="service" required>
-              <option value="">Select a service</option>
-              <option value="Aggregate trucking">Aggregate trucking</option>
-              <option value="Belly dumps">Belly dumps</option>
-              <option value="End dumps">End dumps</option>
-              <option value="Dump trucks">Dump trucks</option>
-              <option value="Heavy haul">Heavy haul</option>
-              <option value="Other / not listed">Other / not listed</option>
+              <option value="" data-i18n>Select a service</option>
+              <option value="Aggregate trucking" data-i18n>Aggregate trucking</option>
+              <option value="Belly dumps" data-i18n>Belly dumps</option>
+              <option value="End dumps" data-i18n>End dumps</option>
+              <option value="Dump trucks" data-i18n>Dump trucks</option>
+              <option value="Heavy haul" data-i18n>Heavy haul</option>
+              <option value="Other / not listed" data-i18n>Other / not listed</option>
             </select>
           </div>
 
           <div class="form__group">
-            <label for="location">Job Location / Area</label>
-            <input type="text" id="location" name="location" placeholder="City, county, or lease">
+            <label for="location" data-i18n>Job Location / Area</label>
+            <input type="text" id="location" name="location" placeholder="City, county, or lease" data-i18n-placeholder>
           </div>
 
           <div class="form__group">
-            <label for="details">Project Details</label>
-            <textarea id="details" name="details" rows="5" placeholder="Timeline, quantities, equipment needs, or other details"></textarea>
+            <label for="details" data-i18n>Project Details</label>
+            <textarea id="details" name="details" rows="5" placeholder="Timeline, quantities, equipment needs, or other details" data-i18n-placeholder></textarea>
           </div>
 
           <div class="quote-form__actions">
-            <button type="submit" class="btn btn--primary">Send Quote Request</button>
-            <a class="btn btn--outline" href="divisions/trucking.html">Back to Trucking Division</a>
+            <button type="submit" class="btn btn--primary" data-i18n>Send Quote Request</button>
+            <a class="btn btn--outline" href="divisions/trucking.html" data-i18n>Back to Trucking Division</a>
           </div>
           <p class="quote-form__status" id="quote-status" role="status" aria-live="polite" hidden></p>
         </form>
@@ -131,11 +131,12 @@
     </main>
 
     <footer class="page-footer">
-      <p>1400 W. Derrick Rd., Carlsbad, NM 88220 · 4 Elements Oilfield Services LLC</p>
+      <p data-i18n>1400 W. Derrick Rd., Carlsbad, NM 88220 · 4 Elements Oilfield Services LLC</p>
     </footer>
   </div>
 
   <script src="js/main.js"></script>
+  <script src="js/i18n.js"></script>
   <script src="js/quote-form.js"></script>
 </body>
 </html>

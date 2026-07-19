@@ -1699,7 +1699,53 @@ body.home-shell::before {
 .home-header__nav {
   display: flex;
   align-items: center;
-  gap: clamp(1.25rem, 2.5vw, 2rem);
+  gap: clamp(1rem, 2.2vw, 1.75rem);
+}
+
+.lang-switch {
+  display: inline-flex;
+  align-items: stretch;
+  margin-left: 0.35rem;
+  border: 1px solid rgba(168, 181, 192, 0.28);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: rgba(6, 24, 40, 0.35);
+}
+
+.lang-switch__btn {
+  appearance: none;
+  border: 0;
+  margin: 0;
+  padding: 0.38rem 0.7rem;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gunsmoke);
+  background: transparent;
+  cursor: pointer;
+  transition:
+    color var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.lang-switch__btn + .lang-switch__btn {
+  border-left: 1px solid rgba(168, 181, 192, 0.22);
+}
+
+.lang-switch__btn:hover {
+  color: #FFFFFF;
+  background: rgba(227, 106, 44, 0.12);
+}
+
+.lang-switch__btn.is-active {
+  color: #FFFFFF;
+  background: rgba(227, 106, 44, 0.28);
+}
+
+.page-header__nav .lang-switch {
+  margin-left: 0.15rem;
 }
 
 .home-header__nav a {
