@@ -1,0 +1,30 @@
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor / local
+.vscode/
+.idea/
+*.log
+.env
+.env.*
+
+# Node (if added later)
+node_modules/
+
+# Scratch / intermediate logo processing (keep final site assets)
+images/logo-hero-mark-mid.png
+images/logo-hero-mark-original.png
+images/logo-hero-mark-pass1.png
+images/logo-hero-mark-pre-polish.png
+images/logo-hero-mark-source.png
+images/_asset_test.png
+images/*-raw.png
+images/nano-banana-*.png
+images/4Elogoclean-upload.png
+images/logo-uploaded.png
+
+# Local tooling / recover scratch (not needed to run the site)
+scripts/_recover/
+scripts/*.exe

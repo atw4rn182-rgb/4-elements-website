@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automotive & Diesel Repair Quote | 4 Elements Oilfield Services</title>
+  <meta name="description" content="Request a quote for diesel repair, fleet maintenance, diagnostics, or field support.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="page page--hero">
+  <div class="hero__media page-bg-media" aria-hidden="true">
+    <div class="hero__slide hero__slide--active" data-hero-slide data-type="image" data-duration="9">
+      <div class="hero__pan hero__pan--ltr">
+        <img src="images/hero-fleet.jpg" alt="" class="hero__slide-media" width="1920" height="1080">
+      </div>
+    </div>
+    <div class="hero__slide" data-hero-slide data-type="video" data-duration="10">
+      <video class="hero__slide-media" muted playsinline preload="auto" loop>
+        <source src="images/hero-loader.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero__slide" data-hero-slide data-type="image" data-duration="9">
+      <div class="hero__pan hero__pan--rtl">
+        <img src="images/hero-quarry.jpg" alt="" class="hero__slide-media" width="1920" height="1080">
+      </div>
+    </div>
+    <div class="hero__slide" data-hero-slide data-type="video" data-duration="10">
+      <video class="hero__slide-media" muted playsinline preload="auto" loop>
+        <source src="images/hero-dumping.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero__overlay"></div>
+  </div>
+
+  <div class="page-shell">
+    <header class="page-header">
+      <div class="page-header__inner">
+        <a href="index.html" class="page-header__brand" aria-label="4 Elements Oilfield Services LLC">
+          <img
+            src="images/4Elogoclean.png?v=60"
+            alt="4 Elements Oilfield Services LLC"
+            class="page-header__logo"
+            width="1080"
+            height="1075"
+          >
+        </a>
+        <nav class="page-header__nav" aria-label="Page navigation">
+          <a href="index.html">Home</a>
+          <a href="divisions/automotive.html">Automotive & Diesel Repair</a>
+          <a href="tel:+15759413311">(575) 941-3311</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-main">
+      <div class="page-panel quote-panel">
+        <div class="page-hero">
+          <p class="page-hero__eyebrow">Request a Quote</p>
+          <h1 class="page-hero__title">Automotive &amp; Diesel <span class="text-accent">Quote</span></h1>
+          <p class="page-hero__lead">Request a quote for diesel repair, fleet maintenance, diagnostics, or field support.</p>
+        </div>
+
+        <form
+          class="quote-form"
+          id="quote-form"
+          data-division="Automotive & Diesel Repair"
+          data-to="PURCHASING@4ELEMENTSOILFIELD.COM"
+          data-subject-prefix="[Automotive Quote]"
+          novalidate
+        >
+          <p class="quote-form__note">
+            Submissions are routed to our <strong>Automotive & Diesel Repair</strong> team at
+            <a href="mailto:PURCHASING@4ELEMENTSOILFIELD.COM">PURCHASING@4ELEMENTSOILFIELD.COM</a>.
+          </p>
+
+          <div class="form__row">
+            <div class="form__group">
+              <label for="name">Name <span aria-hidden="true">*</span></label>
+              <input type="text" id="name" name="name" autocomplete="name" required>
+            </div>
+            <div class="form__group">
+              <label for="company">Company</label>
+              <input type="text" id="company" name="company" autocomplete="organization">
+            </div>
+          </div>
+
+          <div class="form__row">
+            <div class="form__group">
+              <label for="phone">Phone <span aria-hidden="true">*</span></label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+            </div>
+            <div class="form__group">
+              <label for="email">Email <span aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+          </div>
+
+          <div class="form__group">
+            <label for="service">Service Needed <span aria-hidden="true">*</span></label>
+            <select id="service" name="service" required>
+              <option value="">Select a service</option>
+              <option value="Diesel & heavy equipment repair">Diesel & heavy equipment repair</option>
+              <option value="Fleet maintenance">Fleet maintenance</option>
+              <option value="Preventive service programs">Preventive service programs</option>
+              <option value="Diagnostics and troubleshooting">Diagnostics and troubleshooting</option>
+              <option value="Shop-based and field support">Shop-based and field support</option>
+              <option value="Other / not listed">Other / not listed</option>
+            </select>
+          </div>
+
+          <div class="form__group">
+            <label for="location">Job Location / Area</label>
+            <input type="text" id="location" name="location" placeholder="City, county, or lease">
+          </div>
+
+          <div class="form__group">
+            <label for="details">Project Details</label>
+            <textarea id="details" name="details" rows="5" placeholder="Timeline, quantities, equipment needs, or other details"></textarea>
+          </div>
+
+          <div class="quote-form__actions">
+            <button type="submit" class="btn btn--primary">Send Quote Request</button>
+            <a class="btn btn--outline" href="divisions/automotive.html">Back to Automotive & Diesel Repair</a>
+          </div>
+          <p class="quote-form__status" id="quote-status" role="status" aria-live="polite" hidden></p>
+        </form>
+      </div>
+    </main>
+
+    <footer class="page-footer">
+      <p>1400 W. Derrick Rd., Carlsbad, NM 88220 · 4 Elements Oilfield Services LLC</p>
+    </footer>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/quote-form.js"></script>
+</body>
+</html>
