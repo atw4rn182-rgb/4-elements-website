@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/admin",
+      "destination": "https://4-elements-dispatch.vercel.app/admin"
+    },
+    {
+      "source": "/admin/:path*",
+      "destination": "https://4-elements-dispatch.vercel.app/admin/:path*"
+    }
+  ]
+}
