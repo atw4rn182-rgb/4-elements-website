@@ -28,3 +28,6 @@ images/logo-uploaded.png
 # Local tooling / recover scratch (not needed to run the site)
 scripts/_recover/
 scripts/*.exe
+
+.vercel
+.env*
