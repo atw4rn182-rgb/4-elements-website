@@ -1,4 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "/admin/",
+      "destination": "/admin",
+      "permanent": false
+    },
+    {
+      "source": "/admin/:path+/",
+      "destination": "/admin/:path+",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     {
       "source": "/admin",
