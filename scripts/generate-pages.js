@@ -199,6 +199,10 @@ ${bodyHtml}
 
     <footer class="page-footer">
       <p>${SHARED.address}  ·  4 Elements Oilfield Services LLC</p>
+      <nav class="page-footer__links" aria-label="Legal">
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-and-conditions">Terms &amp; Conditions</a>
+      </nav>
     </footer>
   </div>
 
