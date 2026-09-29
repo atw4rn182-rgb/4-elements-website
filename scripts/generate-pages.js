@@ -4,6 +4,7 @@
  */
 const fs = require("fs");
 const path = require("path");
+const { seoHead, fileToPath } = require("./seo-lib");
 
 const root = path.join(__dirname, "..");
 
@@ -29,10 +30,11 @@ function esc(s) {
 }
 
 function quoteList(quoteFile, items) {
+  const quotePath = `/${String(quoteFile).replace(/\.html$/, "")}`;
   return `<ul class="page-list page-list--quotes">
 ${items
   .map((label) => {
-    const href = `../${quoteFile}?service=${encodeURIComponent(label)}`;
+    const href = `${quotePath}?service=${encodeURIComponent(label)}`;
     return `          <li>
             <a class="page-list__link" href="${href}">
               <span class="page-list__label">${esc(label)}</span>
@@ -42,6 +44,20 @@ ${items
   })
   .join("\n")}
             </ul>`;
+}
+
+function relatedSection(links) {
+  return `<nav class="page-section page-related" aria-label="Related 4 Elements services">
+            <h2>Related 4 Elements services</h2>
+            <ul class="page-list">
+${links
+  .map(
+    ([href, label]) =>
+      `              <li><a href="${esc(href)}">${esc(label)}</a></li>`
+  )
+  .join("\n")}
+            </ul>
+          </nav>`;
 }
 
 function plainList(items) {
@@ -102,50 +118,54 @@ ${items.map((s) => `              <li>${esc(s)}</li>`).join("\n")}
 }
 
 function shell({
+  file,
   title,
   description,
   eyebrow,
   headingHtml,
   lead,
+  intro,
   quoteHref,
   bodyHtml,
 }) {
   const quoteNav = quoteHref
     ? `<a href="${quoteHref}">Request a Quote</a>`
     : `<a href="mailto:${SHARED.purchasingEmail}">Request a Quote</a>`;
+  const introHtml = intro
+    ? `\n          <p class="page-hero__intro">${esc(intro)}</p>`
+    : "";
 
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${esc(title)} | 4 Elements Oilfield Services</title>
-  <meta name="description" content="${esc(description)}">
+${seoHead({ title, description, path: fileToPath(file), indexable: true })}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body class="page page--hero">
   <div class="hero__media page-bg-media" aria-hidden="true">
     <div class="hero__slide hero__slide--active" data-hero-slide data-type="image" data-duration="9">
       <div class="hero__pan hero__pan--ltr">
-        <img src="../images/hero-fleet.jpg" alt="" class="hero__slide-media" width="1920" height="1080">
+        <img src="/images/hero-fleet.jpg" alt="" class="hero__slide-media" width="1920" height="1080">
       </div>
     </div>
     <div class="hero__slide" data-hero-slide data-type="video" data-duration="10">
-      <video class="hero__slide-media" muted playsinline preload="auto" loop>
-        <source src="../images/hero-loader.mp4" type="video/mp4">
+      <video class="hero__slide-media" muted playsinline preload="none" loop>
+        <source src="/images/hero-loader.mp4" type="video/mp4">
       </video>
     </div>
     <div class="hero__slide" data-hero-slide data-type="image" data-duration="9">
       <div class="hero__pan hero__pan--rtl">
-        <img src="../images/hero-quarry.jpg" alt="" class="hero__slide-media" width="1920" height="1080">
+        <img src="/images/hero-quarry.jpg" alt="" class="hero__slide-media" width="1920" height="1080" loading="lazy">
       </div>
     </div>
     <div class="hero__slide" data-hero-slide data-type="video" data-duration="10">
-      <video class="hero__slide-media" muted playsinline preload="auto" loop>
-        <source src="../images/hero-dumping.mp4" type="video/mp4">
+      <video class="hero__slide-media" muted playsinline preload="none" loop>
+        <source src="/images/hero-dumping.mp4" type="video/mp4">
       </video>
     </div>
     <div class="hero__overlay"></div>
@@ -154,17 +174,17 @@ function shell({
   <div class="page-shell">
     <header class="page-header">
       <div class="page-header__inner">
-        <a href="../index.html" class="page-header__brand" aria-label="4 Elements Oilfield Services LLC">
+        <a href="/" class="page-header__brand" aria-label="4 Elements Oilfield Services LLC">
           <img
-            src="../images/4Elogoclean.png?v=60"
-            alt="4 Elements Oilfield Services LLC"
+            src="/images/4Elogoclean.png?v=60"
+            alt="4 Elements Oilfield Services LLC logo"
             class="page-header__logo"
             width="1080"
             height="1075"
           >
         </a>
         <nav class="page-header__nav" aria-label="Page navigation">
-          <a href="../index.html">Home</a>
+          <a href="/">Home</a>
           <a href="tel:${SHARED.officeTel}">${SHARED.officePhone}</a>
           ${quoteNav}
         </nav>
@@ -176,7 +196,7 @@ function shell({
         <div class="page-hero">
           <p class="page-hero__eyebrow">${esc(eyebrow)}</p>
           <h1 class="page-hero__title">${headingHtml}</h1>
-          <p class="page-hero__lead">${esc(lead)}</p>
+          <p class="page-hero__lead">${esc(lead)}</p>${introHtml}
         </div>
         <div class="page-body">
 ${bodyHtml}
@@ -190,7 +210,7 @@ ${bodyHtml}
                   ? `<a class="btn btn--outline" href="${quoteHref}">Request a Quote</a>`
                   : `<a class="btn btn--outline" href="mailto:${SHARED.purchasingEmail}">Request a Quote</a>`
               }
-              <a class="btn btn--outline" href="../index.html">Back to Home</a>
+              <a class="btn btn--outline" href="/">Back to Home</a>
             </div>
           </section>
         </div>
@@ -206,7 +226,8 @@ ${bodyHtml}
     </footer>
   </div>
 
-  <script src="../js/main.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/i18n.js"></script>
 </body>
 </html>
 `;
@@ -215,13 +236,15 @@ ${bodyHtml}
 const pages = [
   {
     file: "divisions/trucking.html",
-    title: "Trucking Division",
+    title: "Oilfield Trucking in Carlsbad, NM | 4 Elements",
     description:
-      "Aggregate hauling, belly dumps, end dumps, dump trucks, heavy haul, and semi flat bed - Carlsbad, NM.",
+      "Aggregate hauling, belly dumps, end dumps, dump trucks, heavy haul, and semi flat bed from 4 Elements in Carlsbad, New Mexico. Serving SE New Mexico and West Texas.",
     eyebrow: "Division",
     headingHtml: `Trucking <span class="text-accent">Division</span>`,
     lead: "Aggregate trucking and heavy haul across SE New Mexico and West Texas - when minutes, money, and mileage matter.",
-    quoteHref: "../trucking-quote.html",
+    intro:
+      "The 4 Elements Trucking Division hauls aggregate and heavy equipment for oilfield, mining, and industrial customers from our yard at 1400 W. Derrick Rd. in Carlsbad, New Mexico.",
+    quoteHref: "/trucking-quote",
     body: () =>
       [
         contactBlock([
@@ -268,17 +291,24 @@ const pages = [
             { label: "General Application", href: SHARED.jotformGeneral },
           ],
         }),
+        relatedSection([
+          ["/divisions/construction", "Construction Division"],
+          ["/divisions/automotive", "Automotive & Diesel Repair"],
+          ["/affiliates/thunder-stone", "Thunder Stone Quarry"],
+        ]),
       ].join("\n"),
   },
   {
     file: "divisions/automotive.html",
-    title: "Automotive & Diesel Repair",
+    title: "Auto & Diesel Repair in Carlsbad, NM | 4 Elements",
     description:
-      "Full-service automotive and diesel mechanic service center in Carlsbad, NM. Contact Jake Tipton.",
+      "Full-service automotive and diesel mechanic work in Carlsbad, NM—fleet maintenance, heavy equipment repair, diagnostics, and field support from 4 Elements.",
     eyebrow: "Division",
     headingHtml: `Automotive &amp; Diesel <span class="text-accent">Repair</span>`,
     lead: "Full Service Automotive and Diesel Mechanic Service Center - keeping your fleet and equipment ready for the job.",
-    quoteHref: "../automotive-quote.html",
+    intro:
+      "4 Elements Automotive & Diesel Repair is a full-service shop in Carlsbad, New Mexico, supporting oilfield, mining, industrial, and commercial fleets with shop-based and field mechanic work.",
+    quoteHref: "/automotive-quote",
     body: () =>
       [
         contactBlock([
@@ -321,17 +351,24 @@ const pages = [
             { label: "Non-CDL Application", href: SHARED.applyNonCdl },
           ],
         }),
+        relatedSection([
+          ["/divisions/trucking", "Trucking Division"],
+          ["/divisions/construction", "Construction Division"],
+          ["/divisions/safety", "Safety Division"],
+        ]),
       ].join("\n"),
   },
   {
     file: "divisions/construction.html",
-    title: "Construction Division",
+    title: "Oilfield Construction in Carlsbad, NM | 4 Elements",
     description:
-      "Heavy equipment construction, road and pad building, welding, and MSHA-trained crews in Carlsbad, NM.",
+      "Heavy equipment construction, road and pad building, welding, and MSHA-trained crews in Carlsbad, NM. Trucking, quarry materials, and safety support under a single bid.",
     eyebrow: "Division",
     headingHtml: `Construction <span class="text-accent">Division</span>`,
     lead: "Heavy equipment construction, reclamation/remediation, and maintenance - with trucking, quarry materials, safety techs, and project management available under a single bid.",
-    quoteHref: "../construction-quote.html",
+    intro:
+      "The 4 Elements Construction Division builds and maintains oilfield and industrial sites from Carlsbad, New Mexico, with MSHA-trained operators, laborers, and welders.",
+    quoteHref: "/construction-quote",
     body: () =>
       [
         contactBlock([
@@ -375,17 +412,25 @@ const pages = [
             { label: "General Application", href: SHARED.jotformGeneral },
           ],
         }),
+        relatedSection([
+          ["/divisions/trucking", "Trucking Division"],
+          ["/divisions/safety", "Safety Division"],
+          ["/affiliates/thunder-run", "Thunder Run Concrete"],
+          ["/affiliates/thunder-stone", "Thunder Stone Quarry"],
+        ]),
       ].join("\n"),
   },
   {
     file: "divisions/safety.html",
-    title: "Safety Division",
+    title: "Oilfield Safety Services in Carlsbad, NM | 4 Elements",
     description:
-      "Safety technician oversight, permitting, equipment sales/service, and onsite support in Carlsbad, NM.",
+      "Safety technician oversight, permitting, equipment sales and service, and onsite support from 4 Elements in Carlsbad, New Mexico.",
     eyebrow: "Division",
     headingHtml: `Safety <span class="text-accent">Division</span>`,
     lead: "Safety oversight, permitting, equipment sales and service, and onsite support for oilfield and industrial operations.",
-    quoteHref: "../safety-quote.html",
+    intro:
+      "The 4 Elements Safety Division supports oilfield and industrial jobs in and around Carlsbad, New Mexico with technician oversight, permitting, and onsite safety equipment.",
+    quoteHref: "/safety-quote",
     body: () =>
       [
         contactBlock([
@@ -434,16 +479,23 @@ const pages = [
             { label: "General Application", href: SHARED.jotformGeneral },
           ],
         }),
+        relatedSection([
+          ["/affiliates/training", "Training Division"],
+          ["/divisions/construction", "Construction Division"],
+          ["/divisions/trucking", "Trucking Division"],
+        ]),
       ].join("\n"),
   },
   {
     file: "affiliates/clean-air.html",
-    title: "Clean Air Authority",
+    title: "HVAC & Generators in Carlsbad, NM | Clean Air Authority",
     description:
-      "Residential, commercial, and industrial HVAC, Cummins generators, and authorized brand sales/service. Don Knealing.",
+      "Residential, commercial, and industrial HVAC, Cummins generators, and authorized brand sales and service through Clean Air Authority, a 4 Elements affiliate in Carlsbad, NM.",
     eyebrow: "Affiliate",
     headingHtml: `Clean Air <span class="text-accent">Authority</span>`,
     lead: "HVAC preventive maintenance, installation, repair, and Cummins generator sales & service for residential, commercial, and industrial customers.",
+    intro:
+      "Clean Air Authority is a 4 Elements affiliate serving Carlsbad, New Mexico and the surrounding area with HVAC programs, installations, repairs, and Cummins generator sales and service.",
     quoteHref: null,
     body: () =>
       [
@@ -500,16 +552,23 @@ const pages = [
             { label: "Non-CDL Application", href: SHARED.applyNonCdl },
           ],
         }),
+        relatedSection([
+          ["/affiliates/automation", "Automation"],
+          ["/affiliates/zealous", "Zealous Electrical Services"],
+          ["/divisions/construction", "Construction Division"],
+        ]),
       ].join("\n"),
   },
   {
     file: "affiliates/automation.html",
-    title: "Automation Division",
+    title: "Oilfield Automation | 4 Elements Affiliate",
     description:
-      "Oilfield and building automation, PLCs, SCADA, security, and AV. Managed by Lance Moore.",
+      "Oilfield and building automation, PLCs, SCADA, security, and AV from the 4 Elements Automation affiliate, coordinated from Carlsbad, NM.",
     eyebrow: "Affiliate",
     headingHtml: `Automation <span class="text-accent">Division</span>`,
     lead: "Install, maintain, and program instrumentation, PLCs/VFDs. Create field networks, comms/cameras and SCADA. Building automation HVACR controls and fully automated holiday displays.",
+    intro:
+      "The 4 Elements Automation affiliate installs and maintains instrumentation, PLCs, field networks, and SCADA for oilfield and building projects served from Carlsbad, New Mexico.",
     quoteHref: null,
     body: () =>
       [
@@ -590,16 +649,23 @@ const pages = [
             { label: "General Application", href: SHARED.jotformGeneral },
           ],
         }),
+        relatedSection([
+          ["/affiliates/zealous", "Zealous Electrical Services"],
+          ["/affiliates/clean-air", "Clean Air Authority"],
+          ["/divisions/construction", "Construction Division"],
+        ]),
       ].join("\n"),
   },
   {
     file: "affiliates/zealous.html",
-    title: "Zealous Electrical Services",
+    title: "Electrical Services in Carlsbad, NM | Zealous",
     description:
-      "Industrial, commercial, and residential electrical installation, repair, and maintenance. Carlsbad, NM.",
+      "Industrial, commercial, and residential electrical installation, repair, and maintenance from Zealous Electrical Services, a 4 Elements affiliate in Carlsbad, NM.",
     eyebrow: "Affiliate",
     headingHtml: `Zealous Electrical <span class="text-accent">Services</span>`,
     lead: "Industrial, commercial, and residential electrical installation, repair, and maintenance.",
+    intro:
+      "Zealous Electrical Services is a 4 Elements affiliate providing industrial, commercial, and residential electrical installation, repair, and maintenance in the Carlsbad, New Mexico area.",
     quoteHref: null,
     body: () =>
       [
@@ -636,16 +702,23 @@ const pages = [
             { label: "Non-CDL Application", href: SHARED.applyNonCdl },
           ],
         }),
+        relatedSection([
+          ["/affiliates/automation", "Automation"],
+          ["/divisions/construction", "Construction Division"],
+          ["/affiliates/clean-air", "Clean Air Authority"],
+        ]),
       ].join("\n"),
   },
   {
     file: "affiliates/training.html",
-    title: "Training Division",
+    title: "Oilfield Safety Training in Carlsbad, NM | 4 Elements",
     description:
-      "PEC Safeland, lifesaving skills, equipment training, and safety product distribution. Carlsbad, NM.",
+      "PEC Safeland, lifesaving skills, equipment training, and authorized safety product distribution from the 4 Elements Training Division in Carlsbad, NM.",
     eyebrow: "Affiliate",
     headingHtml: `Training <span class="text-accent">Division</span>`,
     lead: "Oilfield lifesaving and MSHA training instructors - PEC Safeland, lifesaving skills, equipment training, and authorized safety product distribution.",
+    intro:
+      "The 4 Elements Training Division delivers oilfield lifesaving and equipment training from Carlsbad, New Mexico, including PEC Safeland and related safety classes.",
     quoteHref: null,
     body: () =>
       [
@@ -708,16 +781,22 @@ const pages = [
               <a class="btn btn--outline" href="mailto:Earl.Phelps@4elementssafetyservices.com">Email Earl Phelps</a>
             </div>
           </section>`,
+        relatedSection([
+          ["/divisions/safety", "Safety Division"],
+          ["/divisions/construction", "Construction Division"],
+        ]),
       ].join("\n"),
   },
   {
     file: "affiliates/thunder-run.html",
-    title: "Thunder Run Concrete",
+    title: "Thunder Run Concrete | 4 Elements Affiliate",
     description:
-      "Thunder Run Concrete - affiliate partner of 4 Elements Oilfield Services LLC in Carlsbad, NM.",
+      "Thunder Run Concrete is a 4 Elements affiliate partner in Carlsbad, NM, coordinated with construction and trucking.",
     eyebrow: "Affiliate",
     headingHtml: `Thunder Run <span class="text-accent">Concrete</span>`,
     lead: "Affiliate partner of 4 Elements Oilfield Services LLC supporting concrete needs alongside our construction and trucking divisions.",
+    intro:
+      "Thunder Run Concrete is listed among the 4 Elements affiliates. Contact the Carlsbad office to coordinate concrete support with Construction and Trucking.",
     quoteHref: null,
     body: () =>
       [
@@ -736,16 +815,23 @@ const pages = [
             <h2>About</h2>
             <p class="page-intro">Thunder Run Concrete is listed among the 4 Elements affiliate partners. Contact our Carlsbad office for availability, project support, and coordination with Construction and Trucking.</p>
           </section>`,
+        relatedSection([
+          ["/divisions/construction", "Construction Division"],
+          ["/divisions/trucking", "Trucking Division"],
+          ["/affiliates/thunder-stone", "Thunder Stone Quarry"],
+        ]),
       ].join("\n"),
   },
   {
     file: "affiliates/thunder-stone.html",
-    title: "Thunder Stone Quarry",
+    title: "Thunder Stone Quarry | 4 Elements Affiliate",
     description:
-      "Thunder Stone Quarry - affiliate partner supplying aggregate support with 4 Elements trucking and construction.",
+      "Thunder Stone Quarry is a 4 Elements affiliate supplying aggregate support for trucking and construction projects in the Carlsbad, NM area.",
     eyebrow: "Affiliate",
     headingHtml: `Thunder Stone <span class="text-accent">Quarry</span>`,
     lead: "Affiliate quarry partner supporting aggregate materials for trucking and construction projects.",
+    intro:
+      "Thunder Stone Quarry supports 4 Elements trucking and construction jobs with aggregate materials coordinated from Carlsbad, New Mexico.",
     quoteHref: null,
     body: () =>
       [
@@ -764,16 +850,22 @@ const pages = [
             <h2>About</h2>
             <p class="page-intro">Thunder Stone Quarry is listed among the 4 Elements affiliate partners. On construction jobs, 4 Elements can source quarry materials together with trucking, safety techs, and project management under a single bid. Contact the office for material and delivery coordination.</p>
           </section>`,
+        relatedSection([
+          ["/divisions/trucking", "Trucking Division"],
+          ["/divisions/construction", "Construction Division"],
+        ]),
       ].join("\n"),
   },
   {
     file: "affiliates/droneops.html",
-    title: "DroneOps Solutions",
+    title: "DroneOps Solutions | 4 Elements Affiliate",
     description:
-      "DroneOps Solutions, LLC - affiliate partner of 4 Elements Oilfield Services LLC.",
+      "DroneOps Solutions, LLC is a 4 Elements Oilfield Services LLC affiliate partner. Contact the Carlsbad, NM office for current capabilities.",
     eyebrow: "Affiliate",
     headingHtml: `DroneOps <span class="text-accent">Solutions</span>`,
     lead: "DroneOps Solutions, LLC - affiliate partner of 4 Elements Oilfield Services LLC.",
+    intro:
+      "DroneOps Solutions, LLC is listed among the 4 Elements affiliates. Contact the Carlsbad office for current capabilities and project coordination.",
     quoteHref: null,
     body: () =>
       [
@@ -792,17 +884,23 @@ const pages = [
             <h2>About</h2>
             <p class="page-intro">DroneOps Solutions, LLC is listed among the 4 Elements affiliate partners. Contact our Carlsbad office for current capabilities and project coordination.</p>
           </section>`,
+        relatedSection([
+          ["/divisions/construction", "Construction Division"],
+          ["/divisions/safety", "Safety Division"],
+        ]),
       ].join("\n"),
   },
 ];
 
 for (const p of pages) {
   const html = shell({
+    file: p.file,
     title: p.title,
     description: p.description,
     eyebrow: p.eyebrow,
     headingHtml: p.headingHtml,
     lead: p.lead,
+    intro: p.intro,
     quoteHref: p.quoteHref,
     bodyHtml: p.body(),
   });

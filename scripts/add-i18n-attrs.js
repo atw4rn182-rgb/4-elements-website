@@ -67,7 +67,10 @@ function markTags(html) {
       attrs = attrs || "";
       if (/data-i18n/i.test(attrs)) return full;
       // Skip empty / utility anchors without visible words later handled by content
-      if (tag === "span" && /class="[^"]*text-accent/i.test(attrs)) {
+      if (tag === "a" && /header__brand/i.test(attrs)) {
+        return full;
+      }
+      if (tag === "p" && /home-overview/i.test(attrs)) {
         return full;
       }
       if (tag === "span" && /class="[^"]*home-title__/i.test(attrs)) {
@@ -116,6 +119,10 @@ for (const rel of files) {
   const prefix = rel.includes("/") ? "../" : "";
   html = markTags(html);
   if (rel === "index.html") html = specialHome(html);
+  html = html.replace(
+    /(<a href="\/" class="(?:home|page)-header__brand"[^>]*) data-i18n/g,
+    "$1"
+  );
   html = addScript(html, prefix);
   fs.writeFileSync(file, html, "utf8");
   console.log("Updated", rel);

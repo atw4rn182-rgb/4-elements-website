@@ -46,6 +46,29 @@
       "Su centro integral de servicios petroleros, mineros e industriales en Carlsbad, NM",
     "When minutes, money, and mileage matter.":
       "Cuando importan los minutos, el dinero y el kilometraje.",
+    "Related 4 Elements services": "Servicios relacionados de 4 Elements",
+    "The 4 Elements Trucking Division hauls aggregate and heavy equipment for oilfield, mining, and industrial customers from our yard at 1400 W. Derrick Rd. in Carlsbad, New Mexico.":
+      "La División de Transporte de 4 Elements transporta agregados y equipo pesado para clientes petroleros, mineros e industriales desde nuestro patio en 1400 W. Derrick Rd. en Carlsbad, Nuevo México.",
+    "4 Elements Automotive & Diesel Repair is a full-service shop in Carlsbad, New Mexico, supporting oilfield, mining, industrial, and commercial fleets with shop-based and field mechanic work.":
+      "4 Elements Automotive & Diesel Repair es un taller de servicio completo en Carlsbad, Nuevo México, que apoya flotas petroleras, mineras, industriales y comerciales con trabajo mecánico en taller y en campo.",
+    "The 4 Elements Construction Division builds and maintains oilfield and industrial sites from Carlsbad, New Mexico, with MSHA-trained operators, laborers, and welders.":
+      "La División de Construcción de 4 Elements construye y mantiene sitios petroleros e industriales desde Carlsbad, Nuevo México, con operadores, obreros y soldadores capacitados por MSHA.",
+    "The 4 Elements Safety Division supports oilfield and industrial jobs in and around Carlsbad, New Mexico with technician oversight, permitting, and onsite safety equipment.":
+      "La División de Seguridad de 4 Elements apoya trabajos petroleros e industriales en Carlsbad, Nuevo México y alrededores con supervisión técnica, permisos y equipo de seguridad en sitio.",
+    "Clean Air Authority is a 4 Elements affiliate serving Carlsbad, New Mexico and the surrounding area with HVAC programs, installations, repairs, and Cummins generator sales and service.":
+      "Clean Air Authority es un afiliado de 4 Elements que atiende Carlsbad, Nuevo México y el área circundante con programas de HVAC, instalaciones, reparaciones y venta y servicio de generadores Cummins.",
+    "The 4 Elements Automation affiliate installs and maintains instrumentation, PLCs, field networks, and SCADA for oilfield and building projects served from Carlsbad, New Mexico.":
+      "El afiliado de Automatización de 4 Elements instala y mantiene instrumentación, PLC, redes de campo y SCADA para proyectos petroleros y de edificios atendidos desde Carlsbad, Nuevo México.",
+    "Zealous Electrical Services is a 4 Elements affiliate providing industrial, commercial, and residential electrical installation, repair, and maintenance in the Carlsbad, New Mexico area.":
+      "Zealous Electrical Services es un afiliado de 4 Elements que ofrece instalación, reparación y mantenimiento eléctrico industrial, comercial y residencial en el área de Carlsbad, Nuevo México.",
+    "The 4 Elements Training Division delivers oilfield lifesaving and equipment training from Carlsbad, New Mexico, including PEC Safeland and related safety classes.":
+      "La División de Capacitación de 4 Elements ofrece entrenamiento de salvamento petrolero y de equipo desde Carlsbad, Nuevo México, incluyendo PEC Safeland y clases de seguridad relacionadas.",
+    "Thunder Run Concrete is listed among the 4 Elements affiliates. Contact the Carlsbad office to coordinate concrete support with Construction and Trucking.":
+      "Thunder Run Concrete figura entre los afiliados de 4 Elements. Contacte la oficina de Carlsbad para coordinar apoyo de concreto con Construcción y Transporte.",
+    "Thunder Stone Quarry supports 4 Elements trucking and construction jobs with aggregate materials coordinated from Carlsbad, New Mexico.":
+      "Thunder Stone Quarry apoya trabajos de transporte y construcción de 4 Elements con materiales agregados coordinados desde Carlsbad, Nuevo México.",
+    "DroneOps Solutions, LLC is listed among the 4 Elements affiliates. Contact the Carlsbad office for current capabilities and project coordination.":
+      "DroneOps Solutions, LLC figura entre los afiliados de 4 Elements. Contacte la oficina de Carlsbad para capacidades actuales y coordinación de proyectos.",
 
     /* Common CTA / roles */
     "Office Email": "Correo de oficina",

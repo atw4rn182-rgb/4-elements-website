@@ -1982,6 +1982,28 @@ body.home-shell::before {
   font-style: italic;
 }
 
+.home-overview {
+  margin: 0.9rem auto 0;
+  max-width: 38rem;
+  font-size: clamp(0.78rem, 1.05vw, 0.88rem);
+  line-height: 1.55;
+  color: var(--color-gunsmoke);
+  font-style: normal;
+  letter-spacing: 0.01em;
+  pointer-events: auto;
+}
+
+.home-overview a {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.home-overview a:hover,
+.home-overview a:focus-visible {
+  color: var(--color-amber);
+}
+
 @media (max-width: 1100px) and (min-width: 701px) {
   .home {
     grid-template-columns: minmax(190px, 1fr) minmax(8vw, 1fr) minmax(190px, 1fr);
@@ -2680,6 +2702,25 @@ body.page--hero .page-list--quotes .page-list__link:hover {
   line-height: 1.7;
   margin-bottom: 1.15rem;
   max-width: 42rem;
+}
+
+.page-hero__intro {
+  margin: 1rem auto 0;
+  max-width: 42rem;
+  color: var(--color-gunsmoke);
+  line-height: 1.7;
+  font-size: 0.98rem;
+}
+
+.page-related .page-list a {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
+}
+
+.page-related .page-list a:hover,
+.page-related .page-list a:focus-visible {
+  color: var(--color-amber);
 }
 
 .page-note {

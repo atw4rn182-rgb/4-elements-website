@@ -1,6 +1,29 @@
 {
   "cleanUrls": true,
+  "trailingSlash": false,
   "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "4elementsoilfieldservices.com"
+        }
+      ],
+      "destination": "https://www.4elementsoilfieldservices.com/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "4elementsoilfieldservices.com"
+        }
+      ],
+      "destination": "https://www.4elementsoilfieldservices.com/:path*",
+      "permanent": true
+    },
     {
       "source": "/admin/",
       "destination": "/admin",
@@ -20,6 +43,16 @@
     {
       "source": "/admin/:path*",
       "destination": "https://4-elements-dispatch.vercel.app/admin/:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/admin",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    },
+    {
+      "source": "/admin/:path*",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
     }
   ]
 }
