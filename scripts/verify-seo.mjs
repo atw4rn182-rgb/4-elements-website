@@ -42,6 +42,7 @@ const pageFiles = [
   ["divisions/automotive.html", "/divisions/automotive", true],
   ["divisions/construction.html", "/divisions/construction", true],
   ["divisions/safety.html", "/divisions/safety", true],
+  ["divisions/hydrovac.html", "/divisions/hydrovac", true],
   ["affiliates/clean-air.html", "/affiliates/clean-air", true],
   ["affiliates/training.html", "/affiliates/training", true],
   ["affiliates/zealous.html", "/affiliates/zealous", true],
@@ -114,7 +115,13 @@ pass("ONE H1 EACH", h1Ok, "exactly one H1 on public pages");
 pass("CANONICALS", canonicalOk, "www production URLs");
 pass("ROBOTS META", robotsMetaOk, "index vs noindex on quotes");
 pass("JSON-LD", jsonLdOk, "valid JSON on every public page");
-pass("NO HYDRO VAC PAGE", !existsSync("divisions/hydro-vac.html") && !sitemap.toLowerCase().includes("hydro"), "not invented");
+pass(
+  "HYDROVAC PAGE",
+  existsSync("divisions/hydrovac.html") &&
+    sitemap.includes("https://www.4elementsoilfieldservices.com/divisions/hydrovac") &&
+    !existsSync("divisions/hydro-vac.html"),
+  "crawlable /divisions/hydrovac"
+);
 pass("INTERNAL LINKS", broken.length === 0, broken.slice(0, 8).join("; ") || "all resolve");
 pass(
   "NO INDEXING BLOCKERS ON HOME",

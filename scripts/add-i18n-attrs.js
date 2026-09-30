@@ -17,6 +17,7 @@ const files = [
   "divisions/automotive.html",
   "divisions/construction.html",
   "divisions/safety.html",
+  "divisions/hydrovac.html",
   "affiliates/clean-air.html",
   "affiliates/automation.html",
   "affiliates/zealous.html",

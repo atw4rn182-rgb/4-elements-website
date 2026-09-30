@@ -95,6 +95,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--nav-height) + 1rem);
+  overflow-x: clip;
 }
 
 body {
@@ -548,6 +549,25 @@ h2 { font-weight: 700; letter-spacing: 0.04em; }
 .hero__slide video.hero__slide-media {
   position: absolute;
   inset: 0;
+}
+
+.hero__slide-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.home > .hero__media video.hero__slide-media {
+  opacity: 0;
+  transition: opacity 0.35s linear;
+}
+
+.home > .hero__media video.hero__slide-media.is-ready {
+  opacity: 1;
 }
 
 .hero__overlay {
@@ -1646,10 +1666,11 @@ body.home-shell::before {
 .home-header__inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
+  justify-content: flex-start;
+  gap: 0.85rem;
   padding: 0.7rem clamp(1.35rem, 3.5vw, 2.75rem) 0.7rem clamp(1.15rem, 3vw, 2rem);
   min-height: 4.5rem;
+  max-width: 100%;
 }
 
 .home-header__brand {
@@ -1684,12 +1705,14 @@ body.home-shell::before {
   color: #E36A2C;
   font-weight: 800;
   letter-spacing: 0.04em;
+  white-space: nowrap;
 }
 
 .home-header__wordmark-rest {
   color: #A8B5C0;
   font-weight: 600;
   letter-spacing: 0.03em;
+  white-space: nowrap;
 }
 
 .home-header__logo {
@@ -1700,6 +1723,8 @@ body.home-shell::before {
   display: flex;
   align-items: center;
   gap: clamp(1rem, 2.2vw, 1.75rem);
+  margin-left: auto;
+  min-width: 0;
 }
 
 .lang-switch {
@@ -1744,7 +1769,9 @@ body.home-shell::before {
   background: rgba(227, 106, 44, 0.28);
 }
 
-.page-header__nav .lang-switch {
+.home-header__inner > .lang-switch,
+.page-header__inner > .lang-switch {
+  flex-shrink: 0;
   margin-left: 0.15rem;
 }
 
@@ -1756,6 +1783,7 @@ body.home-shell::before {
   letter-spacing: 0.04em;
   border-bottom: 1px solid transparent;
   padding-bottom: 0.1rem;
+  white-space: nowrap;
   text-shadow: none;
   transition:
     color var(--transition-fast),
@@ -2043,8 +2071,18 @@ body.home-shell::before {
     gap: 0.85rem;
   }
 
-  .home-header__nav a {
-    font-size: 0.78rem;
+  .home-header__nav a,
+  .page-header__nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 0.9rem;
+  }
+
+  .lang-switch__btn {
+    min-height: 44px;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
 
@@ -2217,10 +2255,6 @@ body.home-shell::before {
     min-height: 46px;
     padding: 0.85rem 0.85rem;
   }
-
-  .home-header__nav a:last-child {
-    display: none;
-  }
 }
 
 /* Interior division / affiliate pages — shared cycling hero
@@ -2317,20 +2351,22 @@ body.page--hero .page-footer {
 }
 
 .page-header__inner {
+  width: 100%;
   max-width: 1100px;
   margin-inline: auto;
   padding: 0.7rem clamp(1.35rem, 4vw, 2.25rem) 0.7rem clamp(1.15rem, 3.5vw, 1.85rem);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
+  justify-content: flex-start;
+  gap: 0.85rem;
   min-height: 4.5rem;
 }
 
 .page-header__brand {
   display: inline-flex;
   align-items: center;
-  flex-shrink: 0;
+  flex-shrink: 1;
+  min-width: 0;
   line-height: 0;
   margin-left: 0.15rem;
   margin-right: 1rem;
@@ -2355,6 +2391,8 @@ body.page--hero .page-footer {
   display: flex;
   align-items: center;
   gap: 1.25rem;
+  margin-left: auto;
+  min-width: 0;
 }
 
 .page-header__nav a {
@@ -2363,6 +2401,7 @@ body.page--hero .page-footer {
   font-weight: 600;
   color: var(--color-gunsmoke);
   letter-spacing: 0.04em;
+  white-space: nowrap;
   text-shadow: none;
 }
 
@@ -2473,8 +2512,8 @@ body.page--hero .page-footer {
 
 @media (max-width: 560px) {
   .page-header__logo {
-    width: clamp(140px, 36vw, 165px);
-    max-height: 54px;
+    width: clamp(112px, 36vw, 150px);
+    max-height: 46px;
     height: auto;
   }
 
@@ -2933,5 +2972,470 @@ body.page--hero .page-brands li {
 
 .home-footer .page-footer__links {
   margin-top: 0.55rem;
+}
+
+/* Compact header — brand and language stay on one row; actions wrap below.
+   Kept after the base header rules so these win on small screens. */
+@media (max-width: 720px) {
+  .home-header__inner,
+  .page-header__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 0.75rem;
+    row-gap: 0.55rem;
+    padding: 0.6rem 0.9rem 0.7rem;
+    min-height: 0;
+  }
+
+  .home-header__brand,
+  .page-header__brand {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;
+    min-width: 0;
+  }
+
+  .home-header__inner > .lang-switch,
+  .page-header__inner > .lang-switch {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    justify-self: end;
+    align-self: center;
+  }
+
+  .home-header__nav,
+  .page-header__nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    margin: 0;
+  }
+
+  .home-header__nav a,
+  .page-header__nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    font-size: 0.92rem;
+    white-space: nowrap;
+  }
+
+  .home-header__nav a[href^="tel"],
+  .page-header__nav a[href^="tel"] {
+    flex: 0 0 auto;
+    padding: 0 0.15rem;
+    letter-spacing: 0.01em;
+    border-bottom-color: transparent;
+  }
+
+  .page-header__nav a[href="/"] {
+    flex: 0 0 auto;
+    padding: 0 0.2rem;
+  }
+
+  .home-header__nav a:not([href^="tel"]),
+  .page-header__nav a:not([href^="tel"]):not([href="/"]) {
+    flex: 1 0 auto;
+    padding: 0.45rem 0.9rem;
+    border: 1px solid rgba(227, 106, 44, 0.65);
+    border-radius: var(--radius-sm);
+    border-bottom-color: rgba(227, 106, 44, 0.65);
+    color: #ffffff;
+    background: rgba(227, 106, 44, 0.14);
+  }
+
+  .home-header__nav a:not([href^="tel"]):hover,
+  .page-header__nav a:not([href^="tel"]):not([href="/"]):hover {
+    color: #ffffff;
+    background: rgba(227, 106, 44, 0.24);
+    border-color: #E36A2C;
+  }
+
+  .lang-switch__btn {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0 0.7rem;
+  }
+
+  .page-header__logo {
+    width: clamp(112px, 38vw, 160px);
+    max-height: 46px;
+  }
+}
+
+/* Division pages — open hero, service cards, contact below
+   -------------------------------------------------------------------------- */
+html:has(body.page--division) {
+  scroll-padding-top: 12rem;
+}
+
+body.page--division .page-bg-media .hero__overlay {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(6, 24, 40, 0.08) 0%,
+      rgba(6, 24, 40, 0.02) 42%,
+      rgba(6, 24, 40, 0.12) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(6, 24, 40, 0.2) 0%,
+      rgba(6, 24, 40, 0.05) 46%,
+      rgba(6, 24, 40, 0) 100%
+    );
+}
+
+body.page--division .page-main {
+  max-width: 1080px;
+}
+
+body.page--division .page-panel {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  overflow: visible;
+}
+
+body.page--division .page-hero {
+  max-width: 44rem;
+  margin-bottom: 1.35rem;
+  padding: 1.15rem 1.25rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(
+    105deg,
+    rgba(6, 24, 40, 0.34) 0%,
+    rgba(6, 24, 40, 0.16) 62%,
+    rgba(6, 24, 40, 0.06) 100%
+  );
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
+  backdrop-filter: blur(10px) saturate(1.2);
+  -webkit-backdrop-filter: blur(10px) saturate(1.2);
+}
+
+body.page--division .page-hero__title {
+  font-size: clamp(2rem, 4.2vw, 3rem);
+  line-height: 1.12;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55), 0 2px 16px rgba(0, 0, 0, 0.45);
+}
+
+body.page--division .page-hero__lead {
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  line-height: 1.55;
+  color: #F4F7FA;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 1px 12px rgba(0, 0, 0, 0.4);
+}
+
+body.page--division .division-hero__actions {
+  margin-top: 1.15rem;
+}
+
+body.page--division .division-hero__actions .btn {
+  min-height: 48px;
+}
+
+body.page--division .division-intro,
+body.page--division .page-intro {
+  max-width: 42rem;
+  margin: 0 0 1.75rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-sm);
+  color: #F4F7FA;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+  background: rgba(6, 24, 40, 0.26);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px) saturate(1.15);
+  -webkit-backdrop-filter: blur(8px) saturate(1.15);
+}
+
+body.page--division .page-section h2,
+body.page--division .page-subtitle {
+  color: #FFFFFF;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55), 0 1px 12px rgba(0, 0, 0, 0.4);
+}
+
+body.page--division .page-list--quotes {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+}
+
+body.page--division .page-list__link {
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.85rem;
+  min-height: 6.5rem;
+  height: 100%;
+  background: rgba(10, 37, 64, 0.58);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+body.page--division .page-list__label {
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+body.page--division .page-section--careers,
+body.page--division .division-contact,
+body.page--division .page-related,
+body.page--division .page-section--cta {
+  background: rgba(10, 37, 64, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.2rem, 2.5vw, 1.6rem);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(10px) saturate(1.15);
+  -webkit-backdrop-filter: blur(10px) saturate(1.15);
+}
+
+body.page--division .page-contact {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+}
+
+body.page--division .page-contact__item {
+  grid-template-columns: 1fr;
+  gap: 0.3rem;
+  background: rgba(6, 24, 40, 0.2);
+}
+
+body.page--division .page-contact__item dd,
+body.page--division .page-contact__item a {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+body.page--division .page-contact__item a {
+  display: inline-block;
+  min-height: 44px;
+  padding: 0.45rem 0;
+}
+
+body.page--division #division-contact {
+  scroll-margin-top: 12rem;
+}
+
+body.page--division .page-related .page-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+body.page--division .page-related .page-list li {
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+body.page--division .page-related .page-list li::before {
+  display: none;
+}
+
+body.page--division .page-related .page-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid rgba(168, 181, 192, 0.28);
+  border-radius: var(--radius-sm);
+  background: rgba(6, 24, 40, 0.22);
+  text-decoration: none;
+}
+
+body.page--division .page-related .page-list a:hover,
+body.page--division .page-related .page-list a:focus-visible {
+  color: #FFFFFF;
+  border-color: #E36A2C;
+  background: rgba(227, 106, 44, 0.16);
+}
+
+@media (max-width: 720px) {
+  body.page--division .page-main {
+    padding-inline: 1rem;
+  }
+
+  body.page--division .page-hero {
+    background: linear-gradient(
+      180deg,
+      rgba(6, 24, 40, 0.34) 0%,
+      rgba(6, 24, 40, 0.24) 100%
+    );
+  }
+
+  body.page--division .page-list--quotes {
+    grid-template-columns: 1fr;
+  }
+
+  body.page--division .page-list__link {
+    min-height: 4.75rem;
+  }
+}
+
+/* Department photo motion — Automotive slideshow and Hydrovac still
+   Only the photograph moves. Copy, overlay, header, and other divisions stay still.
+   -------------------------------------------------------------------------- */
+.page--hydrovac .page-bg-media,
+.page--automotive .hero__slide {
+  overflow: hidden;
+}
+
+.page--hydrovac .hydrovac-hero {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  transform-origin: 42% 46%;
+  transform: scale(1.045);
+  animation: hydrovac-drift 46s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.page--automotive .hero__slide {
+  transition: opacity 1.15s ease-in-out;
+}
+
+.page--automotive .dept-pan {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 62%;
+  transform: scale(1.04) translate3d(-0.4%, 0.4%, 0);
+  animation: dept-kb-red 13.5s linear forwards paused;
+  will-change: transform;
+}
+
+.page--automotive .dept-pan--mustang {
+  transform-origin: 42% 60%;
+  transform: scale(1.07) translate3d(0.6%, 0.25%, 0);
+  animation-name: dept-kb-mustang;
+}
+
+.page--automotive .dept-pan--duty {
+  transform-origin: 50% 36%;
+  transform: scale(1.035) translate3d(0.45%, -0.25%, 0);
+  animation-name: dept-kb-duty;
+}
+
+.page--automotive .hero__slide--active .dept-pan {
+  animation-play-state: running;
+}
+
+.page--automotive .hero__slide-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page--automotive .hero__slide--red .hero__slide-media {
+  object-position: center 58%;
+}
+
+.page--automotive .hero__slide--mustang .hero__slide-media {
+  object-position: 44% 58%;
+}
+
+.page--automotive .hero__slide--duty .hero__slide-media {
+  object-position: center 34%;
+}
+
+@keyframes hydrovac-drift {
+  from { transform: scale(1.045) translate3d(0, 0, 0); }
+  to   { transform: scale(1.07) translate3d(-1%, -0.35%, 0); }
+}
+
+@keyframes hydrovac-drift-m {
+  from { transform: scale(1.02) translate3d(0, 0, 0); }
+  to   { transform: scale(1.04) translate3d(-0.4%, 0, 0); }
+}
+
+@keyframes dept-kb-red {
+  from { transform: scale(1.04) translate3d(-0.4%, 0.4%, 0); }
+  to   { transform: scale(1.07) translate3d(0.8%, -0.35%, 0); }
+}
+
+@keyframes dept-kb-mustang {
+  from { transform: scale(1.07) translate3d(0.6%, 0.25%, 0); }
+  to   { transform: scale(1.035) translate3d(-0.75%, -0.2%, 0); }
+}
+
+@keyframes dept-kb-duty {
+  from { transform: scale(1.035) translate3d(0.45%, -0.25%, 0); }
+  to   { transform: scale(1.065) translate3d(-0.55%, 0.45%, 0); }
+}
+
+@keyframes dept-kb-red-m {
+  from { transform: scale(1.03) translate3d(0, 0.15%, 0); }
+  to   { transform: scale(1.05) translate3d(0.35%, -0.15%, 0); }
+}
+
+@keyframes dept-kb-mustang-m {
+  from { transform: scale(1.05) translate3d(0.3%, 0.1%, 0); }
+  to   { transform: scale(1.03) translate3d(-0.3%, 0, 0); }
+}
+
+@keyframes dept-kb-duty-m {
+  from { transform: scale(1.03) translate3d(0.2%, -0.1%, 0); }
+  to   { transform: scale(1.05) translate3d(-0.25%, 0.2%, 0); }
+}
+
+@media (max-width: 899px) {
+  .page--hydrovac .hydrovac-hero {
+    object-position: 48% 42%;
+    transform-origin: 48% 44%;
+    transform: scale(1.02);
+    animation-name: hydrovac-drift-m;
+  }
+
+  .page--automotive .dept-pan--red {
+    transform: scale(1.03) translate3d(0, 0.15%, 0);
+    animation-name: dept-kb-red-m;
+  }
+
+  .page--automotive .dept-pan--mustang {
+    transform: scale(1.05) translate3d(0.3%, 0.1%, 0);
+    animation-name: dept-kb-mustang-m;
+  }
+
+  .page--automotive .dept-pan--duty {
+    transform: scale(1.03) translate3d(0.2%, -0.1%, 0);
+    animation-name: dept-kb-duty-m;
+  }
+
+  .page--automotive .hero__slide--red .hero__slide-media {
+    object-position: center 54%;
+  }
+
+  .page--automotive .hero__slide--mustang .hero__slide-media {
+    object-position: 46% 52%;
+  }
+
+  .page--automotive .hero__slide--duty .hero__slide-media {
+    object-position: center 32%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page--hydrovac .hydrovac-hero,
+  .page--automotive .dept-pan,
+  .page--automotive .hero__slide--active .dept-pan {
+    animation: none !important;
+    transform: none !important;
+  }
 }
 

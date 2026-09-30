@@ -20,6 +20,10 @@
       "Llame a nuestra oficina en Carlsbad o solicite una cotización: atendemos el sureste de Nuevo México y el oeste de Texas.",
     "Request quote": "Solicitar cotización",
     "Contact": "Contacto",
+    "Contact Trucking": "Contactar transporte",
+    "Contact Construction": "Contactar construcción",
+    "Contact Automotive": "Contactar automotriz",
+    "Contact Safety": "Contactar seguridad",
     "Manager": "Gerente",
     "Email": "Correo",
     "Direct": "Directo",
@@ -38,6 +42,16 @@
     "Automotive & Diesel Repair": "Reparación Automotriz y Diésel",
     "Construction Division": "División de Construcción",
     "Safety Division": "División de Seguridad",
+    "Hydrovac Division": "División de Hydrovac",
+    "Contact Hydrovac": "Contactar Hydrovac",
+    "Hydrovac support for oilfield and industrial work in Carlsbad and the surrounding Permian Basin.":
+      "Apoyo de hydrovac para trabajo petrolero e industrial en Carlsbad y la cuenca del Pérmico.",
+    "4 Elements offers hydrovac services for oilfield and industrial customers from Carlsbad, New Mexico.":
+      "4 Elements ofrece servicios de hydrovac para clientes petroleros e industriales desde Carlsbad, Nuevo México.",
+    "Tell us about the hydrovac work you need in the Carlsbad area. Quotes are coordinated through the Carlsbad office.":
+      "Cuéntenos sobre el trabajo de hydrovac que necesita en el área de Carlsbad. Las cotizaciones se coordinan a través de la oficina de Carlsbad.",
+    "4 Elements Oilfield Services LLC is based at 1400 W. Derrick Rd. in Carlsbad, New Mexico, with trucking , auto and diesel repair , construction , safety , and hydrovac services for oilfield, mining, and industrial work across SE New Mexico and West Texas.":
+      '4 Elements Oilfield Services LLC tiene su sede en 1400 W. Derrick Rd. en Carlsbad, Nuevo México, con servicios de <a href="/divisions/trucking">transporte</a>, <a href="/divisions/automotive">reparación automotriz y diésel</a>, <a href="/divisions/construction">construcción</a>, <a href="/divisions/safety">seguridad</a> y <a href="/divisions/hydrovac">hydrovac</a> para trabajo petrolero, minero e industrial en el sureste de Nuevo México y el oeste de Texas.',
     "Clean Air Authority": "Clean Air Authority",
     "Training Division": "División de Capacitación",
     "Zealous Electrical Services": "Zealous Electrical Services",
@@ -523,10 +537,10 @@
   }
 
   function mountSwitcher() {
-    var hosts = document.querySelectorAll(".home-header__nav, .page-header__nav");
-    hosts.forEach(function (nav) {
-      if (nav.querySelector(".lang-switch")) return;
-      nav.appendChild(buildSwitcher());
+    var hosts = document.querySelectorAll(".home-header__inner, .page-header__inner");
+    hosts.forEach(function (inner) {
+      if (inner.querySelector(".lang-switch")) return;
+      inner.appendChild(buildSwitcher());
     });
   }
 
