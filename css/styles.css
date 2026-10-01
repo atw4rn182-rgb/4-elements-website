@@ -3068,6 +3068,10 @@ body.page--hero .page-brands li {
     width: clamp(112px, 38vw, 160px);
     max-height: 46px;
   }
+
+  .home-header__nav {
+    justify-content: flex-end;
+  }
 }
 
 /* Division pages — open hero, service cards, contact below
@@ -3120,8 +3124,8 @@ body.page--division .page-hero {
     rgba(6, 24, 40, 0.03) 100%
   );
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 body.page--division .page-hero__title {
@@ -3132,6 +3136,7 @@ body.page--division .page-hero__title {
 }
 
 body.page--division .page-hero__lead {
+  max-width: none;
   font-size: clamp(1.05rem, 1.6vw, 1.2rem);
   line-height: 1.55;
   color: #F4F7FA;
@@ -3158,8 +3163,8 @@ body.page--division .page-intro {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.75), 0 2px 12px rgba(0, 0, 0, 0.45);
   background: rgba(6, 24, 40, 0.16);
   border: 1px solid rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 body.page--division .page-section h2,
@@ -3177,11 +3182,19 @@ body.page--division .page-list__link {
   flex-direction: column;
   justify-content: space-between;
   gap: 0.85rem;
-  min-height: 6.5rem;
+  min-height: 0;
   height: 100%;
   background: rgba(10, 37, 64, 0.58);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+body.page--division .page-list__link:focus-visible,
+body.page--division .btn:focus-visible,
+body.page--division .page-related .page-list a:focus-visible,
+body.page--division .page-contact__item a:focus-visible {
+  outline: 2px solid #F4F7FA;
+  outline-offset: 3px;
 }
 
 body.page--division .page-list__label {
@@ -3198,8 +3211,16 @@ body.page--division .page-section--cta {
   border-radius: var(--radius-lg);
   padding: clamp(1.2rem, 2.5vw, 1.6rem);
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+body.page--division .page-contact__item,
+body.page--division .page-note,
+body.page--division .page-footer,
+body.page--division .page-list li {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 body.page--division .page-contact {
@@ -3216,6 +3237,11 @@ body.page--division .page-contact__item dd,
 body.page--division .page-contact__item a {
   max-width: 100%;
   overflow-wrap: anywhere;
+}
+
+body.page--division .page-contact__item a[href^="tel:"] {
+  overflow-wrap: normal;
+  white-space: nowrap;
 }
 
 body.page--division .page-contact__item a {
@@ -3275,12 +3301,32 @@ body.page--division .page-related .page-list a:focus-visible {
     );
   }
 
+  body.page--division .page-hero__title {
+    font-size: clamp(1.7rem, 7.2vw, 2.15rem);
+  }
+
+  body.page--division .division-hero__actions,
+  body.page--division .page-section--careers .page-actions,
+  body.page--division .page-section--cta .page-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  body.page--division .division-hero__actions .btn,
+  body.page--division .page-section--careers .page-actions .btn,
+  body.page--division .page-section--cta .page-actions .btn {
+    width: 100%;
+    min-height: 48px;
+    padding-inline: 1rem;
+    letter-spacing: 0.06em;
+  }
+
   body.page--division .page-list--quotes {
     grid-template-columns: 1fr;
   }
 
   body.page--division .page-list__link {
-    min-height: 4.75rem;
+    min-height: 0;
   }
 }
 
@@ -3293,15 +3339,19 @@ body.page--division .page-related .page-list a:focus-visible {
   overflow: hidden;
 }
 
+.page--hydrovac .page-bg-media {
+  background: #061828;
+}
+
 .page--hydrovac .hydrovac-hero {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 40%;
-  transform-origin: 42% 46%;
-  transform: scale(1.045);
+  object-fit: contain;
+  object-position: center center;
+  transform-origin: center center;
+  transform: scale(1);
   animation: hydrovac-drift 46s ease-in-out infinite alternate;
   will-change: transform;
 }
@@ -3356,13 +3406,13 @@ body.page--division .page-related .page-list a:focus-visible {
 }
 
 @keyframes hydrovac-drift {
-  from { transform: scale(1.045) translate3d(0, 0, 0); }
-  to   { transform: scale(1.07) translate3d(-1%, -0.35%, 0); }
+  from { transform: scale(1) translate3d(0, 0, 0); }
+  to   { transform: scale(1.03) translate3d(-0.35%, 0, 0); }
 }
 
 @keyframes hydrovac-drift-m {
-  from { transform: scale(1.02) translate3d(0, 0, 0); }
-  to   { transform: scale(1.04) translate3d(-0.4%, 0, 0); }
+  from { transform: scale(1) translate3d(0, 0, 0); }
+  to   { transform: scale(1.015) translate3d(-0.12%, 0, 0); }
 }
 
 @keyframes dept-kb-red {
@@ -3436,9 +3486,10 @@ body.page--division .page-related .page-list a:focus-visible {
 
 @media (max-width: 899px) {
   .page--hydrovac .hydrovac-hero {
-    object-position: 48% 42%;
-    transform-origin: 48% 44%;
-    transform: scale(1.02);
+    object-fit: contain;
+    object-position: center center;
+    transform-origin: center center;
+    transform: scale(1);
     animation-name: hydrovac-drift-m;
   }
 

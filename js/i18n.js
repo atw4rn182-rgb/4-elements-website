@@ -50,8 +50,8 @@
       "4 Elements ofrece servicios de hydrovac para clientes petroleros e industriales desde Carlsbad, Nuevo México.",
     "Tell us about the hydrovac work you need in the Carlsbad area. Quotes are coordinated through the Carlsbad office.":
       "Cuéntenos sobre el trabajo de hydrovac que necesita en el área de Carlsbad. Las cotizaciones se coordinan a través de la oficina de Carlsbad.",
-    "4 Elements Oilfield Services LLC is based at 1400 W. Derrick Rd. in Carlsbad, New Mexico, with trucking , auto and diesel repair , construction , safety , and hydrovac services for oilfield, mining, and industrial work across SE New Mexico and West Texas.":
-      '4 Elements Oilfield Services LLC tiene su sede en 1400 W. Derrick Rd. en Carlsbad, Nuevo México, con servicios de <a href="/divisions/trucking">transporte</a>, <a href="/divisions/automotive">reparación automotriz y diésel</a>, <a href="/divisions/construction">construcción</a>, <a href="/divisions/safety">seguridad</a> y <a href="/divisions/hydrovac">hydrovac</a> para trabajo petrolero, minero e industrial en el sureste de Nuevo México y el oeste de Texas.',
+    "4 Elements Oilfield Services LLC is based at 1400 W. Derrick Rd. in Carlsbad, New Mexico, with trucking , auto and diesel repair , construction , hydrovac , and safety services for oilfield, mining, and industrial work across SE New Mexico and West Texas.":
+      '4 Elements Oilfield Services LLC tiene su sede en 1400 W. Derrick Rd. en Carlsbad, Nuevo México, con servicios de <a href="/divisions/trucking">transporte</a>, <a href="/divisions/automotive">reparación automotriz y diésel</a>, <a href="/divisions/construction">construcción</a>, <a href="/divisions/hydrovac">hydrovac</a> y <a href="/divisions/safety">seguridad</a> para trabajo petrolero, minero e industrial en el sureste de Nuevo México y el oeste de Texas.',
     "Clean Air Authority": "Clean Air Authority",
     "Training Division": "División de Capacitación",
     "Zealous Electrical Services": "Zealous Electrical Services",
