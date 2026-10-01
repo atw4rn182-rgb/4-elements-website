@@ -113,6 +113,7 @@
   }
 
   function saveState() {
+    if (document.body.classList.contains('page--construction')) return;
     try {
       var active = heroSlides[index];
       if (!active) return;
@@ -247,7 +248,7 @@
     video.preload = isHome ? 'none' : 'auto';
   });
 
-  var restored = loadState();
+  var restored = document.body.classList.contains('page--construction') ? null : loadState();
   if (restored) {
     activateSlide(restored.index, restored.t || 0);
   } else {

@@ -3284,11 +3284,12 @@ body.page--division .page-related .page-list a:focus-visible {
   }
 }
 
-/* Department photo motion — Automotive slideshow and Hydrovac still
+/* Department photo motion — Automotive, Construction slideshows, and Hydrovac still
    Only the photograph moves. Copy, overlay, header, and other divisions stay still.
    -------------------------------------------------------------------------- */
 .page--hydrovac .page-bg-media,
-.page--automotive .hero__slide {
+.page--automotive .hero__slide,
+.page--construction .hero__slide {
   overflow: hidden;
 }
 
@@ -3394,6 +3395,45 @@ body.page--division .page-related .page-list a:focus-visible {
   to   { transform: scale(1.05) translate3d(-0.25%, 0.2%, 0); }
 }
 
+.page--construction .hero__slide {
+  transition: opacity 1.15s ease-in-out;
+}
+
+.page--construction .dept-pan {
+  position: absolute;
+  inset: 0;
+  transform-origin: 66% 50%;
+  transform: scale(1.04) translate3d(-0.2%, 0.15%, 0);
+  animation: const-kb-dozer 13.5s linear forwards paused;
+  will-change: transform;
+}
+
+.page--construction .dept-pan--excavator {
+  transform-origin: 46% 40%;
+  transform: scale(1.065) translate3d(0.35%, -0.1%, 0);
+  animation-name: const-kb-excavator;
+}
+
+.page--construction .hero__slide--active .dept-pan {
+  animation-play-state: running;
+}
+
+.page--construction .hero__slide-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page--construction .hero__slide--dozer .hero__slide-media {
+  object-position: 70% 50%;
+}
+
+.page--construction .hero__slide--excavator .hero__slide-media {
+  object-position: 48% 38%;
+}
+
 @media (max-width: 899px) {
   .page--hydrovac .hydrovac-hero {
     object-position: 48% 42%;
@@ -3428,12 +3468,54 @@ body.page--division .page-related .page-list a:focus-visible {
   .page--automotive .hero__slide--duty .hero__slide-media {
     object-position: center 32%;
   }
+
+  .page--construction .dept-pan--dozer {
+    transform-origin: 84% 48%;
+    transform: scale(1.03) translate3d(0, 0.1%, 0);
+    animation-name: const-kb-dozer-m;
+  }
+
+  .page--construction .dept-pan--excavator {
+    transform-origin: 48% 40%;
+    transform: scale(1.04) translate3d(0.15%, 0, 0);
+    animation-name: const-kb-excavator-m;
+  }
+
+  .page--construction .hero__slide--dozer .hero__slide-media {
+    object-position: 100% 42%;
+  }
+
+  .page--construction .hero__slide--excavator .hero__slide-media {
+    object-position: 48% 42%;
+  }
+}
+
+@keyframes const-kb-dozer {
+  from { transform: scale(1.04) translate3d(-0.2%, 0.15%, 0); }
+  to   { transform: scale(1.07) translate3d(0.45%, -0.2%, 0); }
+}
+
+@keyframes const-kb-excavator {
+  from { transform: scale(1.065) translate3d(0.35%, -0.1%, 0); }
+  to   { transform: scale(1.035) translate3d(-0.5%, 0.25%, 0); }
+}
+
+@keyframes const-kb-dozer-m {
+  from { transform: scale(1.03) translate3d(0, 0.1%, 0); }
+  to   { transform: scale(1.05) translate3d(0.28%, -0.08%, 0); }
+}
+
+@keyframes const-kb-excavator-m {
+  from { transform: scale(1.04) translate3d(0.15%, 0, 0); }
+  to   { transform: scale(1.03) translate3d(-0.22%, 0.08%, 0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .page--hydrovac .hydrovac-hero,
   .page--automotive .dept-pan,
-  .page--automotive .hero__slide--active .dept-pan {
+  .page--automotive .hero__slide--active .dept-pan,
+  .page--construction .dept-pan,
+  .page--construction .hero__slide--active .dept-pan {
     animation: none !important;
     transform: none !important;
   }
