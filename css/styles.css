@@ -3256,6 +3256,69 @@ body.page--hero.page--division.page--construction .page-hero {
   transform: translateY(calc(-100% - 1.15rem));
 }
 
+/* Same lower-left anchor for Trucking and Automotive. */
+body.page--hero.page--division.page--trucking .page-hero,
+body.page--hero.page--division.page--automotive .page-hero {
+  top: calc(var(--division-hero-frame) - 3.625rem);
+  transform: translateY(calc(-100% - 1.15rem));
+}
+
+.hero-scroll {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  top: var(--division-hero-frame);
+  transform: translate(-50%, calc(-100% - 0.3rem));
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  pointer-events: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
+  opacity: 1;
+  transition: opacity 0.45s ease;
+}
+
+.hero-scroll.is-away {
+  opacity: 0;
+}
+
+.hero-scroll__motion {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  opacity: 0.72;
+  animation: hero-scroll-drift 2.8s ease-in-out infinite;
+}
+
+.hero-scroll__label--short {
+  display: none;
+}
+
+.hero-scroll__arrow {
+  font-size: 0.72rem;
+  line-height: 1;
+}
+
+@keyframes hero-scroll-drift {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(4px);
+    opacity: 0.95;
+  }
+}
+
 body.page--division .page-panel {
   background: transparent;
   border: none;
@@ -3475,8 +3538,23 @@ body.page--division .page-related .page-list a:focus-visible {
     padding-inline: 1rem;
   }
 
-  body.page--hero.page--division.page--construction .page-hero {
+  body.page--hero.page--division.page--construction .page-hero,
+  body.page--hero.page--division.page--trucking .page-hero,
+  body.page--hero.page--division.page--automotive .page-hero {
     top: calc(var(--division-hero-frame) - 3rem);
+  }
+
+  .hero-scroll {
+    font-size: 0.58rem;
+    letter-spacing: 0.11em;
+  }
+
+  .hero-scroll__label--long {
+    display: none;
+  }
+
+  .hero-scroll__label--short {
+    display: inline;
   }
 
   body.page--division .page-hero {
@@ -3786,7 +3864,8 @@ body.page--division .page-related .page-list a:focus-visible {
   .page--automotive .dept-pan,
   .page--automotive .hero__slide--active .dept-pan,
   .page--construction .dept-pan,
-  .page--construction .hero__slide--active .dept-pan {
+  .page--construction .hero__slide--active .dept-pan,
+  .hero-scroll__motion {
     animation: none !important;
   }
 }

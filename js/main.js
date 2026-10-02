@@ -284,3 +284,13 @@
     }
   });
 })();
+
+(function () {
+  var cue = document.querySelector('.hero-scroll');
+  if (!cue) return;
+  var update = function () {
+    cue.classList.toggle('is-away', window.scrollY > 28);
+  };
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+})();

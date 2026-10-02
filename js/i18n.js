@@ -32,6 +32,8 @@
     "Purchasing": "Compras",
     "Career Opportunities": "Oportunidades de empleo",
     "Division": "División",
+    "Scroll down for more": "Desliza para ver más",
+    "Scroll for more": "Desliza para más",
     "Affiliate": "Afiliado",
     "Services": "Servicios",
     "Affiliates": "Afiliados",
