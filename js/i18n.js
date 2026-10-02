@@ -493,6 +493,11 @@
         el.innerHTML = src;
         return;
       }
+      // The accent span closes before the comma, which is read as "Oilfield , Mining".
+      if (src.indexOf(">Oilfield</span>,") !== -1) {
+        el.innerHTML = src.replace(">Oilfield</span>,", ">Oilfield,</span>");
+        return;
+      }
       var translated = lookup(src, lang);
       if (translated == null) return;
 
