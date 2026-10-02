@@ -3,7 +3,7 @@
  * Canonical host: https://www.4elementsoilfieldservices.com
  */
 const ORIGIN = "https://www.4elementsoilfieldservices.com";
-const LOGO = `${ORIGIN}/images/4Elogoclean.png`;
+const LOGO = `${ORIGIN}/images/logo-hero-mark.png`;
 const OG_IMAGE = `${ORIGIN}/images/logo-hero-mark.png`;
 
 function fileToPath(file) {
@@ -38,6 +38,7 @@ function businessJsonLd() {
     },
     areaServed: [
       { "@type": "City", name: "Carlsbad", addressRegion: "NM", addressCountry: "US" },
+      { "@type": "AdministrativeArea", name: "Permian Basin" },
       { "@type": "AdministrativeArea", name: "Southeastern New Mexico" },
       { "@type": "AdministrativeArea", name: "West Texas" },
     ],
@@ -48,6 +49,7 @@ function businessJsonLd() {
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Oilfield trucking and heavy haul" } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Automotive and diesel repair" } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Oilfield construction" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Hydrovac services" } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Safety oversight and equipment support" } },
       ],
     },

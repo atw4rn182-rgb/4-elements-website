@@ -1659,30 +1659,45 @@ body.home-shell::before {
   position: relative;
   z-index: 20;
   flex-shrink: 0;
-  background: #0A2540;
-  border-bottom: 1px solid rgba(168, 181, 192, 0.16);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 36%),
+    linear-gradient(180deg, #0c2d4c 0%, rgba(10, 37, 64, 0.97) 58%, rgba(10, 37, 64, 0.42) 100%);
+  border-bottom: none;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+.home-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 1.7rem;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(10, 37, 64, 0.42) 0%, rgba(10, 37, 64, 0.12) 48%, rgba(10, 37, 64, 0) 100%);
 }
 
 .home-header__inner {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 0.85rem;
-  padding: 0.7rem clamp(1.35rem, 3.5vw, 2.75rem) 0.7rem clamp(1.15rem, 3vw, 2rem);
-  min-height: 4.5rem;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+  padding: 0.38rem clamp(1rem, 2.6vw, 1.85rem);
+  min-height: 0;
   max-width: 100%;
 }
 
 .home-header__brand {
   display: inline-flex;
   align-items: center;
-  flex-shrink: 1;
+  flex: 0 0 auto;
   min-width: 0;
-  line-height: 1.2;
-  margin-left: 0.1rem;
-  margin-right: 1rem;
-  padding: 0.2rem 0;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
   text-decoration: none;
+  border-radius: 6px;
 }
 
 .home-header__brand:hover {
@@ -1715,58 +1730,95 @@ body.home-shell::before {
   white-space: nowrap;
 }
 
-.home-header__logo {
-  display: none;
+.home-header__logo,
+.page-header__logo {
+  display: block;
+  width: auto;
+  height: 46px;
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
+  object-position: left center;
+  background: transparent;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.38));
 }
 
 .home-header__nav {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: clamp(1rem, 2.2vw, 1.75rem);
-  margin-left: auto;
+  flex: 1 1 auto;
+  margin-left: 0;
   min-width: 0;
 }
 
 .lang-switch {
   display: inline-flex;
-  align-items: stretch;
-  margin-left: 0.35rem;
-  border: 1px solid rgba(168, 181, 192, 0.28);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  background: rgba(6, 24, 40, 0.35);
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 2px;
+  margin-left: 0.15rem;
+  padding: 3px;
+  border: 1px solid rgba(196, 208, 216, 0.34);
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.03) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.24),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.28),
+    0 1px 2px rgba(0, 0, 0, 0.35),
+    0 3px 8px rgba(0, 0, 0, 0.16);
 }
 
 .lang-switch__btn {
   appearance: none;
   border: 0;
   margin: 0;
-  padding: 0.38rem 0.7rem;
+  min-width: 2.15rem;
+  min-height: 1.85rem;
+  padding: 0.22rem 0.55rem;
+  border-radius: 999px;
   font-family: var(--font-display);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
-  color: var(--color-gunsmoke);
+  color: #d5dee6;
   background: transparent;
   cursor: pointer;
+  box-shadow: none;
   transition:
     color var(--transition-fast),
-    background var(--transition-fast);
+    background var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .lang-switch__btn + .lang-switch__btn {
-  border-left: 1px solid rgba(168, 181, 192, 0.22);
+  border-left: 0;
 }
 
 .lang-switch__btn:hover {
   color: #FFFFFF;
-  background: rgba(227, 106, 44, 0.12);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.lang-switch__btn:focus-visible {
+  outline: 2px solid #F4F7FA;
+  outline-offset: 2px;
+}
+
+.lang-switch__btn:active {
+  transform: translateY(1px);
 }
 
 .lang-switch__btn.is-active {
   color: #FFFFFF;
-  background: rgba(227, 106, 44, 0.28);
+  background: linear-gradient(180deg, #f08a4f 0%, #E36A2C 52%, #c4551f 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.42),
+    0 1px 2px rgba(0, 0, 0, 0.35);
 }
 
 .home-header__inner > .lang-switch,
@@ -1793,6 +1845,49 @@ body.home-shell::before {
 .home-header__nav a:hover {
   color: var(--color-amber);
   border-bottom-color: rgba(227, 106, 44, 0.65);
+}
+
+.header-office {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35em;
+  min-height: 40px;
+  padding: 0 0.1rem;
+  border-bottom: 0 !important;
+  white-space: nowrap;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.header-office__label {
+  font-size: clamp(0.62rem, 1.6vw, 0.7rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(168, 181, 192, 0.82);
+}
+
+.header-office__num {
+  font-size: clamp(0.78rem, 2.1vw, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #F4F7FA;
+}
+
+.header-office:hover,
+.header-office:focus-visible {
+  border-bottom-color: transparent;
+}
+
+.header-office:hover .header-office__num,
+.header-office:focus-visible .header-office__num {
+  color: var(--color-amber);
+}
+
+.header-office:focus-visible,
+.home-header__brand:focus-visible,
+.page-header__brand:focus-visible {
+  outline: 2px solid rgba(244, 247, 250, 0.9);
+  outline-offset: 3px;
 }
 
 .home {
@@ -2057,9 +2152,9 @@ body.home-shell::before {
 @media (max-width: 900px) {
   .home-header__inner {
     flex-wrap: nowrap;
-    row-gap: 0.5rem;
-    padding: 0.6rem 1.1rem 0.6rem 1rem;
-    min-height: 3.6rem;
+    row-gap: 0;
+    padding: 0.32rem 0.85rem;
+    min-height: 0;
   }
 
   .home-header__wordmark {
@@ -2075,14 +2170,14 @@ body.home-shell::before {
   .page-header__nav a {
     display: inline-flex;
     align-items: center;
-    min-height: 44px;
+    min-height: 40px;
     font-size: 0.9rem;
   }
 
   .lang-switch__btn {
-    min-height: 44px;
-    padding-top: 0;
-    padding-bottom: 0;
+    min-height: 1.9rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
   }
 }
 
@@ -2308,10 +2403,6 @@ body.page--hero .page-shell {
   flex-direction: column;
 }
 
-body.page--hero .page-header {
-  background: #0A2540;
-}
-
 body.page--hero .page-logo,
 body.page--hero .page-logo__img {
   display: none !important;
@@ -2325,7 +2416,7 @@ body.page--hero .page-main {
   padding: clamp(1.25rem, 3vh, 2rem) clamp(1.25rem, 4vw, 2rem) clamp(2.5rem, 6vw, 4rem);
 }
 
-body.page--hero .page-panel {
+body.page--hero:not(.page--division) .page-panel {
   background: rgba(10, 37, 64, 0.82);
   border: 1px solid rgba(168, 181, 192, 0.14);
   border-radius: var(--radius-lg);
@@ -2335,7 +2426,7 @@ body.page--hero .page-panel {
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
 }
 
-body.page--hero .page-footer {
+body.page--hero:not(.page--division) .page-footer {
   background: rgba(10, 37, 64, 0.75);
   border-top-color: rgba(168, 181, 192, 0.1);
   backdrop-filter: blur(10px);
@@ -2346,52 +2437,63 @@ body.page--hero .page-footer {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: #0A2540;
-  border-bottom: 1px solid rgba(168, 181, 192, 0.16);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 36%),
+    linear-gradient(180deg, #0c2d4c 0%, rgba(10, 37, 64, 0.97) 58%, rgba(10, 37, 64, 0.42) 100%);
+  border-bottom: none;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+.page-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 1.7rem;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(10, 37, 64, 0.42) 0%, rgba(10, 37, 64, 0.12) 48%, rgba(10, 37, 64, 0) 100%);
 }
 
 .page-header__inner {
   width: 100%;
   max-width: 1100px;
   margin-inline: auto;
-  padding: 0.7rem clamp(1.35rem, 4vw, 2.25rem) 0.7rem clamp(1.15rem, 3.5vw, 1.85rem);
+  padding: 0.38rem clamp(0.85rem, 2.4vw, 1.65rem);
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 0.85rem;
-  min-height: 4.5rem;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+  min-height: 0;
 }
 
 .page-header__brand {
   display: inline-flex;
   align-items: center;
-  flex-shrink: 1;
+  flex: 0 0 auto;
   min-width: 0;
   line-height: 0;
-  margin-left: 0.15rem;
-  margin-right: 1rem;
-  padding: 0.15rem 0;
+  margin: 0;
+  padding: 0;
+  border-radius: 6px;
 }
 
 .page-header__brand:hover {
   opacity: 0.96;
 }
 
-.page-header__logo {
-  display: block;
-  width: clamp(160px, 15vw, 190px);
-  height: auto;
-  max-height: 68px;
-  object-fit: contain;
-  object-position: left center;
-  filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.35));
+.page-header__nav a.header-office {
+  color: inherit;
 }
 
 .page-header__nav {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1.25rem;
-  margin-left: auto;
+  flex: 1 1 auto;
+  margin-left: 0;
   min-width: 0;
 }
 
@@ -2511,12 +2613,6 @@ body.page--hero .page-footer {
 }
 
 @media (max-width: 560px) {
-  .page-header__logo {
-    width: clamp(112px, 36vw, 150px);
-    max-height: 46px;
-    height: auto;
-  }
-
   .page-actions {
     flex-direction: column;
   }
@@ -2527,10 +2623,6 @@ body.page--hero .page-footer {
   }
 }
 
-
-body.page--hero .page-header {
-  background: #0A2540;
-}
 
 body.page--hero .page-logo,
 body.page--hero .page-logo__img {
@@ -2545,7 +2637,7 @@ body.page--hero .page-main {
   padding: clamp(1.25rem, 3vh, 2rem) clamp(1.25rem, 4vw, 2rem) clamp(2.5rem, 6vw, 4rem);
 }
 
-body.page--hero .page-panel {
+body.page--hero:not(.page--division) .page-panel {
   background: rgba(10, 37, 64, 0.55);
   border: 1px solid rgba(168, 181, 192, 0.28);
   border-radius: var(--radius-lg);
@@ -2592,7 +2684,7 @@ body.page--hero .page-section--cta {
   border: 1px solid rgba(227, 106, 44, 0.35);
 }
 
-body.page--hero .page-footer {
+body.page--hero:not(.page--division) .page-footer {
   background: rgba(10, 37, 64, 0.5);
   border-top-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(8px);
@@ -2868,9 +2960,9 @@ body.page--hero .page-list--quotes .page-list__link:hover {
   border-radius: var(--radius-sm);
 }
 
-body.page--hero .page-contact__item,
-body.page--hero .page-section--careers,
-body.page--hero .page-note {
+body.page--hero:not(.page--division) .page-contact__item,
+body.page--hero:not(.page--division) .page-section--careers,
+body.page--hero:not(.page--division) .page-note {
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
@@ -2974,110 +3066,111 @@ body.page--hero .page-brands li {
   margin-top: 0.55rem;
 }
 
-/* Compact header — brand and language stay on one row; actions wrap below.
-   Kept after the base header rules so these win on small screens. */
+/* Compact one-row header. Logo, office phone, and language stay on a single line. */
 @media (max-width: 720px) {
   .home-header__inner,
   .page-header__inner {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
+    display: flex;
+    flex-wrap: nowrap;
     align-items: center;
-    column-gap: 0.75rem;
-    row-gap: 0.55rem;
-    padding: 0.6rem 0.9rem 0.7rem;
+    gap: 0.45rem;
+    padding: 0.28rem 0.6rem;
     min-height: 0;
   }
 
   .home-header__brand,
   .page-header__brand {
-    grid-column: 1;
-    grid-row: 1;
     margin: 0;
-    min-width: 0;
+    flex: 0 0 auto;
   }
 
   .home-header__inner > .lang-switch,
   .page-header__inner > .lang-switch {
-    grid-column: 2;
-    grid-row: 1;
     margin: 0;
-    justify-self: end;
-    align-self: center;
+    flex: 0 0 auto;
   }
 
   .home-header__nav,
   .page-header__nav {
-    grid-column: 1 / -1;
-    grid-row: 2;
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.5rem;
-    width: 100%;
-    margin: 0;
-  }
-
-  .home-header__nav a,
-  .page-header__nav a {
-    display: inline-flex;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
-    min-height: 44px;
-    font-size: 0.92rem;
-    white-space: nowrap;
+    gap: 0.35rem;
+    width: auto;
+    min-width: 0;
+    margin: 0;
+    flex: 1 1 auto;
   }
 
-  .home-header__nav a[href^="tel"],
-  .page-header__nav a[href^="tel"] {
-    flex: 0 0 auto;
-    padding: 0 0.15rem;
-    letter-spacing: 0.01em;
-    border-bottom-color: transparent;
+  .home-header__logo,
+  .page-header__logo {
+    width: auto;
+    height: 38px;
+    max-height: none;
   }
 
-  .page-header__nav a[href="/"] {
-    flex: 0 0 auto;
-    padding: 0 0.2rem;
+  .header-office {
+    min-height: 40px;
+    padding: 0;
   }
 
-  .home-header__nav a:not([href^="tel"]),
-  .page-header__nav a:not([href^="tel"]):not([href="/"]) {
-    flex: 1 0 auto;
-    padding: 0.45rem 0.9rem;
-    border: 1px solid rgba(227, 106, 44, 0.65);
-    border-radius: var(--radius-sm);
-    border-bottom-color: rgba(227, 106, 44, 0.65);
-    color: #ffffff;
-    background: rgba(227, 106, 44, 0.14);
-  }
-
-  .home-header__nav a:not([href^="tel"]):hover,
-  .page-header__nav a:not([href^="tel"]):not([href="/"]):hover {
-    color: #ffffff;
-    background: rgba(227, 106, 44, 0.24);
-    border-color: #E36A2C;
+  .lang-switch {
+    padding: 2px;
   }
 
   .lang-switch__btn {
-    min-width: 44px;
-    min-height: 44px;
-    padding: 0 0.7rem;
+    min-width: 2rem;
+    min-height: 2rem;
+    padding: 0 0.42rem;
+    font-size: 0.64rem;
+    letter-spacing: 0.08em;
+  }
+}
+
+@media (max-width: 390px) {
+  .home-header__inner,
+  .page-header__inner {
+    gap: 0.35rem;
+    padding: 0.22rem 0.45rem;
   }
 
+  .home-header__logo,
   .page-header__logo {
-    width: clamp(112px, 38vw, 160px);
-    max-height: 46px;
+    height: 34px;
   }
 
-  .home-header__nav {
-    justify-content: flex-end;
+  .header-office__label {
+    letter-spacing: 0.04em;
+  }
+
+  .header-office__num {
+    letter-spacing: 0;
+  }
+}
+
+@media (max-width: 340px) {
+  .home-header__inner,
+  .page-header__inner {
+    gap: 0.28rem;
+    padding-inline: 0.35rem;
+  }
+
+  .home-header__logo,
+  .page-header__logo {
+    height: 30px;
+  }
+
+  .lang-switch__btn {
+    min-width: 1.85rem;
+    padding-inline: 0.32rem;
   }
 }
 
 /* Division pages — open hero, service cards, contact below
    -------------------------------------------------------------------------- */
 html:has(body.page--division) {
-  scroll-padding-top: 12rem;
+  scroll-padding-top: 4.75rem;
 }
 
 body.page--division .page-bg-media .hero__overlay {
@@ -3218,9 +3311,24 @@ body.page--division .page-section--cta {
 body.page--division .page-contact__item,
 body.page--division .page-note,
 body.page--division .page-footer,
-body.page--division .page-list li {
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+body.page--division .page-list li,
+body.page--division .page-hero,
+body.page--division .page-hero::before,
+body.page--division .page-hero::after,
+body.page--division .page-panel,
+body.page--division .page-panel::before,
+body.page--division .page-panel::after,
+body.page--division .division-intro,
+body.page--division .page-intro,
+body.page--division .page-list__link,
+body.page--division .page-section--careers,
+body.page--division .division-contact,
+body.page--division .page-related,
+body.page--division .page-section--cta,
+body.page--division .page-section,
+body.page--division .hero__overlay {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
 body.page--division .page-contact {
@@ -3251,7 +3359,7 @@ body.page--division .page-contact__item a {
 }
 
 body.page--division #division-contact {
-  scroll-margin-top: 12rem;
+  scroll-margin-top: 4.75rem;
 }
 
 body.page--division .page-related .page-list {
@@ -3352,8 +3460,13 @@ body.page--division .page-related .page-list a:focus-visible {
   object-position: center center;
   transform-origin: center center;
   transform: scale(1);
-  animation: hydrovac-drift 46s ease-in-out infinite alternate;
-  will-change: transform;
+  animation-name: hydrovac-drift;
+  animation-duration: 9s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: both;
+  animation-play-state: running;
 }
 
 .page--automotive .hero__slide {
@@ -3363,21 +3476,26 @@ body.page--division .page-related .page-list a:focus-visible {
 .page--automotive .dept-pan {
   position: absolute;
   inset: 0;
-  transform-origin: 50% 62%;
-  transform: scale(1.04) translate3d(-0.4%, 0.4%, 0);
-  animation: dept-kb-red 13.5s linear forwards paused;
-  will-change: transform;
+  transform-origin: 50% 58%;
+  transform: scale(1.04) translate(-1.6%, 0.3%);
+  animation-name: dept-kb-red;
+  animation-duration: 7s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: both;
+  animation-play-state: paused;
 }
 
 .page--automotive .dept-pan--mustang {
-  transform-origin: 42% 60%;
-  transform: scale(1.07) translate3d(0.6%, 0.25%, 0);
+  transform-origin: 42% 58%;
+  transform: scale(1.07) translate(1.8%, 0.2%);
   animation-name: dept-kb-mustang;
 }
 
 .page--automotive .dept-pan--duty {
   transform-origin: 50% 36%;
-  transform: scale(1.035) translate3d(0.45%, -0.25%, 0);
+  transform: scale(1.035) translate(0.4%, -0.6%);
   animation-name: dept-kb-duty;
 }
 
@@ -3406,43 +3524,43 @@ body.page--division .page-related .page-list a:focus-visible {
 }
 
 @keyframes hydrovac-drift {
-  from { transform: scale(1) translate3d(0, 0, 0); }
-  to   { transform: scale(1.03) translate3d(-0.35%, 0, 0); }
+  from { transform: scale(1) translate(0, 0); }
+  to   { transform: scale(1.02) translate(-4%, 0); }
 }
 
 @keyframes hydrovac-drift-m {
-  from { transform: scale(1) translate3d(0, 0, 0); }
-  to   { transform: scale(1.015) translate3d(-0.12%, 0, 0); }
+  from { transform: scale(1) translate(0, 0); }
+  to   { transform: scale(1.015) translate(0, -5.5%); }
 }
 
 @keyframes dept-kb-red {
-  from { transform: scale(1.04) translate3d(-0.4%, 0.4%, 0); }
-  to   { transform: scale(1.07) translate3d(0.8%, -0.35%, 0); }
+  from { transform: scale(1.04) translate(-1.6%, 0.3%); }
+  to   { transform: scale(1.07) translate(2%, -0.45%); }
 }
 
 @keyframes dept-kb-mustang {
-  from { transform: scale(1.07) translate3d(0.6%, 0.25%, 0); }
-  to   { transform: scale(1.035) translate3d(-0.75%, -0.2%, 0); }
+  from { transform: scale(1.07) translate(1.8%, 0.2%); }
+  to   { transform: scale(1.04) translate(-1.6%, -0.35%); }
 }
 
 @keyframes dept-kb-duty {
-  from { transform: scale(1.035) translate3d(0.45%, -0.25%, 0); }
-  to   { transform: scale(1.065) translate3d(-0.55%, 0.45%, 0); }
+  from { transform: scale(1.035) translate(0.4%, -0.6%); }
+  to   { transform: scale(1.07) translate(-1.8%, 0.5%); }
 }
 
 @keyframes dept-kb-red-m {
-  from { transform: scale(1.03) translate3d(0, 0.15%, 0); }
-  to   { transform: scale(1.05) translate3d(0.35%, -0.15%, 0); }
+  from { transform: scale(1.03) translate(-1.1%, 0.15%); }
+  to   { transform: scale(1.06) translate(1.5%, -0.2%); }
 }
 
 @keyframes dept-kb-mustang-m {
-  from { transform: scale(1.05) translate3d(0.3%, 0.1%, 0); }
-  to   { transform: scale(1.03) translate3d(-0.3%, 0, 0); }
+  from { transform: scale(1.06) translate(1.4%, 0.1%); }
+  to   { transform: scale(1.03) translate(-1.2%, -0.15%); }
 }
 
 @keyframes dept-kb-duty-m {
-  from { transform: scale(1.03) translate3d(0.2%, -0.1%, 0); }
-  to   { transform: scale(1.05) translate3d(-0.25%, 0.2%, 0); }
+  from { transform: scale(1.03) translate(0.3%, -0.5%); }
+  to   { transform: scale(1.06) translate(-1.4%, 0.35%); }
 }
 
 .page--construction .hero__slide {
@@ -3453,14 +3571,19 @@ body.page--division .page-related .page-list a:focus-visible {
   position: absolute;
   inset: 0;
   transform-origin: 66% 50%;
-  transform: scale(1.04) translate3d(-0.2%, 0.15%, 0);
-  animation: const-kb-dozer 13.5s linear forwards paused;
-  will-change: transform;
+  transform: scale(1.04) translate(-0.8%, 0.15%);
+  animation-name: const-kb-dozer;
+  animation-duration: 7s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: both;
+  animation-play-state: paused;
 }
 
 .page--construction .dept-pan--excavator {
   transform-origin: 46% 40%;
-  transform: scale(1.065) translate3d(0.35%, -0.1%, 0);
+  transform: scale(1.065) translate(1.4%, -0.15%);
   animation-name: const-kb-excavator;
 }
 
@@ -3491,20 +3614,26 @@ body.page--division .page-related .page-list a:focus-visible {
     transform-origin: center center;
     transform: scale(1);
     animation-name: hydrovac-drift-m;
+    animation-duration: 8s;
+  }
+
+  .page--automotive .dept-pan,
+  .page--construction .dept-pan {
+    animation-duration: 6s;
   }
 
   .page--automotive .dept-pan--red {
-    transform: scale(1.03) translate3d(0, 0.15%, 0);
+    transform: scale(1.03) translate(-1.1%, 0.15%);
     animation-name: dept-kb-red-m;
   }
 
   .page--automotive .dept-pan--mustang {
-    transform: scale(1.05) translate3d(0.3%, 0.1%, 0);
+    transform: scale(1.06) translate(1.4%, 0.1%);
     animation-name: dept-kb-mustang-m;
   }
 
   .page--automotive .dept-pan--duty {
-    transform: scale(1.03) translate3d(0.2%, -0.1%, 0);
+    transform: scale(1.03) translate(0.3%, -0.5%);
     animation-name: dept-kb-duty-m;
   }
 
@@ -3522,13 +3651,13 @@ body.page--division .page-related .page-list a:focus-visible {
 
   .page--construction .dept-pan--dozer {
     transform-origin: 84% 48%;
-    transform: scale(1.03) translate3d(0, 0.1%, 0);
+    transform: scale(1.03) translate(-0.6%, 0.1%);
     animation-name: const-kb-dozer-m;
   }
 
   .page--construction .dept-pan--excavator {
     transform-origin: 48% 40%;
-    transform: scale(1.04) translate3d(0.15%, 0, 0);
+    transform: scale(1.05) translate(1.2%, -0.1%);
     animation-name: const-kb-excavator-m;
   }
 
@@ -3542,23 +3671,23 @@ body.page--division .page-related .page-list a:focus-visible {
 }
 
 @keyframes const-kb-dozer {
-  from { transform: scale(1.04) translate3d(-0.2%, 0.15%, 0); }
-  to   { transform: scale(1.07) translate3d(0.45%, -0.2%, 0); }
+  from { transform: scale(1.04) translate(-0.8%, 0.15%); }
+  to   { transform: scale(1.07) translate(1.8%, -0.25%); }
 }
 
 @keyframes const-kb-excavator {
-  from { transform: scale(1.065) translate3d(0.35%, -0.1%, 0); }
-  to   { transform: scale(1.035) translate3d(-0.5%, 0.25%, 0); }
+  from { transform: scale(1.065) translate(1.4%, -0.15%); }
+  to   { transform: scale(1.035) translate(-1.6%, 0.3%); }
 }
 
 @keyframes const-kb-dozer-m {
-  from { transform: scale(1.03) translate3d(0, 0.1%, 0); }
-  to   { transform: scale(1.05) translate3d(0.28%, -0.08%, 0); }
+  from { transform: scale(1.03) translate(-0.6%, 0.1%); }
+  to   { transform: scale(1.06) translate(1.4%, -0.15%); }
 }
 
 @keyframes const-kb-excavator-m {
-  from { transform: scale(1.04) translate3d(0.15%, 0, 0); }
-  to   { transform: scale(1.03) translate3d(-0.22%, 0.08%, 0); }
+  from { transform: scale(1.05) translate(1.2%, -0.1%); }
+  to   { transform: scale(1.03) translate(-1.3%, 0.2%); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -3568,7 +3697,6 @@ body.page--division .page-related .page-list a:focus-visible {
   .page--construction .dept-pan,
   .page--construction .hero__slide--active .dept-pan {
     animation: none !important;
-    transform: none !important;
   }
 }
 

@@ -186,6 +186,7 @@
       if (v && slide !== next) v.pause();
     });
 
+    next.classList.add('hero__slide--active');
     if (nextType === 'image') {
       restartPan(next);
     }
@@ -217,7 +218,6 @@
       }
     }
 
-    next.classList.add('hero__slide--active');
     index = nextIndex;
     if (isHome) queueUpcoming(nextIndex);
     else warmNextImage(nextIndex);

@@ -12,9 +12,9 @@ const root = path.join(__dirname, "..");
 const pages = [
   {
     file: "index.html",
-    title: "4 Elements Oilfield Services | Carlsbad, NM",
+    title: "Oilfield Services in Carlsbad, NM | 4 Elements",
     description:
-      "4 Elements Oilfield Services LLC in Carlsbad, NM provides oilfield trucking, auto and diesel repair, construction, and safety services across SE New Mexico and West Texas.",
+      "Trucking, diesel repair, construction, hydrovac, and safety from 4 Elements in Carlsbad, NM, for the Permian Basin in southeastern New Mexico and West Texas.",
     path: "/",
     indexable: true,
   },

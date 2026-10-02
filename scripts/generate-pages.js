@@ -128,9 +128,6 @@ function shell({
   quoteHref,
   bodyHtml,
 }) {
-  const quoteNav = quoteHref
-    ? `<a href="${quoteHref}">Request a Quote</a>`
-    : `<a href="mailto:${SHARED.purchasingEmail}">Request a Quote</a>`;
   const introHtml = intro
     ? `\n          <p class="page-hero__intro">${esc(intro)}</p>`
     : "";
@@ -174,19 +171,17 @@ ${seoHead({ title, description, path: fileToPath(file), indexable: true })}
   <div class="page-shell">
     <header class="page-header">
       <div class="page-header__inner">
-        <a href="/" class="page-header__brand" aria-label="4 Elements Oilfield Services LLC">
+        <a href="/" class="page-header__brand" aria-label="4 Elements Oilfield Services Home">
           <img
-            src="/images/4Elogoclean.png?v=60"
-            alt="4 Elements Oilfield Services LLC logo"
+            src="/images/logo-hero-mark.png?v=9"
+            alt=""
             class="page-header__logo"
-            width="1080"
-            height="1075"
+            width="1024"
+            height="1008"
           >
         </a>
         <nav class="page-header__nav" aria-label="Page navigation">
-          <a href="/">Home</a>
-          <a href="tel:${SHARED.officeTel}">${SHARED.officePhone}</a>
-          ${quoteNav}
+          <a class="header-office" href="tel:${SHARED.officeTel}"><span class="header-office__label"><span data-i18n>Office</span>:</span> <span class="header-office__num">${SHARED.officePhone}</span></a>
         </nav>
       </div>
     </header>
@@ -238,12 +233,12 @@ const pages = [
     file: "divisions/trucking.html",
     title: "Oilfield Trucking in Carlsbad, NM | 4 Elements",
     description:
-      "Aggregate hauling, belly dumps, end dumps, dump trucks, heavy haul, and semi flat bed from 4 Elements in Carlsbad, New Mexico. Serving SE New Mexico and West Texas.",
+      "Aggregate hauling, belly dumps, dump trucks, and heavy haul from 4 Elements in Carlsbad, New Mexico, across the Permian Basin.",
     eyebrow: "Division",
     headingHtml: `Trucking <span class="text-accent">Division</span>`,
     lead: "Aggregate trucking and heavy haul across SE New Mexico and West Texas - when minutes, money, and mileage matter.",
     intro:
-      "The 4 Elements Trucking Division hauls aggregate and heavy equipment for oilfield, mining, and industrial customers from our yard at 1400 W. Derrick Rd. in Carlsbad, New Mexico.",
+      "The 4 Elements Trucking Division hauls aggregate and heavy equipment for oilfield, mining, and industrial customers from our yard at 1400 W. Derrick Rd. in Carlsbad, New Mexico, for work across the Permian Basin.",
     quoteHref: "/trucking-quote",
     body: () =>
       [
@@ -302,12 +297,12 @@ const pages = [
     file: "divisions/automotive.html",
     title: "Auto & Diesel Repair in Carlsbad, NM | 4 Elements",
     description:
-      "Full-service automotive and diesel mechanic work in Carlsbad, NM—fleet maintenance, heavy equipment repair, diagnostics, and field support from 4 Elements.",
+      "Automotive and diesel repair in Carlsbad, NM, from passenger vehicles through diesel trucks and heavy equipment, with shop and field support from 4 Elements.",
     eyebrow: "Division",
     headingHtml: `Automotive &amp; Diesel <span class="text-accent">Repair</span>`,
     lead: "Full Service Automotive and Diesel Mechanic Service Center - keeping your fleet and equipment ready for the job.",
     intro:
-      "4 Elements Automotive & Diesel Repair is a full-service shop in Carlsbad, New Mexico, supporting oilfield, mining, industrial, and commercial fleets with shop-based and field mechanic work.",
+      "4 Elements Automotive & Diesel Repair is a full-service shop in Carlsbad, New Mexico. The shop works on passenger vehicles through large diesel trucks and heavy equipment for oilfield, mining, industrial, and commercial customers, in the shop and in the field.",
     quoteHref: "/automotive-quote",
     body: () =>
       [
@@ -362,12 +357,12 @@ const pages = [
     file: "divisions/construction.html",
     title: "Oilfield Construction in Carlsbad, NM | 4 Elements",
     description:
-      "Heavy equipment construction, road and pad building, welding, and MSHA-trained crews in Carlsbad, NM. Trucking, quarry materials, and safety support under a single bid.",
+      "Heavy equipment construction, road and pad work, and welding from 4 Elements in Carlsbad, NM, with MSHA-trained crews in southeastern New Mexico and West Texas.",
     eyebrow: "Division",
     headingHtml: `Construction <span class="text-accent">Division</span>`,
     lead: "Heavy equipment construction, reclamation/remediation, and maintenance - with trucking, quarry materials, safety techs, and project management available under a single bid.",
     intro:
-      "The 4 Elements Construction Division builds and maintains oilfield and industrial sites from Carlsbad, New Mexico, with MSHA-trained operators, laborers, and welders.",
+      "The 4 Elements Construction Division builds and maintains oilfield and industrial sites from Carlsbad, New Mexico, with MSHA-trained operators, laborers, and welders, for work in southeastern New Mexico and West Texas.",
     quoteHref: "/construction-quote",
     body: () =>
       [
@@ -424,12 +419,12 @@ const pages = [
     file: "divisions/safety.html",
     title: "Oilfield Safety Services in Carlsbad, NM | 4 Elements",
     description:
-      "Safety technician oversight, permitting, equipment sales and service, and onsite support from 4 Elements in Carlsbad, New Mexico.",
+      "Safety oversight, permitting, and onsite equipment from 4 Elements in Carlsbad, NM, for oilfield work in southeastern New Mexico and West Texas.",
     eyebrow: "Division",
     headingHtml: `Safety <span class="text-accent">Division</span>`,
     lead: "Safety oversight, permitting, equipment sales and service, and onsite support for oilfield and industrial operations.",
     intro:
-      "The 4 Elements Safety Division supports oilfield and industrial jobs in and around Carlsbad, New Mexico with technician oversight, permitting, and onsite safety equipment.",
+      "The 4 Elements Safety Division supports oilfield and industrial jobs in and around Carlsbad, New Mexico, and across southeastern New Mexico and West Texas, with technician oversight, permitting, and onsite safety equipment.",
     quoteHref: "/safety-quote",
     body: () =>
       [
