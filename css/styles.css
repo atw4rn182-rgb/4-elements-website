@@ -3193,6 +3193,36 @@ body.page--division .page-main {
   max-width: 1080px;
 }
 
+/* Division hero frame stays a constant size in the document.
+   The photograph pans inside it. Scroll does not resize or re-pin it. */
+body.page.page--division,
+body.page--hero.page--division .page-shell {
+  min-height: 0;
+}
+
+body.page--division {
+  --division-hero-frame: 30rem;
+}
+
+body.page--hydrovac {
+  --division-hero-frame: 38rem;
+}
+
+body.page--hero.page--division .page-bg-media {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: 0;
+  width: 100%;
+  height: var(--division-hero-frame);
+  overflow: hidden;
+}
+
+body.page--hero.page--division .page-main {
+  padding-top: calc(var(--division-hero-frame) - 3.625rem);
+}
+
 body.page--division .page-panel {
   background: transparent;
   border: none;
@@ -3398,13 +3428,13 @@ body.page--division .page-related .page-list a:focus-visible {
 }
 
 @media (max-width: 720px) {
-  body.page--hero.page--division .page-main {
-    padding-top: clamp(9.5rem, 30vh, 16rem);
-    padding-inline: 1rem;
+  body.page--division {
+    --division-hero-frame: 22rem;
   }
 
-  body.page--hero.page--hydrovac .page-main {
-    padding-top: calc(50vh + 34vw - 5.5rem);
+  body.page--hero.page--division .page-main {
+    padding-top: calc(var(--division-hero-frame) - 3rem);
+    padding-inline: 1rem;
   }
 
   body.page--division .page-hero {
@@ -3531,15 +3561,15 @@ body.page--division .page-related .page-list a:focus-visible {
 }
 
 .page--automotive .hero__slide--red .hero__slide-media {
-  object-position: center 58%;
+  object-position: center 40%;
 }
 
 .page--automotive .hero__slide--mustang .hero__slide-media {
-  object-position: 44% 58%;
+  object-position: 48% 40%;
 }
 
 .page--automotive .hero__slide--duty .hero__slide-media {
-  object-position: center 34%;
+  object-position: center 36%;
 }
 
 @keyframes hydrovac-drift {
@@ -3619,11 +3649,11 @@ body.page--division .page-related .page-list a:focus-visible {
 }
 
 .page--construction .hero__slide--dozer .hero__slide-media {
-  object-position: 70% 50%;
+  object-position: 64% 46%;
 }
 
 .page--construction .hero__slide--excavator .hero__slide-media {
-  object-position: 48% 38%;
+  object-position: 50% 42%;
 }
 
 @media (max-width: 899px) {
@@ -3657,15 +3687,15 @@ body.page--division .page-related .page-list a:focus-visible {
   }
 
   .page--automotive .hero__slide--red .hero__slide-media {
-    object-position: center 54%;
+    object-position: center 42%;
   }
 
   .page--automotive .hero__slide--mustang .hero__slide-media {
-    object-position: 46% 52%;
+    object-position: 48% 42%;
   }
 
   .page--automotive .hero__slide--duty .hero__slide-media {
-    object-position: center 32%;
+    object-position: center 36%;
   }
 
   .page--construction .dept-pan--dozer {
@@ -3681,11 +3711,11 @@ body.page--division .page-related .page-list a:focus-visible {
   }
 
   .page--construction .hero__slide--dozer .hero__slide-media {
-    object-position: 100% 42%;
+    object-position: 68% 44%;
   }
 
   .page--construction .hero__slide--excavator .hero__slide-media {
-    object-position: 48% 42%;
+    object-position: 50% 42%;
   }
 }
 
