@@ -3263,6 +3263,11 @@ body.page--hero.page--division.page--automotive .page-hero {
   transform: translateY(calc(-100% - 1.15rem));
 }
 
+body.page--hero.page--division.page--safety .page-hero {
+  top: calc(var(--division-hero-frame) - 3.625rem);
+  transform: translateY(calc(-100% - 1.15rem));
+}
+
 .hero-scroll {
   position: absolute;
   z-index: 4;
@@ -3541,6 +3546,10 @@ body.page--division .page-related .page-list a:focus-visible {
   body.page--hero.page--division.page--construction .page-hero,
   body.page--hero.page--division.page--trucking .page-hero,
   body.page--hero.page--division.page--automotive .page-hero {
+    top: calc(var(--division-hero-frame) - 3rem);
+  }
+
+  body.page--hero.page--division.page--safety .page-hero {
     top: calc(var(--division-hero-frame) - 3rem);
   }
 
