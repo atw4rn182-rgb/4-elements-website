@@ -3204,6 +3204,12 @@ body.page--division {
   --division-hero-frame: 30rem;
 }
 
+/* Trucking, Automotive, Construction, and Safety fill the first screen.
+   svh stays constant when mobile browser chrome shows or hides. */
+body.page--division:not(.page--hydrovac) {
+  --division-hero-frame: 100svh;
+}
+
 body.page--hydrovac {
   --division-hero-frame: 38rem;
 }
@@ -3219,8 +3225,35 @@ body.page--hero.page--division .page-bg-media {
   overflow: hidden;
 }
 
-body.page--hero.page--division .page-main {
+body.page--hero.page--hydrovac .page-main {
   padding-top: calc(var(--division-hero-frame) - 3.625rem);
+}
+
+body.page--hero.page--division:not(.page--hydrovac) .page-main {
+  position: relative;
+  /* Header is in normal flow, so the spacer is the hero minus that height.
+     Content then starts exactly where the 100svh photograph ends. */
+  padding-top: calc(var(--division-hero-frame) - 3.625rem);
+}
+
+body.page--hero.page--division:not(.page--hydrovac) .page-hero {
+  position: absolute;
+  z-index: 3;
+  top: 1rem;
+  left: 0;
+  width: min(34rem, 100%);
+  margin: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 24, 40, 0.62) 0%,
+    rgba(6, 24, 40, 0.48) 100%
+  );
+}
+
+/* Construction machines sit center-right. Park the card in the lower-left dirt. */
+body.page--hero.page--division.page--construction .page-hero {
+  top: calc(var(--division-hero-frame) - 3.625rem);
+  transform: translateY(calc(-100% - 1.15rem));
 }
 
 body.page--division .page-panel {
@@ -3428,13 +3461,22 @@ body.page--division .page-related .page-list a:focus-visible {
 }
 
 @media (max-width: 720px) {
-  body.page--division {
+  body.page--hydrovac {
     --division-hero-frame: 22rem;
   }
 
-  body.page--hero.page--division .page-main {
+  body.page--hero.page--hydrovac .page-main {
     padding-top: calc(var(--division-hero-frame) - 3rem);
     padding-inline: 1rem;
+  }
+
+  body.page--hero.page--division:not(.page--hydrovac) .page-main {
+    padding-top: calc(var(--division-hero-frame) - 3rem);
+    padding-inline: 1rem;
+  }
+
+  body.page--hero.page--division.page--construction .page-hero {
+    top: calc(var(--division-hero-frame) - 3rem);
   }
 
   body.page--division .page-hero {
