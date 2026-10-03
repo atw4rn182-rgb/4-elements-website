@@ -3691,7 +3691,8 @@ body.page--division .division-hero__actions .btn {
 
 body.page--division .division-intro a,
 body.page--division .page-intro a,
-body.page--division .page-note a {
+body.page--division .page-note a,
+body.page--division .page-careers__status a {
   color: #ffffff;
   text-decoration: underline;
   text-underline-offset: 0.15em;
@@ -3702,7 +3703,9 @@ body.page--division .division-intro a:focus-visible,
 body.page--division .page-intro a:hover,
 body.page--division .page-intro a:focus-visible,
 body.page--division .page-note a:hover,
-body.page--division .page-note a:focus-visible {
+body.page--division .page-note a:focus-visible,
+body.page--division .page-careers__status a:hover,
+body.page--division .page-careers__status a:focus-visible {
   color: var(--color-amber);
 }
 

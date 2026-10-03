@@ -129,8 +129,8 @@
     "Dump Trucks": "Camiones de volteo",
     "Heavy Haul": "Carga pesada",
     "Semi Flat Bed": "Plataforma semi",
-    "JANUARY 2026 - Now hiring CDL Drivers (Belly Dump / End Dump / Dump Truck / Heavy Haul). Diesel / Heavy Equipment Mechanic positions also recruiting.":
-      "ENERO 2026 - Contratando conductores CDL (volquete inferior / trasero / camión de volteo / carga pesada). También se reclutan mecánicos diésel / de equipo pesado.",
+    "JANUARY 2026 - Now hiring CDL Drivers (Belly Dump / End Dump / Dump Truck / Heavy Haul). <a href=\"/divisions/automotive\">Diesel / Heavy Equipment Mechanic</a> positions also recruiting.":
+      "ENERO 2026 - Contratando conductores CDL (volquete inferior / trasero / camión de volteo / carga pesada). También se reclutan <a href=\"/divisions/automotive\">mecánicos diésel / de equipo pesado</a>.",
     "Must be 21+ with a valid CDL and 2 years driving experience for driver roles. Competitive hourly wages DOE, paid vacation/sick/holidays, 401(k), and health benefits. Pre-employment drug screen and clean driving record required. Housing and per diem are not provided. Call Jeremiah Terrazas (575) 636-4652 or HR (575) 988-5479. CDL applications must be completed online (assistance available at the Derrick Rd office).":
       "Debe tener 21+ años con CDL válido y 2 años de experiencia para puestos de conductor. Salarios por hora competitivos según experiencia, vacaciones/enfermedad/días festivos pagados, 401(k) y beneficios de salud. Se requiere prueba de drogas previa al empleo y buen historial de manejo. No se proporciona vivienda ni viáticos. Llame a Jeremiah Terrazas (575) 636-4652 o RR. HH. (575) 988-5479. Las solicitudes CDL deben completarse en línea (asistencia disponible en la oficina de Derrick Rd).",
 
@@ -170,8 +170,8 @@
     "Reclamation / Remediation": "Reclamación / Remediación",
     "On construction jobs, 4 Elements can source our own <a href=\"/divisions/trucking\">trucking</a>, <a href=\"/affiliates/thunder-stone\">quarry materials</a>, <a href=\"/divisions/safety\">safety techs</a>, and project management under a single bid.":
       "En trabajos de construcción, 4 Elements puede proporcionar su propio <a href=\"/divisions/trucking\">transporte</a>, <a href=\"/affiliates/thunder-stone\">materiales de cantera</a>, <a href=\"/divisions/safety\">técnicos de seguridad</a> y gestión de proyectos bajo una sola oferta.",
-    "NOV 2025 - Now hiring for Hydrovac Driver / Operator. Applications for heavy equipment and laborer positions are kept on file for 6 months.":
-      "NOV 2025 - Contratando conductor/operador de hydrovac. Las solicitudes para equipo pesado y obreros se conservan 6 meses.",
+    "NOV 2025 - Now hiring for <a href=\"/divisions/hydrovac\">Hydrovac</a> Driver / Operator. Applications for heavy equipment and laborer positions are kept on file for 6 months.":
+      "NOV 2025 - Contratando conductor/operador de <a href=\"/divisions/hydrovac\">hydrovac</a>. Las solicitudes para equipo pesado y obreros se conservan 6 meses.",
     "Construction applications can be picked up at 1400 W. Derrick Rd, requested from HR, or completed online.":
       "Las solicitudes de construcción se pueden recoger en 1400 W. Derrick Rd, solicitar a RR. HH. o completar en línea.",
 
