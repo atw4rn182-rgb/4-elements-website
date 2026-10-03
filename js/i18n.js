@@ -48,16 +48,16 @@
     "Contact Hydrovac": "Contactar Hydrovac",
     "Hydrovac and hydro excavation for oilfield and industrial work in the Permian Basin.":
       "Hydrovac e hidroexcavación para trabajo petrolero e industrial en la cuenca del Pérmico.",
-    "The Hydrovac Division of 4 Elements Oilfield Services LLC provides hydrovac services for oilfield and industrial customers. Jobs are coordinated from the Carlsbad, New Mexico office at 1400 W. Derrick Rd.":
-      "La División de Hydrovac de 4 Elements Oilfield Services LLC ofrece servicios de hydrovac para clientes petroleros e industriales. Los trabajos se coordinan desde la oficina de Carlsbad, Nuevo México, en 1400 W. Derrick Rd.",
+    "The Hydrovac Division of 4 Elements Oilfield Services LLC provides hydrovac and hydro excavation for oilfield and industrial customers. Jobs are coordinated from the Carlsbad, New Mexico office at 1400 W. Derrick Rd.":
+      "La División de Hydrovac de 4 Elements Oilfield Services LLC ofrece hydrovac e hidroexcavación para clientes petroleros e industriales. Los trabajos se coordinan desde la oficina de Carlsbad, Nuevo México, en 1400 W. Derrick Rd.",
     "Hydrovac services": "Servicios de hydrovac",
-    "Tell us about the hydrovac work you need. Quotes are handled through the Carlsbad office.":
-      "Cuéntenos sobre el trabajo de hydrovac que necesita. Las cotizaciones se atienden a través de la oficina de Carlsbad.",
+    "Tell us about the hydrovac or hydro excavation work you need. Quotes are handled through the Carlsbad office.":
+      "Cuéntenos sobre el trabajo de hydrovac o hidroexcavación que necesita. Las cotizaciones se atienden a través de la oficina de Carlsbad.",
     "Service area": "Área de servicio",
     "From Carlsbad, 4 Elements arranges hydrovac work for customers in southeastern New Mexico, the Permian Basin, and West Texas.":
       "Desde Carlsbad, 4 Elements coordina trabajo de hydrovac para clientes en el sureste de Nuevo México, la cuenca del Pérmico y el oeste de Texas.",
-    '4 Elements Oilfield Services LLC is based at 1400 W. Derrick Rd. in Carlsbad, New Mexico. The company provides <a href="/divisions/trucking">trucking</a>, <a href="/divisions/automotive">automotive and diesel repair</a>, <a href="/divisions/construction">construction</a>, <a href="/divisions/hydrovac">hydrovac services</a>, and <a href="/divisions/safety">safety</a> for oilfield, mining, and industrial work across the Permian Basin, including southeastern New Mexico and West Texas.':
-      '4 Elements Oilfield Services LLC tiene su sede en 1400 W. Derrick Rd. en Carlsbad, Nuevo México. La empresa ofrece <a href="/divisions/trucking">transporte</a>, <a href="/divisions/automotive">reparación automotriz y diésel</a>, <a href="/divisions/construction">construcción</a>, <a href="/divisions/hydrovac">servicios de hydrovac</a> y <a href="/divisions/safety">seguridad</a> para trabajo petrolero, minero e industrial en la cuenca del Pérmico, incluido el sureste de Nuevo México y el oeste de Texas.',
+    '4 Elements Oilfield Services LLC is based at 1400 W. Derrick Rd. in Carlsbad, New Mexico. The company provides <a href="/divisions/trucking">trucking</a>, <a href="/divisions/automotive">automotive and diesel repair</a>, <a href="/divisions/construction">construction</a>, <a href="/divisions/hydrovac">hydrovac and hydro excavation</a>, and <a href="/divisions/safety">safety</a> for oilfield, mining, and industrial work across the Permian Basin, including southeastern New Mexico and West Texas.':
+      '4 Elements Oilfield Services LLC tiene su sede en 1400 W. Derrick Rd. en Carlsbad, Nuevo México. La empresa ofrece <a href="/divisions/trucking">transporte</a>, <a href="/divisions/automotive">reparación automotriz y diésel</a>, <a href="/divisions/construction">construcción</a>, <a href="/divisions/hydrovac">hydrovac e hidroexcavación</a> y <a href="/divisions/safety">seguridad</a> para trabajo petrolero, minero e industrial en la cuenca del Pérmico, incluido el sureste de Nuevo México y el oeste de Texas.',
     "Clean Air Authority": "Clean Air Authority",
     "Training Division": "División de Capacitación",
     "Zealous Electrical Services": "Zealous Electrical Services",
@@ -67,13 +67,15 @@
     "When minutes, money, and mileage matter.":
       "Cuando importan los minutos, el dinero y el kilometraje.",
     "Related 4 Elements services": "Servicios relacionados de 4 Elements",
+    "Belly dumps, end dumps, and dump trucks cover aggregate hauling. Heavy haul and semi flatbed trucks are available when the load needs them, and debris removal is on the same list. Tell the Carlsbad office which truck the job needs, or <a href=\"/trucking-quote\">request a trucking quote</a>. Aggregate hauling can be coordinated with <a href=\"/divisions/construction\">Construction</a> and with material from <a href=\"/affiliates/thunder-stone\">Thunder Stone Quarry</a>.":
+      "Los belly dumps, end dumps y camiones de volteo cubren el transporte de agregados. Hay carga pesada y plataformas semi cuando la carga los necesita, y la remoción de escombros está en la misma lista. Dígale a la oficina de Carlsbad qué camión necesita el trabajo, o <a href=\"/trucking-quote\">solicite una cotización de transporte</a>. El transporte de agregados se puede coordinar con <a href=\"/divisions/construction\">Construcción</a> y con material de <a href=\"/affiliates/thunder-stone\">Thunder Stone Quarry</a>.",
     "The 4 Elements Trucking Division hauls aggregate and heavy equipment for oilfield, mining, and industrial customers from our yard at 1400 W. Derrick Rd. in Carlsbad, New Mexico, for work across the Permian Basin.":
       "La División de Transporte de 4 Elements transporta agregados y equipo pesado para clientes petroleros, mineros e industriales desde nuestro patio en 1400 W. Derrick Rd. en Carlsbad, Nuevo México, para trabajo en la cuenca del Pérmico.",
     "4 Elements Automotive & Diesel Repair is a full-service shop in Carlsbad, New Mexico. The shop works on passenger vehicles through large diesel trucks and heavy equipment for oilfield, mining, industrial, and commercial customers, in the shop and in the field.":
       "4 Elements Automotive & Diesel Repair es un taller de servicio completo en Carlsbad, Nuevo México. El taller trabaja en vehículos de pasajeros, camiones diésel grandes y equipo pesado para clientes petroleros, mineros, industriales y comerciales, en el taller y en el campo.",
     "Automotive and diesel repair": "Reparación automotriz y diésel",
-    "The 4 Elements Construction Division builds and maintains oilfield and industrial sites from Carlsbad, New Mexico, with MSHA-trained operators, laborers, and welders, for work in southeastern New Mexico and West Texas.":
-      "La División de Construcción de 4 Elements construye y mantiene sitios petroleros e industriales desde Carlsbad, Nuevo México, con operadores, obreros y soldadores capacitados por MSHA, para trabajo en el sureste de Nuevo México y el oeste de Texas.",
+    "The 4 Elements Construction Division builds and maintains oilfield and industrial sites from Carlsbad, New Mexico, with MSHA-trained operators, laborers, and welders. The work includes road and pad construction, heli pads, fencing and cattle guards, welding and fabrication, and reclamation or remediation, for customers in southeastern New Mexico, the Permian Basin, and West Texas.":
+      "La División de Construcción de 4 Elements construye y mantiene sitios petroleros e industriales desde Carlsbad, Nuevo México, con operadores, obreros y soldadores capacitados por MSHA. El trabajo incluye construcción de caminos y pads, helipuertos, cercas y guardaganados, soldadura y fabricación, y reclamación o remediación, para clientes en el sureste de Nuevo México, la cuenca del Pérmico y el oeste de Texas.",
     "The 4 Elements Safety Division supports oilfield and industrial jobs in and around Carlsbad, New Mexico, and across southeastern New Mexico and West Texas, with technician oversight, permitting, and onsite safety equipment.":
       "La División de Seguridad de 4 Elements apoya trabajos petroleros e industriales en Carlsbad, Nuevo México y alrededores, y en el sureste de Nuevo México y el oeste de Texas, con supervisión técnica, permisos y equipo de seguridad en sitio.",
     "Clean Air Authority is a 4 Elements affiliate serving Carlsbad, New Mexico and the surrounding area with HVAC programs, installations, repairs, and Cummins generator sales and service.":
@@ -136,8 +138,8 @@
     "Full Service Automotive and Diesel Mechanic Service Center - keeping your fleet and equipment ready for the job.":
       "Centro de servicio mecánico automotriz y diésel de servicio completo: manteniendo su flota y equipo listos para el trabajo.",
     "Jake Tipton - Automotive Manager": "Jake Tipton - Gerente Automotriz",
-    "4 Elements Automotive & Diesel Repair is a full-service automotive and diesel mechanic service center supporting oilfield, mining, industrial, and commercial customers.":
-      "4 Elements Automotive & Diesel Repair es un centro mecánico automotriz y diésel de servicio completo que atiende clientes petroleros, mineros, industriales y comerciales.",
+    "The Carlsbad shop works on passenger vehicles and on the diesel trucks and heavy equipment used by oilfield, mining, industrial, and commercial customers. That includes fleet maintenance, preventive service programs, diagnostics and troubleshooting, shop work, and field support. Fleets that also need hauling can start with the <a href=\"/divisions/trucking\">Trucking Division</a>.":
+      "El taller de Carlsbad trabaja en vehículos de pasajeros y en los camiones diésel y el equipo pesado que usan clientes petroleros, mineros, industriales y comerciales. Eso incluye mantenimiento de flotas, programas de servicio preventivo, diagnóstico y solución de problemas, trabajo en el taller y apoyo en el campo. Las flotas que también necesitan transporte pueden empezar con la <a href=\"/divisions/trucking\">División de Transporte</a>.",
     "Full Service Automotive Repair": "Reparación automotriz de servicio completo",
     "Full Service Diesel Mechanic Service": "Servicio mecánico diésel completo",
     "Heavy Equipment Repair": "Reparación de equipo pesado",
@@ -166,8 +168,8 @@
     "Welding & Fabrication": "Soldadura y fabricación",
     "Laborers and Maintenance Personnel": "Obreros y personal de mantenimiento",
     "Reclamation / Remediation": "Reclamación / Remediación",
-    "On construction jobs, 4 Elements can source our own trucking, quarry materials, safety techs, and project management under a single bid.":
-      "En trabajos de construcción, 4 Elements puede proporcionar su propio transporte, materiales de cantera, técnicos de seguridad y gestión de proyectos bajo una sola oferta.",
+    "On construction jobs, 4 Elements can source our own <a href=\"/divisions/trucking\">trucking</a>, <a href=\"/affiliates/thunder-stone\">quarry materials</a>, <a href=\"/divisions/safety\">safety techs</a>, and project management under a single bid.":
+      "En trabajos de construcción, 4 Elements puede proporcionar su propio <a href=\"/divisions/trucking\">transporte</a>, <a href=\"/affiliates/thunder-stone\">materiales de cantera</a>, <a href=\"/divisions/safety\">técnicos de seguridad</a> y gestión de proyectos bajo una sola oferta.",
     "NOV 2025 - Now hiring for Hydrovac Driver / Operator. Applications for heavy equipment and laborer positions are kept on file for 6 months.":
       "NOV 2025 - Contratando conductor/operador de hydrovac. Las solicitudes para equipo pesado y obreros se conservan 6 meses.",
     "Construction applications can be picked up at 1400 W. Derrick Rd, requested from HR, or completed online.":
@@ -178,6 +180,8 @@
       "Supervisión de seguridad, permisos, venta y servicio de equipo, y apoyo en sitio para operaciones petroleras e industriales.",
     "Dustin Higgins - Safety Manager": "Dustin Higgins - Gerente de Seguridad",
     "Safety Capabilities & Commodities": "Capacidades y equipos de seguridad",
+    "If the job needs a technician on site, the division covers confined space, hot work, and excavation oversight, plus permitting and safety supervision. If the job needs equipment on site, the Carlsbad office sells and supports hydration standby, Norm monitoring, fire extinguishers, air, shower, rescue, and cool-down trailers, a Durahoist, and positive pressure fans.":
+      "Si el trabajo necesita un técnico en el sitio, la división cubre supervisión de espacios confinados, trabajos en caliente y excavaciones, además de permisos y supervisión de seguridad. Si el trabajo necesita equipo en el sitio, la oficina de Carlsbad vende y apoya hidratación de reserva, monitoreo NORM, extinguidoras, remolques de aire, duchas, rescate y enfriamiento, un Durahoist y ventiladores de presión positiva.",
     "Technician Oversight & Consulting": "Supervisión y consultoría de técnicos",
     "Confined Space Oversight": "Supervisión de espacios confinados",
     "Hot Works Oversight": "Supervisión de trabajos en caliente",

@@ -3689,6 +3689,23 @@ body.page--division .division-hero__actions .btn {
   min-height: 48px;
 }
 
+body.page--division .division-intro a,
+body.page--division .page-intro a,
+body.page--division .page-note a {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+body.page--division .division-intro a:hover,
+body.page--division .division-intro a:focus-visible,
+body.page--division .page-intro a:hover,
+body.page--division .page-intro a:focus-visible,
+body.page--division .page-note a:hover,
+body.page--division .page-note a:focus-visible {
+  color: var(--color-amber);
+}
+
 body.page--division .division-intro,
 body.page--division .page-intro {
   max-width: 42rem;
