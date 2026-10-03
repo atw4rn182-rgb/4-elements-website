@@ -87,14 +87,30 @@
     });
   }
 
+  function promoteImage(img) {
+    if (!img) return;
+    var src = img.getAttribute('data-src');
+    if (src && !img.getAttribute('src')) img.src = src;
+    var srcset = img.getAttribute('data-srcset');
+    if (srcset && !img.getAttribute('srcset')) img.srcset = srcset;
+    if (img.decode) img.decode().catch(function () {});
+  }
+
+  function promoteSlide(slide) {
+    if (!slide) return;
+    promoteImage(slide.querySelector('img.hero__slide-media'));
+    var classes = slide.className.split(/\s+/);
+    for (var i = 0; i < classes.length; i++) {
+      if (classes[i].indexOf('hero__slide--') === 0 && classes[i] !== 'hero__slide--active') {
+        promoteImage(document.querySelector('.dept-ground__photo--' + classes[i].slice(13)));
+      }
+    }
+  }
+
   function warmNextImage(fromIndex) {
     var slide = heroSlides[(fromIndex + 1) % heroSlides.length];
     if (!slide || slide.getAttribute('data-type') !== 'image') return;
-    var img = slide.querySelector('img.hero__slide-media');
-    if (!img) return;
-    var src = img.getAttribute('data-src') || img.getAttribute('src');
-    if (src && !img.getAttribute('src')) img.src = src;
-    if (img.decode) img.decode().catch(function () {});
+    promoteSlide(slide);
   }
 
   function queueUpcoming(fromIndex) {
@@ -147,6 +163,8 @@
     var nextType = next.getAttribute('data-type');
     var durationSec = parseFloat(next.getAttribute('data-duration') || '9', 10);
     var video = getVideo(next);
+
+    promoteSlide(next);
 
     if (isHome && !force && nextType === 'image') {
       var img = next.querySelector('img.hero__slide-media');
