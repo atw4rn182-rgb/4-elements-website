@@ -2147,7 +2147,7 @@ body.home-shell::before {
   letter-spacing: 0.03em;
   color: var(--color-text-primary);
   text-align: center;
-  background: rgba(10, 37, 64, 0.30);
+  background: rgba(10, 37, 64, 0.15);
   border: 1px solid rgba(168, 181, 192, 0.3);
   border-radius: var(--radius);
   padding: 0.95rem 1.4rem;
@@ -2167,7 +2167,7 @@ body.home-shell::before {
 .home-side__link:focus-visible {
   color: #FFFFFF;
   border-color: #E36A2C;
-  background: rgba(227, 106, 44, 0.16);
+  background: rgba(10, 37, 64, 0.28);
   box-shadow: var(--shadow-btn-hover);
   transform: translateY(-1px);
   outline: none;
@@ -2434,13 +2434,13 @@ body.home-shell::before {
     text-align: center;
     border: 1px solid rgba(168, 181, 192, 0.3);
     border-radius: var(--radius);
-    background: rgba(10, 37, 64, 0.30);
+    background: rgba(10, 37, 64, 0.15);
   }
 
   .home-side__link:hover,
   .home-side__link:focus-visible {
     border-color: var(--color-amber);
-    background: rgba(227, 106, 44, 0.16);
+    background: rgba(10, 37, 64, 0.28);
     color: #FFFFFF;
   }
 
