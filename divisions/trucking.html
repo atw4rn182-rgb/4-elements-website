@@ -31,29 +31,25 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="/images/divisions/trucking-lineup.jpg" fetchpriority="high">
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body class="page page--hero page--division page--trucking">
   <div class="hero__media page-bg-media" aria-hidden="true">
-    <div class="hero__slide hero__slide--active" data-hero-slide data-type="image" data-duration="9">
-      <div class="hero__pan hero__pan--ltr">
-        <img src="/images/hero-fleet.jpg" alt="" class="hero__slide-media" width="1920" height="1080">
+    <div class="hero__slide hero__slide--active hero__slide--lineup" data-hero-slide data-type="image" data-duration="9">
+      <div class="dept-pan dept-pan--lineup">
+        <img src="/images/divisions/trucking-lineup.jpg" alt="White Mack trucks parked on a gravel yard at sunset, one attached to a light-colored trailer" class="hero__slide-media" width="771" height="1024" fetchpriority="high" decoding="async">
       </div>
     </div>
-    <div class="hero__slide" data-hero-slide data-type="video" data-duration="10">
-      <video class="hero__slide-media" muted playsinline preload="none" loop>
-        <source src="/images/hero-loader.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="hero__slide" data-hero-slide data-type="image" data-duration="9">
-      <div class="hero__pan hero__pan--rtl">
-        <img src="/images/hero-quarry.jpg" alt="" class="hero__slide-media" width="1920" height="1080" loading="lazy">
+    <div class="hero__slide hero__slide--haul" data-hero-slide data-type="image" data-duration="9">
+      <div class="dept-pan dept-pan--haul">
+        <img src="/images/divisions/trucking-haul.jpg" alt="Black Volvo tractor with a long flatbed trailer in front of a row of white trucks" class="hero__slide-media" width="1024" height="771" decoding="async">
       </div>
     </div>
-    <div class="hero__slide" data-hero-slide data-type="video" data-duration="10">
-      <video class="hero__slide-media" muted playsinline preload="none" loop>
-        <source src="/images/hero-dumping.mp4" type="video/mp4">
-      </video>
+    <div class="hero__slide hero__slide--dumps" data-hero-slide data-type="image" data-duration="9">
+      <div class="dept-pan dept-pan--dumps">
+        <img src="/images/divisions/trucking-dumps.jpg" alt="White Mack dump trucks lined up on a dirt yard" class="hero__slide-media" width="771" height="1024" decoding="async">
+      </div>
     </div>
     <div class="hero__overlay"></div>
   </div>
@@ -85,6 +81,11 @@
     </p>
 
     <main class="page-main">
+      <div class="dept-ground" aria-hidden="true">
+        <img class="dept-ground__photo dept-ground__photo--lineup" src="/images/divisions/trucking-lineup.jpg" alt="" width="771" height="1024" decoding="async">
+        <img class="dept-ground__photo dept-ground__photo--haul" src="/images/divisions/trucking-haul.jpg" alt="" width="1024" height="771" decoding="async">
+        <img class="dept-ground__photo dept-ground__photo--dumps" src="/images/divisions/trucking-dumps.jpg" alt="" width="771" height="1024" decoding="async">
+      </div>
       <div class="page-panel">
         <div class="page-hero">
           <p class="page-hero__eyebrow" data-i18n>Division</p>

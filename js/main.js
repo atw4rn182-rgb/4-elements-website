@@ -113,7 +113,7 @@
   }
 
   function saveState() {
-    if (document.body.classList.contains('page--construction')) return;
+    if (document.body.classList.contains('home-shell') || document.body.classList.contains('page--construction') || document.body.classList.contains('page--trucking') || document.body.classList.contains('page--automotive') || document.body.classList.contains('page--safety')) return;
     try {
       var active = heroSlides[index];
       if (!active) return;
@@ -248,7 +248,7 @@
     video.preload = isHome ? 'none' : 'auto';
   });
 
-  var restored = document.body.classList.contains('page--construction') ? null : loadState();
+  var restored = (document.body.classList.contains('home-shell') || document.body.classList.contains('page--construction') || document.body.classList.contains('page--trucking') || document.body.classList.contains('page--automotive') || document.body.classList.contains('page--safety')) ? null : loadState();
   if (restored) {
     activateSlide(restored.index, restored.t || 0);
   } else {

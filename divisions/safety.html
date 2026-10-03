@@ -31,29 +31,30 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="/images/divisions/trucking-lineup.jpg" fetchpriority="high">
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body class="page page--hero page--division page--safety">
   <div class="hero__media page-bg-media" aria-hidden="true">
-    <div class="hero__slide hero__slide--active" data-hero-slide data-type="image" data-duration="9">
-      <div class="hero__pan hero__pan--ltr">
-        <img src="/images/hero-fleet.jpg" alt="" class="hero__slide-media" width="1920" height="1080">
+    <div class="hero__slide hero__slide--active hero__slide--shared-truck" data-hero-slide data-type="image" data-duration="9">
+      <div class="hero__pan safety-pan safety-pan--truck">
+        <img src="/images/divisions/trucking-lineup.jpg" alt="" class="hero__slide-media" width="771" height="1024" fetchpriority="high" decoding="async">
       </div>
     </div>
-    <div class="hero__slide" data-hero-slide data-type="video" data-duration="10">
-      <video class="hero__slide-media" muted playsinline preload="none" loop>
-        <source src="/images/hero-loader.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="hero__slide" data-hero-slide data-type="image" data-duration="9">
-      <div class="hero__pan hero__pan--rtl">
-        <img src="/images/hero-quarry.jpg" alt="" class="hero__slide-media" width="1920" height="1080" loading="lazy">
+    <div class="hero__slide hero__slide--shared-auto" data-hero-slide data-type="image" data-duration="9">
+      <div class="hero__pan safety-pan safety-pan--auto">
+        <img class="hero__slide-media" alt="" width="771" height="1024" decoding="async" data-src="/images/divisions/automotive-red-shop.jpg">
       </div>
     </div>
-    <div class="hero__slide" data-hero-slide data-type="video" data-duration="10">
-      <video class="hero__slide-media" muted playsinline preload="none" loop>
-        <source src="/images/hero-dumping.mp4" type="video/mp4">
-      </video>
+    <div class="hero__slide hero__slide--shared-build" data-hero-slide data-type="image" data-duration="9">
+      <div class="hero__pan safety-pan safety-pan--build">
+        <img class="hero__slide-media" alt="" width="771" height="1024" decoding="async" data-src="/images/divisions/construction-dozer.jpg">
+      </div>
+    </div>
+    <div class="hero__slide hero__slide--shared-hydro" data-hero-slide data-type="image" data-duration="9">
+      <div class="hero__pan safety-pan safety-pan--hydro">
+        <img class="hero__slide-media" alt="" width="577" height="1024" decoding="async" data-src="/images/divisions/hydrovac-hero.jpg">
+      </div>
     </div>
     <div class="hero__overlay"></div>
   </div>
@@ -85,6 +86,7 @@
     </p>
 
     <main class="page-main">
+      <div class="dept-ground" aria-hidden="true"></div>
       <div class="page-panel">
         <div class="page-hero">
           <p class="page-hero__eyebrow" data-i18n>Division</p>

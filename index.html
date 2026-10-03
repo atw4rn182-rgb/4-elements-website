@@ -21,8 +21,7 @@
   <meta name="twitter:title" content="Oilfield Services in Carlsbad, NM | 4 Elements">
   <meta name="twitter:description" content="Trucking, diesel repair, construction, hydrovac, and safety from 4 Elements in Carlsbad, NM, for the Permian Basin in southeastern New Mexico and West Texas.">
   <meta name="twitter:image" content="https://www.4elementsoilfieldservices.com/images/logo-hero-mark.png">
-  <link rel="preload" as="video" href="/images/hero-loader.mp4" type="video/mp4" media="(min-width: 768px)" fetchpriority="low">
-  <link rel="preload" as="video" href="/images/hero-loader-mobile.mp4" type="video/mp4" media="(max-width: 767px)" fetchpriority="low">
+  <link rel="preload" as="image" href="/images/divisions/trucking-lineup.jpg" fetchpriority="high">
   <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png">
   <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
@@ -40,13 +39,7 @@
   <header class="home-header">
     <div class="home-header__inner">
       <a href="/" class="home-header__brand" aria-label="4 Elements Oilfield Services Home">
-        <img
-          src="/images/logo-hero-mark.png?v=9"
-          alt=""
-          class="home-header__logo"
-          width="1024"
-          height="1008"
-        >
+        <span class="home-header__wordmark">4 Elements Oilfield Services LLC</span>
       </a>
       <nav class="home-header__nav" aria-label="Primary">
         <a class="header-office" href="tel:+15759413311"><span class="header-office__label"><span data-i18n>Office</span>:</span> <span class="header-office__num">(575) 941-3311</span></a>
@@ -56,23 +49,25 @@
 
   <main class="home" aria-label="4 Elements Oilfield Services">
     <div class="hero__media" aria-hidden="true">
-      <div class="hero__slide hero__slide--active" data-hero-slide data-type="image" data-duration="9">
-        <div class="hero__pan hero__pan--ltr">
-          <img src="/images/hero-fleet.jpg" alt="" class="hero__slide-media" width="1920" height="1080" fetchpriority="high">
+      <div class="hero__slide hero__slide--active home-slide home-slide--trucking" data-hero-slide data-type="image" data-duration="9">
+        <div class="hero__pan home-pan home-pan--trucking">
+          <img src="/images/divisions/trucking-lineup.jpg" alt="" class="hero__slide-media" width="771" height="1024" fetchpriority="high" decoding="async">
         </div>
       </div>
-      <div class="hero__slide" data-hero-slide data-type="video" data-duration="10">
-        <img class="hero__slide-poster" src="/images/hero-loader-poster.jpg" alt="" width="720" height="1280" decoding="async">
-        <video class="hero__slide-media" muted playsinline loop preload="none" poster="/images/hero-loader-poster.jpg" data-src="/images/hero-loader.mp4" data-src-mobile="/images/hero-loader-mobile.mp4" width="1080" height="1920"></video>
-      </div>
-      <div class="hero__slide" data-hero-slide data-type="image" data-duration="9">
-        <div class="hero__pan hero__pan--rtl">
-          <img class="hero__slide-media" alt="" width="1920" height="1080" decoding="async" data-src="/images/hero-quarry.jpg">
+      <div class="hero__slide home-slide home-slide--auto" data-hero-slide data-type="image" data-duration="9">
+        <div class="hero__pan home-pan home-pan--auto">
+          <img class="hero__slide-media" alt="" width="771" height="1024" decoding="async" data-src="/images/divisions/automotive-red-shop.jpg">
         </div>
       </div>
-      <div class="hero__slide" data-hero-slide data-type="video" data-duration="10">
-        <img class="hero__slide-poster" src="/images/hero-dumping-poster.jpg" alt="" width="960" height="540" decoding="async">
-        <video class="hero__slide-media" muted playsinline loop preload="none" poster="/images/hero-dumping-poster.jpg" data-src="/images/hero-dumping.mp4" data-src-mobile="/images/hero-dumping-mobile.mp4" width="1920" height="1080"></video>
+      <div class="hero__slide home-slide home-slide--construction" data-hero-slide data-type="image" data-duration="9">
+        <div class="hero__pan home-pan home-pan--construction">
+          <img class="hero__slide-media" alt="" width="771" height="1024" decoding="async" data-src="/images/divisions/construction-dozer.jpg">
+        </div>
+      </div>
+      <div class="hero__slide home-slide home-slide--hydrovac" data-hero-slide data-type="image" data-duration="9">
+        <div class="hero__pan home-pan home-pan--hydrovac">
+          <img class="hero__slide-media" alt="" width="577" height="1024" decoding="async" data-src="/images/divisions/hydrovac-hero.jpg">
+        </div>
       </div>
       <div class="hero__overlay"></div>
     </div>
