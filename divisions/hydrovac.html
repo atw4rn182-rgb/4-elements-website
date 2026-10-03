@@ -27,7 +27,8 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-  <link rel="preload" as="image" href="/images/divisions/hydrovac-hero.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="/images/divisions/hydrovac-hero.jpg" media="(min-width: 521px)" fetchpriority="high">
+  <link rel="preload" as="image" href="/images/divisions/hydrovac-mobile.jpg" media="(max-width: 520px)" fetchpriority="high">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.4elementsoilfieldservices.com/#website","name":"4 Elements Oilfield Services LLC","url":"https://www.4elementsoilfieldservices.com/","publisher":{"@id":"https://www.4elementsoilfieldservices.com/#business"},"inLanguage":"en-US"},{"@type":"LocalBusiness","@id":"https://www.4elementsoilfieldservices.com/#business","name":"4 Elements Oilfield Services LLC","alternateName":["Four Elements Oilfield Services","4 Elements"],"url":"https://www.4elementsoilfieldservices.com/","telephone":"+15759413311","email":"PURCHASING@4ELEMENTSOILFIELD.COM","image":"https://www.4elementsoilfieldservices.com/images/logo-hero-mark.png","logo":"https://www.4elementsoilfieldservices.com/images/logo-hero-mark.png","address":{"@type":"PostalAddress","streetAddress":"1400 W. Derrick Rd.","addressLocality":"Carlsbad","addressRegion":"NM","postalCode":"88220","addressCountry":"US"},"areaServed":[{"@type":"City","name":"Carlsbad","addressRegion":"NM","addressCountry":"US"},{"@type":"AdministrativeArea","name":"Permian Basin"},{"@type":"AdministrativeArea","name":"Southeastern New Mexico"},{"@type":"AdministrativeArea","name":"West Texas"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"4 Elements services","itemListElement":[{"@type":"Offer","itemOffered":{"@id":"https://www.4elementsoilfieldservices.com/divisions/trucking#service"}},{"@type":"Offer","itemOffered":{"@id":"https://www.4elementsoilfieldservices.com/divisions/automotive#service"}},{"@type":"Offer","itemOffered":{"@id":"https://www.4elementsoilfieldservices.com/divisions/construction#service"}},{"@type":"Offer","itemOffered":{"@id":"https://www.4elementsoilfieldservices.com/divisions/hydrovac#service"}},{"@type":"Offer","itemOffered":{"@id":"https://www.4elementsoilfieldservices.com/divisions/safety#service"}}]}},{"@type":"WebPage","@id":"https://www.4elementsoilfieldservices.com/divisions/hydrovac#webpage","url":"https://www.4elementsoilfieldservices.com/divisions/hydrovac","name":"Hydrovac Services in Carlsbad, NM | 4 Elements","description":"Hydrovac and hydro excavation from 4 Elements in Carlsbad, NM, for oilfield and industrial work across the Permian Basin in southeastern New Mexico and West Texas.","isPartOf":{"@id":"https://www.4elementsoilfieldservices.com/#website"},"inLanguage":"en-US","about":{"@id":"https://www.4elementsoilfieldservices.com/#business"},"primaryImageOfPage":"https://www.4elementsoilfieldservices.com/images/divisions/hydrovac-1600.jpg","mainEntity":{"@id":"https://www.4elementsoilfieldservices.com/divisions/hydrovac#service"}},{"@type":"Service","@id":"https://www.4elementsoilfieldservices.com/divisions/hydrovac#service","name":"Hydrovac and hydro excavation","serviceType":"Hydrovac and hydro excavation","description":"Hydrovac and hydro excavation for oilfield and industrial customers, coordinated from the Carlsbad, New Mexico office.","provider":{"@id":"https://www.4elementsoilfieldservices.com/#business"},"areaServed":[{"@type":"City","name":"Carlsbad","addressRegion":"NM","addressCountry":"US"},{"@type":"AdministrativeArea","name":"Permian Basin"},{"@type":"AdministrativeArea","name":"Southeastern New Mexico"},{"@type":"AdministrativeArea","name":"West Texas"}],"url":"https://www.4elementsoilfieldservices.com/divisions/hydrovac"}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,15 +37,18 @@
 </head>
 <body class="page page--hero page--division page--hydrovac">
   <div class="hero__media page-bg-media" aria-hidden="true">
-    <img
-      class="hero__slide-media hydrovac-hero"
-      src="/images/divisions/hydrovac-hero.jpg"
-      alt="Two white hydrovac trucks parked in a dirt yard, with a backhoe behind them"
-      width="577"
-      height="1024"
-      fetchpriority="high"
-      decoding="async"
-    >
+    <picture>
+      <source media="(max-width: 520px)" srcset="/images/divisions/hydrovac-mobile.jpg">
+      <source media="(min-width: 521px)" srcset="/images/divisions/hydrovac-hero.jpg">
+      <img
+        class="hero__slide-media hydrovac-hero"
+        alt="Two white hydrovac trucks parked in a dirt yard, with a backhoe behind them"
+        width="577"
+        height="1024"
+        fetchpriority="high"
+        decoding="async"
+      >
+    </picture>
     <div class="hero__overlay"></div>
   </div>
 
@@ -76,7 +80,7 @@
 
     <main class="page-main">
       <div class="dept-ground" aria-hidden="true">
-        <img class="dept-ground__photo" src="/images/divisions/hydrovac-hero.jpg" alt="" width="577" height="1024" decoding="async">
+        <img class="dept-ground__photo" data-src="/images/divisions/hydrovac-hero.jpg" alt="" width="577" height="1024" decoding="async">
       </div>
       <div class="page-panel">
         <div class="page-hero">

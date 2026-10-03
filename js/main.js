@@ -13,6 +13,7 @@
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var isHome = document.body.classList.contains('home-shell');
   var isTrucking = document.body.classList.contains('page--trucking');
+  var isAuto = document.body.classList.contains('page--automotive');
   var truckPhoneQuery = window.matchMedia('(max-width: 520px)');
   var allHeroSlides = heroSlides;
 
@@ -22,6 +23,10 @@
 
   function homePhone() {
     return isHome && truckPhoneQuery.matches;
+  }
+
+  function autoPhone() {
+    return isAuto && truckPhoneQuery.matches;
   }
 
   function applyTruckSlots() {
@@ -44,6 +49,16 @@
     });
   }
 
+  function applyAutoSlots() {
+    if (!isAuto) return;
+    var phone = truckPhoneQuery.matches;
+    heroSlides = allHeroSlides.filter(function (slide) {
+      var slot = slide.getAttribute('data-auto-slot');
+      if (!slot || slot === 'both') return true;
+      return phone ? slot === 'mobile' : slot === 'desk';
+    });
+  }
+
   function placeHomeMedia() {
     if (!isHome) return;
     var home = document.querySelector('.home');
@@ -58,6 +73,7 @@
 
   applyTruckSlots();
   applyHomeSlots();
+  applyAutoSlots();
   placeHomeMedia();
 
   function getVideo(slide) {
@@ -146,7 +162,7 @@
   function promoteSlide(slide) {
     if (!slide) return;
     promoteImage(slide.querySelector('img.hero__slide-media'));
-    if (truckPhone()) return;
+    if (truckPhone() || autoPhone()) return;
     var classes = slide.className.split(/\s+/);
     for (var i = 0; i < classes.length; i++) {
       if (classes[i].indexOf('hero__slide--') === 0 && classes[i] !== 'hero__slide--active') {
@@ -169,7 +185,7 @@
   }
 
   function restartPan(slide) {
-    if (homePhone()) return;
+    if (homePhone() || autoPhone()) return;
     var pan = slide.querySelector('.hero__pan, .dept-pan');
     if (!pan) return;
     pan.style.animation = 'none';
@@ -211,7 +227,7 @@
     var next = heroSlides[nextIndex];
     var nextType = next.getAttribute('data-type');
     var durationSec = parseFloat(next.getAttribute('data-duration') || '9', 10);
-    if (truckPhone() || homePhone()) {
+    if (truckPhone() || homePhone() || autoPhone()) {
       var phoneDur = next.getAttribute('data-duration-phone');
       if (phoneDur) durationSec = parseFloat(phoneDur, 10);
     }
@@ -363,6 +379,14 @@
     });
   }
 
+  if (isAuto && truckPhoneQuery.addEventListener) {
+    truckPhoneQuery.addEventListener('change', function () {
+      if (timer) window.clearTimeout(timer);
+      applyAutoSlots();
+      activateSlide(0);
+    });
+  }
+
   if (isHome && truckPhoneQuery.addEventListener) {
     truckPhoneQuery.addEventListener('change', function () {
       if (timer) window.clearTimeout(timer);
@@ -378,8 +402,10 @@
   var shell = document.querySelector('.page-shell');
   var truckPhoneQuery = window.matchMedia('(max-width: 520px)');
   var truckPage = document.body.classList.contains('page--trucking');
+  var autoPage = document.body.classList.contains('page--automotive');
+  var hydroPage = document.body.classList.contains('page--hydrovac');
 
-  if (truckPage && shell) {
+  if ((truckPage || autoPage || hydroPage) && shell) {
     var updateTruck = function () {
       if (!cue) return;
       var y = truckPhoneQuery.matches ? shell.scrollTop : window.scrollY;

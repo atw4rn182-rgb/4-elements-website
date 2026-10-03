@@ -1730,12 +1730,13 @@ body.home-shell::before {
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  animation: home-wordmark-shift 18s ease-in-out infinite;
+  animation: home-wordmark-shift 11s ease-in-out infinite;
 }
 
 @keyframes home-wordmark-shift {
-  0%, 100% { background-position: 100% 50%; }
-  50% { background-position: 0% 50%; }
+  0%, 12% { background-position: 100% 50%; }
+  78% { background-position: 0% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1890,6 +1891,32 @@ body.home-shell::before {
   color: #F4F7FA;
 }
 
+.home-header .header-office__num {
+  background-image: linear-gradient(
+    100deg,
+    #f4f7fa 0%,
+    #f4f7fa 42%,
+    #f0b48a 48%,
+    #e36a2c 50%,
+    #f0b48a 52%,
+    #f4f7fa 58%,
+    #f4f7fa 100%
+  );
+  background-size: 280% 100%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: home-phone-shift 11s ease-in-out infinite;
+}
+
+@keyframes home-phone-shift {
+  0%, 56% { background-position: 100% 50%; }
+  88% { background-position: 0% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 .header-office:hover,
 .header-office:focus-visible {
   border-bottom-color: transparent;
@@ -1898,6 +1925,23 @@ body.home-shell::before {
 .header-office:hover .header-office__num,
 .header-office:focus-visible .header-office__num {
   color: var(--color-amber);
+}
+
+.home-header .header-office:hover .header-office__num,
+.home-header .header-office:focus-visible .header-office__num {
+  background-image: none;
+  color: var(--color-amber);
+  -webkit-text-fill-color: var(--color-amber);
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-header .header-office__num {
+    animation: none;
+    background-image: none;
+    color: #f4f7fa;
+    -webkit-text-fill-color: #f4f7fa;
+  }
 }
 
 .header-office:focus-visible,
@@ -2103,13 +2147,13 @@ body.home-shell::before {
   letter-spacing: 0.03em;
   color: var(--color-text-primary);
   text-align: center;
-  background: rgba(10, 37, 64, 0.42);
+  background: rgba(10, 37, 64, 0.30);
   border: 1px solid rgba(168, 181, 192, 0.3);
   border-radius: var(--radius);
   padding: 0.95rem 1.4rem;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.22);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
   box-shadow: var(--shadow-btn);
   transition:
     color var(--transition-fast),
@@ -2390,7 +2434,7 @@ body.home-shell::before {
     text-align: center;
     border: 1px solid rgba(168, 181, 192, 0.3);
     border-radius: var(--radius);
-    background: rgba(10, 37, 64, 0.45);
+    background: rgba(10, 37, 64, 0.30);
   }
 
   .home-side__link:hover,
@@ -3990,6 +4034,15 @@ body.page--hydrovac .page-bg-media .hero__overlay {
   );
 }
 
+.page--hydrovac .page-bg-media picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
 .page--hydrovac .hydrovac-hero {
   position: absolute;
   inset: 0;
@@ -4048,6 +4101,15 @@ body.page--hydrovac .page-bg-media .hero__overlay {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.page--automotive .dept-pan picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
 }
 
 .page--automotive .hero__slide--red .hero__slide-media {
@@ -4536,6 +4598,128 @@ body.home-shell .hero__pan picture {
 @keyframes home-kb-hvac {
   from { transform: scale(1.04) translate3d(-0.6%, 0.4%, 0); }
   to   { transform: scale(1.075) translate3d(1%, -0.35%, 0); }
+}
+
+/* Phone Automotive only. Desktop and tablet keep the slides and motion above. */
+@media (min-width: 521px) {
+  .page--automotive .hero__slide[data-auto-slot="mobile"] {
+    display: none !important;
+  }
+}
+
+@media (max-width: 520px) {
+  html:has(body.page--automotive) {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body.page--automotive {
+    height: 100%;
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow: hidden;
+  }
+
+  body.page--automotive .page-shell {
+    height: 100%;
+    height: 100dvh;
+    max-height: 100dvh;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  body.page--automotive .page-bg-media {
+    position: fixed;
+    inset: 0;
+    width: auto;
+    height: auto;
+    transform: none;
+  }
+
+  .page--automotive .hero__slide[data-auto-slot="desk"] {
+    display: none !important;
+  }
+
+  .page--automotive .hero__slide--redphone .hero__slide-media,
+  .page--automotive .hero__slide--mustangphone .hero__slide-media,
+  .page--automotive .hero__slide--dutyphone .hero__slide-media {
+    object-position: center center;
+  }
+
+  .page--automotive .dept-pan--redphone,
+  .page--automotive .dept-pan--mustangphone,
+  .page--automotive .dept-pan--dutyphone {
+    animation-duration: 12s;
+    animation-timing-function: ease-in-out;
+  }
+
+  .page--automotive .dept-pan--redphone { animation-name: auto-kb-red-phone; }
+  .page--automotive .dept-pan--mustangphone { animation-name: auto-kb-mustang-phone; }
+  .page--automotive .dept-pan--dutyphone { animation-name: auto-kb-duty-phone; }
+}
+
+@keyframes auto-kb-red-phone {
+  from { transform: scale(1.04) translate3d(-1.2%, 0.1%, 0); }
+  to   { transform: scale(1.08) translate3d(1.4%, -0.1%, 0); }
+}
+
+@keyframes auto-kb-mustang-phone {
+  from { transform: scale(1.04) translate3d(1.3%, 0.12%, 0); }
+  to   { transform: scale(1.08) translate3d(-1.4%, -0.15%, 0); }
+}
+
+@keyframes auto-kb-duty-phone {
+  from { transform: scale(1.04) translate3d(-0.5%, 0.35%, 0); }
+  to   { transform: scale(1.075) translate3d(1%, -0.3%, 0); }
+}
+
+/* Phone Hydrovac only. Desktop and tablet keep the image and motion above. */
+@media (max-width: 520px) {
+  html:has(body.page--hydrovac) {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body.page--hydrovac {
+    height: 100%;
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow: hidden;
+  }
+
+  body.page--hydrovac .page-shell {
+    height: 100%;
+    height: 100dvh;
+    max-height: 100dvh;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  body.page--hydrovac .page-bg-media {
+    position: fixed;
+    inset: 0;
+    width: auto;
+    height: auto;
+    transform: none;
+  }
+
+  .page--hydrovac .hydrovac-hero {
+    object-position: center center;
+    animation-name: hydrovac-kb-phone;
+    animation-duration: 12s;
+    animation-timing-function: ease-in-out;
+  }
+}
+
+@keyframes hydrovac-kb-phone {
+  from { transform: scale(1.04) translate3d(-0.55%, 0.32%, 0); }
+  to   { transform: scale(1.075) translate3d(0.95%, -0.28%, 0); }
 }
 
 @media (prefers-reduced-motion: reduce) {

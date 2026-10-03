@@ -27,7 +27,8 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-  <link rel="preload" as="image" href="/images/divisions/automotive-red-shop.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="/images/divisions/automotive-red-shop.jpg" media="(min-width: 521px)" fetchpriority="high">
+  <link rel="preload" as="image" href="/images/divisions/automotive-red-truck-mobile.jpg" media="(max-width: 520px)" fetchpriority="high">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.4elementsoilfieldservices.com/#website","name":"4 Elements Oilfield Services LLC","url":"https://www.4elementsoilfieldservices.com/","publisher":{"@id":"https://www.4elementsoilfieldservices.com/#business"},"inLanguage":"en-US"},{"@type":"LocalBusiness","@id":"https://www.4elementsoilfieldservices.com/#business","name":"4 Elements Oilfield Services LLC","alternateName":["Four Elements Oilfield Services","4 Elements"],"url":"https://www.4elementsoilfieldservices.com/","telephone":"+15759413311","email":"PURCHASING@4ELEMENTSOILFIELD.COM","image":"https://www.4elementsoilfieldservices.com/images/logo-hero-mark.png","logo":"https://www.4elementsoilfieldservices.com/images/logo-hero-mark.png","address":{"@type":"PostalAddress","streetAddress":"1400 W. Derrick Rd.","addressLocality":"Carlsbad","addressRegion":"NM","postalCode":"88220","addressCountry":"US"},"areaServed":[{"@type":"City","name":"Carlsbad","addressRegion":"NM","addressCountry":"US"},{"@type":"AdministrativeArea","name":"Permian Basin"},{"@type":"AdministrativeArea","name":"Southeastern New Mexico"},{"@type":"AdministrativeArea","name":"West Texas"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"4 Elements services","itemListElement":[{"@type":"Offer","itemOffered":{"@id":"https://www.4elementsoilfieldservices.com/divisions/trucking#service"}},{"@type":"Offer","itemOffered":{"@id":"https://www.4elementsoilfieldservices.com/divisions/automotive#service"}},{"@type":"Offer","itemOffered":{"@id":"https://www.4elementsoilfieldservices.com/divisions/construction#service"}},{"@type":"Offer","itemOffered":{"@id":"https://www.4elementsoilfieldservices.com/divisions/hydrovac#service"}},{"@type":"Offer","itemOffered":{"@id":"https://www.4elementsoilfieldservices.com/divisions/safety#service"}}]}},{"@type":"WebPage","@id":"https://www.4elementsoilfieldservices.com/divisions/automotive#webpage","url":"https://www.4elementsoilfieldservices.com/divisions/automotive","name":"Auto & Diesel Repair in Carlsbad, NM | 4 Elements","description":"Automotive and diesel repair in Carlsbad, NM, from passenger vehicles through diesel trucks and heavy equipment, with shop and field support from 4 Elements.","isPartOf":{"@id":"https://www.4elementsoilfieldservices.com/#website"},"inLanguage":"en-US","about":{"@id":"https://www.4elementsoilfieldservices.com/#business"},"mainEntity":{"@id":"https://www.4elementsoilfieldservices.com/divisions/automotive#service"},"primaryImageOfPage":"https://www.4elementsoilfieldservices.com/images/divisions/automotive-red-1600.jpg"},{"@type":"Service","@id":"https://www.4elementsoilfieldservices.com/divisions/automotive#service","name":"Automotive and diesel repair","serviceType":"Automotive and diesel repair","description":"Repair in Carlsbad, New Mexico, from passenger vehicles through diesel trucks and heavy equipment, including fleet maintenance, preventive service, diagnostics, and shop or field support.","provider":{"@id":"https://www.4elementsoilfieldservices.com/#business"},"areaServed":[{"@type":"City","name":"Carlsbad","addressRegion":"NM","addressCountry":"US"},{"@type":"AdministrativeArea","name":"Southeastern New Mexico"},{"@type":"AdministrativeArea","name":"West Texas"}],"url":"https://www.4elementsoilfieldservices.com/divisions/automotive"}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,19 +37,33 @@
 </head>
 <body class="page page--hero page--division page--automotive">
   <div class="hero__media page-bg-media" aria-hidden="true">
-    <div class="hero__slide hero__slide--active hero__slide--red" data-hero-slide data-type="image" data-duration="9">
-      <div class="dept-pan dept-pan--red">
-        <img src="/images/divisions/automotive-red-shop.jpg" alt="Red pickup with the hood open inside a repair shop" class="hero__slide-media" width="771" height="1024" fetchpriority="high" decoding="async">
+    <div class="hero__slide hero__slide--active hero__slide--red hero__slide--redphone" data-hero-slide data-auto-slot="both" data-type="image" data-duration="9" data-duration-phone="12">
+      <div class="dept-pan dept-pan--red dept-pan--redphone">
+        <picture>
+          <source media="(max-width: 520px)" srcset="/images/divisions/automotive-red-truck-mobile.jpg">
+          <source media="(min-width: 521px)" srcset="/images/divisions/automotive-red-shop.jpg">
+          <img alt="Red pickup with the hood open inside a repair shop" class="hero__slide-media" width="771" height="1024" fetchpriority="high" decoding="async">
+        </picture>
       </div>
     </div>
-    <div class="hero__slide hero__slide--duty" data-hero-slide data-type="image" data-duration="9">
+    <div class="hero__slide hero__slide--duty" data-hero-slide data-auto-slot="desk" data-type="image" data-duration="9">
       <div class="dept-pan dept-pan--duty">
         <img data-src="/images/divisions/automotive-duty-shop.jpg" alt="White heavy-duty crew-cab pickup inside a repair shop" class="hero__slide-media" width="771" height="1024" decoding="async">
       </div>
     </div>
-    <div class="hero__slide hero__slide--mustang" data-hero-slide data-type="image" data-duration="9">
+    <div class="hero__slide hero__slide--mustang" data-hero-slide data-auto-slot="desk" data-type="image" data-duration="9">
       <div class="dept-pan dept-pan--mustang">
         <img data-src="/images/divisions/automotive-mustang-shop.jpg" alt="White classic Mustang with the front clip off, raised on a lift in a repair shop" class="hero__slide-media" width="771" height="1024" decoding="async">
+      </div>
+    </div>
+    <div class="hero__slide hero__slide--mustangphone" data-hero-slide data-auto-slot="mobile" data-type="image" data-duration="12">
+      <div class="dept-pan dept-pan--mustangphone">
+        <img data-src="/images/divisions/automotive-mustang-mobile.jpg" alt="White classic Mustang with the front clip off, raised on a lift in a repair shop" class="hero__slide-media" width="576" height="1024" decoding="async">
+      </div>
+    </div>
+    <div class="hero__slide hero__slide--dutyphone" data-hero-slide data-auto-slot="mobile" data-type="image" data-duration="12">
+      <div class="dept-pan dept-pan--dutyphone">
+        <img data-src="/images/divisions/automotive-white-truck-mobile.jpg" alt="White heavy-duty crew-cab pickup inside a repair shop" class="hero__slide-media" width="576" height="1024" decoding="async">
       </div>
     </div>
     <div class="hero__overlay"></div>
@@ -82,7 +97,7 @@
 
     <main class="page-main">
       <div class="dept-ground" aria-hidden="true">
-        <img class="dept-ground__photo dept-ground__photo--red" src="/images/divisions/automotive-red-shop.jpg" alt="" width="771" height="1024" decoding="async">
+        <img class="dept-ground__photo dept-ground__photo--red" data-src="/images/divisions/automotive-red-shop.jpg" alt="" width="771" height="1024" decoding="async">
         <img class="dept-ground__photo dept-ground__photo--duty" data-src="/images/divisions/automotive-duty-shop.jpg" alt="" width="771" height="1024" decoding="async">
         <img class="dept-ground__photo dept-ground__photo--mustang" data-src="/images/divisions/automotive-mustang-shop.jpg" alt="" width="771" height="1024" decoding="async">
       </div>
