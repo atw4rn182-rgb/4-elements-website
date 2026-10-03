@@ -46,12 +46,15 @@ function businessJsonLd() {
       "@type": "OfferCatalog",
       name: "4 Elements services",
       itemListElement: [
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Oilfield trucking and heavy haul" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Automotive and diesel repair" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Oilfield construction" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Hydrovac services" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Safety oversight and equipment support" } },
-      ],
+        "/divisions/trucking",
+        "/divisions/automotive",
+        "/divisions/construction",
+        "/divisions/hydrovac",
+        "/divisions/safety",
+      ].map((path) => ({
+        "@type": "Offer",
+        itemOffered: { "@id": `${ORIGIN}${path}#service` },
+      })),
     },
   };
 }
@@ -73,7 +76,7 @@ function webPageJsonLd({ title, description, path, isPartOfBusiness = true }) {
   const page = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": `${url.replace(/\/$/, "")}#webpage`,
+    "@id": `${url}#webpage`,
     url,
     name: title,
     description,
