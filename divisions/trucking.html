@@ -31,24 +31,39 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="/images/divisions/trucking-dumps.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="/images/divisions/trucking-dumps.jpg" media="(min-width: 521px)" fetchpriority="high">
+  <link rel="preload" as="image" href="/images/divisions/trucking-enddump-mobile.jpg" media="(max-width: 520px)" fetchpriority="high">
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body class="page page--hero page--division page--trucking">
   <div class="hero__media page-bg-media" aria-hidden="true">
-    <div class="hero__slide hero__slide--active hero__slide--dumps" data-hero-slide data-type="image" data-duration="9">
-      <div class="dept-pan dept-pan--dumps">
-        <img src="/images/divisions/trucking-dumps.jpg" alt="White Mack dump trucks lined up on a dirt yard" class="hero__slide-media" width="771" height="1024" fetchpriority="high" decoding="async">
+    <div class="hero__slide hero__slide--active hero__slide--dumps hero__slide--enddump" data-hero-slide data-truck-slot="both" data-type="image" data-duration="9" data-duration-phone="12">
+      <div class="dept-pan dept-pan--dumps dept-pan--enddump">
+        <picture>
+          <source media="(max-width: 520px)" srcset="/images/divisions/trucking-enddump-mobile.jpg">
+          <source media="(min-width: 521px)" srcset="/images/divisions/trucking-dumps.jpg">
+          <img alt="White Mack dump trucks lined up on a dirt yard" class="hero__slide-media" width="771" height="1024" fetchpriority="high" decoding="async">
+        </picture>
       </div>
     </div>
-    <div class="hero__slide hero__slide--lineup" data-hero-slide data-type="image" data-duration="9">
+    <div class="hero__slide hero__slide--lineup" data-hero-slide data-truck-slot="desk" data-type="image" data-duration="9">
       <div class="dept-pan dept-pan--lineup">
         <img data-src="/images/divisions/trucking-lineup.jpg" alt="White Mack trucks parked on a gravel yard at sunset, one attached to a light-colored trailer" class="hero__slide-media" width="771" height="1024" decoding="async">
       </div>
     </div>
-    <div class="hero__slide hero__slide--haul" data-hero-slide data-type="image" data-duration="9">
+    <div class="hero__slide hero__slide--haul" data-hero-slide data-truck-slot="desk" data-type="image" data-duration="9">
       <div class="dept-pan dept-pan--haul">
         <img data-src="/images/divisions/trucking-haul.jpg" alt="Black Volvo tractor pulling a belly-dump trailer, parked in front of a row of white trucks" class="hero__slide-media" width="1024" height="771" decoding="async">
+      </div>
+    </div>
+    <div class="hero__slide hero__slide--dumptruck" data-hero-slide data-truck-slot="mobile" data-type="image" data-duration="12">
+      <div class="dept-pan dept-pan--dumptruck">
+        <img data-src="/images/divisions/trucking-dump-truck-mobile.jpg" alt="White Mack dump trucks parked in a row on a dirt yard" class="hero__slide-media" width="576" height="1024" decoding="async">
+      </div>
+    </div>
+    <div class="hero__slide hero__slide--belly" data-hero-slide data-truck-slot="mobile" data-type="image" data-duration="12">
+      <div class="dept-pan dept-pan--belly">
+        <img data-src="/images/divisions/trucking-belly-dump-mobile.jpg" alt="Black Volvo tractors and a belly-dump trailer parked on a gravel yard" class="hero__slide-media" width="576" height="1024" decoding="async">
       </div>
     </div>
     <div class="hero__overlay"></div>
@@ -84,7 +99,7 @@
       <div class="dept-ground" aria-hidden="true">
         <img class="dept-ground__photo dept-ground__photo--lineup" data-src="/images/divisions/trucking-lineup.jpg" alt="" width="771" height="1024" decoding="async">
         <img class="dept-ground__photo dept-ground__photo--haul" data-src="/images/divisions/trucking-haul.jpg" alt="" width="1024" height="771" decoding="async">
-        <img class="dept-ground__photo dept-ground__photo--dumps" src="/images/divisions/trucking-dumps.jpg" alt="" width="771" height="1024" decoding="async">
+        <img class="dept-ground__photo dept-ground__photo--dumps" data-src="/images/divisions/trucking-dumps.jpg" alt="" width="771" height="1024" decoding="async">
       </div>
       <div class="page-panel">
         <div class="page-hero">

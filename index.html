@@ -21,7 +21,8 @@
   <meta name="twitter:title" content="Oilfield Services in Carlsbad, NM | 4 Elements">
   <meta name="twitter:description" content="Trucking, diesel repair, construction, hydrovac, and safety from 4 Elements in Carlsbad, NM, for the Permian Basin in southeastern New Mexico and West Texas.">
   <meta name="twitter:image" content="https://www.4elementsoilfieldservices.com/images/logo-hero-mark.png">
-  <link rel="preload" as="image" href="/images/divisions/trucking-haul.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="/images/divisions/trucking-haul.jpg" media="(min-width: 521px)" fetchpriority="high">
+  <link rel="preload" as="image" href="/images/home/homepage-belly-dump-mobile.jpg" media="(max-width: 520px)" fetchpriority="high">
   <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png">
   <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
@@ -49,28 +50,55 @@
 
   <main class="home" aria-label="4 Elements Oilfield Services">
     <div class="hero__media" aria-hidden="true">
-      <div class="hero__slide hero__slide--active home-slide home-slide--trucking" data-hero-slide data-type="image" data-duration="9">
-        <div class="hero__pan home-pan home-pan--trucking">
-          <img src="/images/divisions/trucking-haul.jpg" alt="" class="hero__slide-media" width="1024" height="771" fetchpriority="high" decoding="async">
+      <div class="hero__slide hero__slide--active home-slide home-slide--trucking home-slide--belly" data-hero-slide data-home-slot="both" data-type="image" data-duration="9" data-duration-phone="12">
+        <div class="hero__pan home-pan home-pan--trucking home-pan--belly">
+          <picture>
+            <source media="(max-width: 520px)" srcset="/images/home/homepage-belly-dump-mobile.jpg">
+            <source media="(min-width: 521px)" srcset="/images/divisions/trucking-haul.jpg">
+            <img alt="" class="hero__slide-media" width="1024" height="771" fetchpriority="high" decoding="async">
+          </picture>
         </div>
       </div>
-      <div class="hero__slide home-slide home-slide--auto" data-hero-slide data-type="image" data-duration="9">
+      <div class="hero__slide home-slide home-slide--auto" data-hero-slide data-home-slot="desk" data-type="image" data-duration="9">
         <div class="hero__pan home-pan home-pan--auto">
           <img class="hero__slide-media" alt="" width="771" height="1024" decoding="async" data-src="/images/divisions/automotive-red-shop.jpg">
         </div>
       </div>
-      <div class="hero__slide home-slide home-slide--construction" data-hero-slide data-type="image" data-duration="9">
+      <div class="hero__slide home-slide home-slide--construction" data-hero-slide data-home-slot="desk" data-type="image" data-duration="9">
         <div class="hero__pan home-pan home-pan--construction">
           <img class="hero__slide-media" alt="" width="771" height="1024" decoding="async" data-src="/images/divisions/construction-dozer.jpg">
         </div>
       </div>
-      <div class="hero__slide home-slide home-slide--hydrovac" data-hero-slide data-type="image" data-duration="9">
+      <div class="hero__slide home-slide home-slide--hydrovac" data-hero-slide data-home-slot="desk" data-type="image" data-duration="9">
         <div class="hero__pan home-pan home-pan--hydrovac">
           <img class="hero__slide-media" alt="" width="577" height="1024" decoding="async" data-src="/images/divisions/hydrovac-hero.jpg">
         </div>
       </div>
+      <div class="hero__slide home-slide home-slide--dozer" data-hero-slide data-home-slot="mobile" data-type="image" data-duration="12">
+        <div class="hero__pan home-pan home-pan--dozer">
+          <img class="hero__slide-media" alt="" width="576" height="1024" decoding="async" data-src="/images/home/homepage-dozer-excavator-mobile.jpg">
+        </div>
+      </div>
+      <div class="hero__slide home-slide home-slide--enddump" data-hero-slide data-home-slot="mobile" data-type="image" data-duration="12">
+        <div class="hero__pan home-pan home-pan--enddump">
+          <img class="hero__slide-media" alt="" width="576" height="1024" decoding="async" data-src="/images/home/homepage-end-dump-mobile.jpg">
+        </div>
+      </div>
+      <div class="hero__slide home-slide home-slide--hvac" data-hero-slide data-home-slot="mobile" data-type="image" data-duration="12">
+        <div class="hero__pan home-pan home-pan--hvac">
+          <img class="hero__slide-media" alt="" width="576" height="1024" decoding="async" data-src="/images/home/homepage-hydrovac-mobile.jpg">
+        </div>
+      </div>
       <div class="hero__overlay"></div>
     </div>
+    <script>
+      (function () {
+        if (!window.matchMedia('(max-width: 520px)').matches) return;
+        var media = document.querySelector('.home > .hero__media');
+        var home = document.querySelector('.home');
+        if (media && home) document.body.insertBefore(media, home);
+      })();
+    </script>
 
     <div class="home-title">
       <img

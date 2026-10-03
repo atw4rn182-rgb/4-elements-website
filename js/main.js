@@ -12,6 +12,53 @@
   var saveTimer = null;
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var isHome = document.body.classList.contains('home-shell');
+  var isTrucking = document.body.classList.contains('page--trucking');
+  var truckPhoneQuery = window.matchMedia('(max-width: 520px)');
+  var allHeroSlides = heroSlides;
+
+  function truckPhone() {
+    return isTrucking && truckPhoneQuery.matches;
+  }
+
+  function homePhone() {
+    return isHome && truckPhoneQuery.matches;
+  }
+
+  function applyTruckSlots() {
+    if (!isTrucking) return;
+    var phone = truckPhoneQuery.matches;
+    heroSlides = allHeroSlides.filter(function (slide) {
+      var slot = slide.getAttribute('data-truck-slot');
+      if (!slot || slot === 'both') return true;
+      return phone ? slot === 'mobile' : slot === 'desk';
+    });
+  }
+
+  function applyHomeSlots() {
+    if (!isHome) return;
+    var phone = truckPhoneQuery.matches;
+    heroSlides = allHeroSlides.filter(function (slide) {
+      var slot = slide.getAttribute('data-home-slot');
+      if (!slot || slot === 'both') return true;
+      return phone ? slot === 'mobile' : slot === 'desk';
+    });
+  }
+
+  function placeHomeMedia() {
+    if (!isHome) return;
+    var home = document.querySelector('.home');
+    var media = document.querySelector('body.home-shell > .hero__media, .home > .hero__media');
+    if (!home || !media) return;
+    if (truckPhoneQuery.matches) {
+      if (media.parentNode !== document.body) document.body.insertBefore(media, home);
+    } else if (media.parentNode !== home) {
+      home.insertBefore(media, home.firstChild);
+    }
+  }
+
+  applyTruckSlots();
+  applyHomeSlots();
+  placeHomeMedia();
 
   function getVideo(slide) {
     return slide.querySelector('video');
@@ -99,6 +146,7 @@
   function promoteSlide(slide) {
     if (!slide) return;
     promoteImage(slide.querySelector('img.hero__slide-media'));
+    if (truckPhone()) return;
     var classes = slide.className.split(/\s+/);
     for (var i = 0; i < classes.length; i++) {
       if (classes[i].indexOf('hero__slide--') === 0 && classes[i] !== 'hero__slide--active') {
@@ -121,6 +169,7 @@
   }
 
   function restartPan(slide) {
+    if (homePhone()) return;
     var pan = slide.querySelector('.hero__pan, .dept-pan');
     if (!pan) return;
     pan.style.animation = 'none';
@@ -162,6 +211,10 @@
     var next = heroSlides[nextIndex];
     var nextType = next.getAttribute('data-type');
     var durationSec = parseFloat(next.getAttribute('data-duration') || '9', 10);
+    if (truckPhone() || homePhone()) {
+      var phoneDur = next.getAttribute('data-duration-phone');
+      if (phoneDur) durationSec = parseFloat(phoneDur, 10);
+    }
     var video = getVideo(next);
 
     promoteSlide(next);
@@ -169,7 +222,7 @@
     if (isHome && !force && nextType === 'image') {
       var img = next.querySelector('img.hero__slide-media');
       if (img && img.getAttribute('data-src') && !img.getAttribute('src')) img.src = img.getAttribute('data-src');
-      if (img && img.getAttribute('src') && !img.complete) {
+      if (img && (img.getAttribute('src') || img.currentSrc) && !img.complete) {
         var imageDone = false;
         var showImage = function () {
           if (imageDone) return;
@@ -301,10 +354,55 @@
       activateSlide(index, false);
     }
   });
+
+  if (isTrucking && truckPhoneQuery.addEventListener) {
+    truckPhoneQuery.addEventListener('change', function () {
+      if (timer) window.clearTimeout(timer);
+      applyTruckSlots();
+      activateSlide(0);
+    });
+  }
+
+  if (isHome && truckPhoneQuery.addEventListener) {
+    truckPhoneQuery.addEventListener('change', function () {
+      if (timer) window.clearTimeout(timer);
+      placeHomeMedia();
+      applyHomeSlots();
+      activateSlide(0);
+    });
+  }
 })();
 
 (function () {
   var cue = document.querySelector('.hero-scroll');
+  var shell = document.querySelector('.page-shell');
+  var truckPhoneQuery = window.matchMedia('(max-width: 520px)');
+  var truckPage = document.body.classList.contains('page--trucking');
+
+  if (truckPage && shell) {
+    var updateTruck = function () {
+      if (!cue) return;
+      var y = truckPhoneQuery.matches ? shell.scrollTop : window.scrollY;
+      cue.classList.toggle('is-away', y > 28);
+    };
+    updateTruck();
+    shell.addEventListener('scroll', updateTruck, { passive: true });
+    window.addEventListener('scroll', updateTruck, { passive: true });
+    document.addEventListener('click', function (e) {
+      if (!truckPhoneQuery.matches) return;
+      var link = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+      if (!link) return;
+      var id = link.getAttribute('href').slice(1);
+      if (!id) return;
+      var target = document.getElementById(id);
+      if (!target || !shell.contains(target)) return;
+      e.preventDefault();
+      var top = target.getBoundingClientRect().top - shell.getBoundingClientRect().top + shell.scrollTop - 76;
+      shell.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    });
+    return;
+  }
+
   if (!cue) return;
   var update = function () {
     cue.classList.toggle('is-away', window.scrollY > 28);
