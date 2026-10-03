@@ -1970,19 +1970,19 @@ body.home-shell::before {
   animation-play-state: running;
 }
 
-.home > .hero__media .home-pan--trucking { animation-name: home-pan-trucking; }
+.home > .hero__media .home-pan--trucking { animation-name: home-pan-trucking; transform: scale(1.012); }
 .home > .hero__media .home-pan--auto { animation-name: home-pan-auto; }
 .home > .hero__media .home-pan--construction { animation-name: home-pan-construction; }
 .home > .hero__media .home-pan--hydrovac { animation-name: home-pan-hydrovac; }
 
-.home > .hero__media .home-slide--trucking .hero__slide-media { object-position: 62% 64%; }
+.home > .hero__media .home-slide--trucking .hero__slide-media { object-position: center 40%; }
 .home > .hero__media .home-slide--auto .hero__slide-media { object-position: center 46%; }
 .home > .hero__media .home-slide--construction .hero__slide-media { object-position: 56% 40%; }
 .home > .hero__media .home-slide--hydrovac .hero__slide-media { object-position: center 36%; }
 
 @keyframes home-pan-trucking {
-  from { transform: scale(1.03) translate(-0.15%, 0.02%); }
-  to   { transform: scale(1.045) translate(0.28%, -0.04%); }
+  from { transform: scale(1.012) translate3d(0, 0, 0); }
+  to   { transform: scale(1.026) translate3d(0.2%, 0, 0); }
 }
 @keyframes home-pan-auto {
   from { transform: scale(1.03) translate(0.18%, 0.03%); }
@@ -2306,7 +2306,24 @@ body.home-shell::before {
     max-height: none;
   }
 
-  .home > .hero__media .home-slide--trucking .hero__slide-media { object-position: 58% 66%; }
+  .home > .hero__media .home-slide--trucking .hero__slide-media {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 78%;
+    object-fit: cover;
+    object-position: 46% 50%;
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 76%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 76%, transparent 100%);
+  }
+
+  @media (max-width: 520px) {
+    .home > .hero__media .home-slide--trucking .hero__slide-media {
+      height: 64%;
+      object-position: 44% 48%;
+    }
+  }
   .home > .hero__media .home-slide--auto .hero__slide-media { object-position: 42% 48%; }
   .home > .hero__media .home-slide--construction .hero__slide-media { object-position: 62% 44%; }
   .home > .hero__media .home-slide--hydrovac .hero__slide-media { object-position: center 38%; }
@@ -3312,8 +3329,9 @@ body.page--division .page-main {
   max-width: 1080px;
 }
 
-/* Division hero frame stays a constant size in the document.
-   The photograph pans inside it. Scroll does not resize or re-pin it. */
+/* Division hero frame stays a constant size.
+   The photograph is pinned like the homepage hero: fixed to the viewport,
+   while the page shell scrolls over it. Scroll does not resize or re-crop it. */
 body.page.page--division,
 body.page--hero.page--division .page-shell {
   min-height: 0;
@@ -3334,13 +3352,8 @@ body.page--hydrovac {
 }
 
 body.page--hero.page--division .page-bg-media {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: auto;
-  left: 0;
-  width: 100%;
-  height: var(--division-hero-frame);
+  position: fixed;
+  inset: 0;
   overflow: hidden;
 }
 
@@ -3412,10 +3425,11 @@ body.page--safety .page-section h2 {
   font-size: clamp(1.32rem, 2.2vw, 1.6rem);
 }
 
-/* Ground continuation sits in normal flow under the hero.
-   It reuses the same photograph at the same cover scale, shifted so only
-   the pixels below the hero window show. It scrolls with the page. */
+/* The homepage keeps one photograph fixed behind scrolling copy.
+   The old ground strip was a second, scrolling copy of that photograph.
+   Leave it in the markup for the slideshow, but do not paint it. */
 body.page--division .dept-ground {
+  display: none;
   position: absolute;
   z-index: -1;
   left: 50%;
