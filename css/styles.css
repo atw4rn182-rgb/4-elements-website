@@ -1975,7 +1975,7 @@ body.home-shell::before {
 .home > .hero__media .home-pan--construction { animation-name: home-pan-construction; }
 .home > .hero__media .home-pan--hydrovac { animation-name: home-pan-hydrovac; }
 
-.home > .hero__media .home-slide--trucking .hero__slide-media { object-position: center 34%; }
+.home > .hero__media .home-slide--trucking .hero__slide-media { object-position: 62% 64%; }
 .home > .hero__media .home-slide--auto .hero__slide-media { object-position: center 46%; }
 .home > .hero__media .home-slide--construction .hero__slide-media { object-position: 56% 40%; }
 .home > .hero__media .home-slide--hydrovac .hero__slide-media { object-position: center 36%; }
@@ -2306,7 +2306,7 @@ body.home-shell::before {
     max-height: none;
   }
 
-  .home > .hero__media .home-slide--trucking .hero__slide-media { object-position: center 42%; }
+  .home > .hero__media .home-slide--trucking .hero__slide-media { object-position: 58% 66%; }
   .home > .hero__media .home-slide--auto .hero__slide-media { object-position: 42% 48%; }
   .home > .hero__media .home-slide--construction .hero__slide-media { object-position: 62% 44%; }
   .home > .hero__media .home-slide--hydrovac .hero__slide-media { object-position: center 38%; }
@@ -3257,6 +3257,35 @@ body.page--hero .page-brands li {
   }
 }
 
+/* Homepage only. Spend leftover row width between the wordmark, phone, and language pair. */
+.home-header__inner {
+  justify-content: space-between;
+  column-gap: clamp(0.7rem, 2.8vw, 2.75rem);
+}
+
+.home-header__nav {
+  flex: 0 1 auto;
+  width: auto;
+  margin-inline: 0;
+  justify-content: center;
+}
+
+.home-header__inner > .lang-switch {
+  margin-left: 0;
+}
+
+@media (max-width: 390px) {
+  .home-header__inner {
+    column-gap: 0.7rem;
+    padding-inline: 0.32rem;
+  }
+
+  .home-header .lang-switch__btn {
+    min-width: 1.75rem;
+    padding-inline: 0.34rem;
+  }
+}
+
 /* Division pages — open hero, service cards, contact below
    -------------------------------------------------------------------------- */
 html:has(body.page--division) {
@@ -3512,7 +3541,7 @@ body.page--safety .dept-ground {
 .page--safety .safety-pan--build { animation-name: safety-pan-build; }
 .page--safety .safety-pan--hydro { animation-name: safety-pan-hydro; }
 
-.page--safety .hero__slide--shared-truck .hero__slide-media { object-position: center 50%; }
+.page--safety .hero__slide--shared-truck .hero__slide-media { object-position: center 78%; }
 .page--safety .hero__slide--shared-auto .hero__slide-media { object-position: center 58%; }
 .page--safety .hero__slide--shared-build .hero__slide-media { object-position: 64% 46%; }
 .page--safety .hero__slide--shared-hydro .hero__slide-media { object-position: center 40%; }
@@ -4134,7 +4163,7 @@ body.page--hydrovac .page-bg-media .hero__overlay {
   body.page--hydrovac .dept-ground__photo { --ground-y: 0.42; }
 
   .page--safety .safety-pan { animation-duration: 6s; }
-  .page--safety .hero__slide--shared-truck .hero__slide-media { object-position: center 46%; }
+  .page--safety .hero__slide--shared-truck .hero__slide-media { object-position: 68% 78%; }
   .page--safety .hero__slide--shared-auto .hero__slide-media { object-position: center 48%; }
   .page--safety .hero__slide--shared-build .hero__slide-media { object-position: 68% 44%; }
   .page--safety .hero__slide--shared-hydro .hero__slide-media { object-position: center 42%; }
