@@ -1944,6 +1944,51 @@ body.home-shell::before {
   }
 }
 
+/* Department headers have only the phone number. Same orange sweep as the
+   homepage phone, then a white rest before the next pass. */
+body.page--division .page-header .header-office__num {
+  background-image: linear-gradient(
+    100deg,
+    #f4f7fa 0%,
+    #f4f7fa 42%,
+    #f0b48a 48%,
+    #e36a2c 50%,
+    #f0b48a 52%,
+    #f4f7fa 58%,
+    #f4f7fa 100%
+  );
+  background-size: 280% 100%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: dept-phone-shift 6s ease-in-out infinite;
+}
+
+@keyframes dept-phone-shift {
+  0% { background-position: 100% 50%; }
+  58.6667% { background-position: 0% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body.page--division .page-header .header-office:hover .header-office__num,
+body.page--division .page-header .header-office:focus-visible .header-office__num {
+  background-image: none;
+  color: var(--color-amber);
+  -webkit-text-fill-color: var(--color-amber);
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.page--division .page-header .header-office__num {
+    animation: none;
+    background-image: none;
+    color: #f4f7fa;
+    -webkit-text-fill-color: #f4f7fa;
+  }
+}
+
 .header-office:focus-visible,
 .home-header__brand:focus-visible,
 .page-header__brand:focus-visible {
@@ -4008,6 +4053,52 @@ body.page--division .page-related .page-list a:focus-visible {
 
   body.page--division .page-list__link {
     min-height: 0;
+  }
+}
+
+/* Tablet, from the first pixel above the phone layout. The 1024px
+   block below replaces this with the wider desktop bar. */
+@media (min-width: 521px) {
+  body.page--hero.page--division.page--construction .page-hero,
+  body.page--hero.page--division.page--trucking .page-hero,
+  body.page--hero.page--division.page--automotive .page-hero,
+  body.page--hero.page--division.page--safety .page-hero,
+  body.page--hero.page--division.page--hydrovac .page-hero {
+    left: 50%;
+    width: calc(100vw - clamp(2.5rem, 10vw, 6rem));
+    max-width: none;
+    transform: translate(-50%, calc(-100% - 1.15rem));
+  }
+
+  body.page--division .page-hero__eyebrow,
+  body.page--division .page-hero__title,
+  body.page--division .page-hero__lead,
+  body.page--division .page-hero .division-hero__actions {
+    max-width: 34rem;
+    margin-inline: auto;
+  }
+}
+
+/* Desktop department heroes only. The glass spans the lower hero;
+   the copy stays in a centered column. */
+@media (min-width: 1024px) {
+  body.page--hero.page--division.page--construction .page-hero,
+  body.page--hero.page--division.page--trucking .page-hero,
+  body.page--hero.page--division.page--automotive .page-hero,
+  body.page--hero.page--division.page--safety .page-hero,
+  body.page--hero.page--division.page--hydrovac .page-hero {
+    left: 50%;
+    width: calc(100vw - 6rem);
+    max-width: none;
+    transform: translate(-50%, calc(-100% - 1.15rem));
+  }
+
+  body.page--division .page-hero__eyebrow,
+  body.page--division .page-hero__title,
+  body.page--division .page-hero__lead,
+  body.page--division .page-hero .division-hero__actions {
+    max-width: 38rem;
+    margin-inline: auto;
   }
 }
 
