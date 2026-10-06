@@ -2533,6 +2533,16 @@ body.page--division .page-header .header-office:focus-visible .header-office__nu
   }
 }
 
+/* Homepage phone only. A flat tint, with no blur over the hero photo. */
+@media (max-width: 520px) {
+  .home-side__link {
+    background: rgba(10, 37, 64, 0.14);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    filter: none;
+  }
+}
+
 /* Interior division / affiliate pages — shared cycling hero
    -------------------------------------------------------------------------- */
 body.page {
