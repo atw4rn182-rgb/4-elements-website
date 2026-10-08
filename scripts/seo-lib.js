@@ -116,12 +116,13 @@ function seoHead({ title, description, path, indexable = true, extraJsonLd = [] 
   <meta name="twitter:title" content="${esc(title)}">
   <meta name="twitter:description" content="${esc(description)}">
   <meta name="twitter:image" content="${esc(OG_IMAGE)}">
-  <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png">
-  <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512.png?v=4e">
+  <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png?v=4e">
+  <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48.png?v=4e">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=4e">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png?v=4e">
+  <link rel="shortcut icon" href="/favicon.ico?v=4e">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=4e">
   <script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@graph": graph })}</script>`;
 }
 
