@@ -3257,6 +3257,43 @@ body.page--hero .page-brands li {
   margin-top: 0.55rem;
 }
 
+.page-footer .footer-credit,
+.home-footer .footer-credit {
+  margin: 0.9rem 0 0;
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  color: rgba(168, 181, 192, 0.72);
+  text-align: center;
+}
+
+.page-footer .footer-credit a,
+.home-footer .footer-credit a {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(168, 181, 192, 0.4);
+  text-underline-offset: 0.16em;
+  text-decoration-thickness: 1px;
+}
+
+.page-footer .footer-credit a:hover,
+.home-footer .footer-credit a:hover,
+.page-footer .footer-credit a:focus-visible,
+.home-footer .footer-credit a:focus-visible {
+  color: var(--color-amber);
+  text-decoration-color: var(--color-amber);
+}
+
+.page-footer .footer-credit a:focus-visible,
+.home-footer .footer-credit a:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 /* Compact one-row header. Logo, office phone, and language stay on a single line. */
 @media (max-width: 720px) {
   .home-header__inner,
