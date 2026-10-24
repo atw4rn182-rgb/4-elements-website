@@ -2976,6 +2976,11 @@ body.page--hero:not(.page--division) .page-footer {
   line-height: 1.6;
 }
 
+.quote-form__note,
+.quote-form__note a {
+  overflow-wrap: anywhere;
+}
+
 .quote-form__note a {
   color: var(--color-amber);
 }
@@ -3076,6 +3081,8 @@ body.page--hero .page-list--quotes .page-list__link:hover {
   display: grid;
   grid-template-columns: minmax(7.5rem, 11rem) 1fr;
   gap: 0.5rem 1.25rem;
+  min-width: 0;
+  max-width: 100%;
   padding: 0.85rem 1.1rem;
   background: rgba(10, 37, 64, 0.4);
   border: 1px solid rgba(168, 181, 192, 0.16);
@@ -3094,8 +3101,10 @@ body.page--hero .page-list--quotes .page-list__link:hover {
 
 .page-contact__item dd {
   margin: 0;
+  min-width: 0;
   color: var(--color-text-primary);
   line-height: 1.55;
+  overflow-wrap: anywhere;
 }
 
 .page-contact__item a {
@@ -3103,6 +3112,7 @@ body.page--hero .page-list--quotes .page-list__link:hover {
   text-decoration: underline;
   text-decoration-color: rgba(227, 106, 44, 0.45);
   text-underline-offset: 0.18em;
+  overflow-wrap: anywhere;
 }
 
 .page-contact__item a:hover {
@@ -3182,6 +3192,7 @@ body.page--hero .page-brands li {
   margin-bottom: 1rem;
   max-width: 46rem;
   line-height: 1.75;
+  overflow-wrap: anywhere;
 }
 
 .legal-doc strong {
@@ -3533,10 +3544,12 @@ body.page--division {
 /* Trucking, Automotive, Construction, and Safety fill the first screen.
    svh stays constant when mobile browser chrome shows or hides. */
 body.page--division:not(.page--hydrovac) {
+  --division-hero-frame: 100vh;
   --division-hero-frame: 100svh;
 }
 
 body.page--hydrovac {
+  --division-hero-frame: 100vh;
   --division-hero-frame: 100svh;
 }
 
