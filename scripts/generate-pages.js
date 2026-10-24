@@ -17,8 +17,9 @@ const SHARED = {
   hrPhone: "(575) 988-5479",
   applyCdl: "https://4elementsoilfield.dotshield.software/newapplication",
   applyNonCdl: "https://4elementsoilfield.dotshield.software/ndotapplication",
-  jotformGeneral: "https://form.jotform.com/253164822616053",
-  jotformCdl: "https://form.jotform.com/253205763785161",
+  facebook: "https://www.facebook.com/share/19nn7uhkYe/?mibextid=wwXIfr",
+  googleMaps:
+    "https://www.google.com/maps/place/4+Elements+Oilfield+Services/@32.3419442,-104.2506671,17z/data=!3m1!4b1!4m6!3m5!1s0x86e37f2cf47974fd:0xebc992b2e0812098!8m2!3d32.3419442!4d-104.2506671!16s%2Fg%2F11fll6gx_b",
 };
 
 function esc(s) {
@@ -106,6 +107,23 @@ ${linkHtml}
                 : ""
             }
           </section>`;
+}
+
+function footerMeta() {
+  return `<div class="page-footer__meta">
+      <nav class="page-footer__links" aria-label="Legal">
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms-and-conditions">Terms &amp; Conditions</a>
+      </nav>
+      <nav class="page-footer__social" aria-label="Social">
+        <a class="page-footer__social-link" href="${esc(SHARED.facebook)}" target="_blank" rel="noopener noreferrer" aria-label="Four Elements Oilfield Services on Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M22 12.07C22 6.48 17.52 2 12 2S2 6.48 2 12.07C2 17.1 5.66 21.24 10.44 22v-7.03H7.9v-2.9h2.54V9.84c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.9h-2.34V22C18.34 21.24 22 17.1 22 12.07z"/></svg>
+        </a>
+        <a class="page-footer__social-link" href="${esc(SHARED.googleMaps)}" target="_blank" rel="noopener noreferrer" aria-label="Four Elements Oilfield Services on Google Maps">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M12 2.25A6.75 6.75 0 0 0 5.25 9c0 5.06 6.08 11.5 6.34 11.76a.58.58 0 0 0 .82 0C12.67 20.5 18.75 14.06 18.75 9A6.75 6.75 0 0 0 12 2.25zm0 9.19a2.44 2.44 0 1 1 0-4.88 2.44 2.44 0 0 1 0 4.88z"/></svg>
+        </a>
+      </nav>
+    </div>`;
 }
 
 function brandsBlock(title, items) {
@@ -214,10 +232,7 @@ ${bodyHtml}
 
     <footer class="page-footer">
       <p>${SHARED.address}  ·  4 Elements Oilfield Services LLC</p>
-      <nav class="page-footer__links" aria-label="Legal">
-        <a href="/privacy-policy">Privacy Policy</a>
-        <a href="/terms-and-conditions">Terms &amp; Conditions</a>
-      </nav>
+      ${footerMeta()}
       <p class="footer-credit">Website by <a href="https://www.4wardwebdesign.com/" rel="noopener noreferrer">4ward Web Design</a></p>
     </footer>
   </div>
@@ -282,9 +297,9 @@ const pages = [
             "Must be 21+ with a valid CDL and 2 years driving experience for driver roles. Competitive hourly wages DOE, paid vacation/sick/holidays, 401(k), and health benefits. Pre-employment drug screen and clean driving record required. Housing and per diem are not provided. Call Jeremiah Terrazas (575) 636-4652 or HR (575) 988-5479. CDL applications must be completed online (assistance available at the Derrick Rd office).",
           links: [
             { label: "Apply CDL Online", href: SHARED.applyCdl },
-            { label: "CDL JotForm", href: SHARED.jotformCdl },
+            { label: "CDL JotForm", href: SHARED.applyCdl },
             { label: "Mechanic / Non-CDL Apply", href: SHARED.applyNonCdl },
-            { label: "General Application", href: SHARED.jotformGeneral },
+            { label: "General Application", href: SHARED.applyNonCdl },
           ],
         }),
         relatedSection([
@@ -343,7 +358,7 @@ const pages = [
           details:
             "Competitive hourly wages, paid vacation/sick/holidays, 401(k), and health benefits. Must pass a pre-employment drug screen and have a clean driving record. Clear English required; bilingual a plus. Call Trucking Manager Jeremiah Terrazas (575) 636-4652 or HR (575) 941-3311, or apply online / in person at the Derrick Rd office.",
           links: [
-            { label: "Apply Online", href: SHARED.jotformGeneral },
+            { label: "Apply Online", href: SHARED.applyNonCdl },
             { label: "Non-CDL Application", href: SHARED.applyNonCdl },
           ],
         }),
@@ -405,7 +420,7 @@ const pages = [
             "Construction applications can be picked up at 1400 W. Derrick Rd, requested from HR, or completed online.",
           links: [
             { label: "Apply Non-CDL Online", href: SHARED.applyNonCdl },
-            { label: "General Application", href: SHARED.jotformGeneral },
+            { label: "General Application", href: SHARED.applyNonCdl },
           ],
         }),
         relatedSection([
@@ -472,7 +487,7 @@ const pages = [
             "Applications can be picked up at 1400 W. Derrick Rd, requested from HR, or completed online.",
           links: [
             { label: "Apply Online", href: SHARED.applyNonCdl },
-            { label: "General Application", href: SHARED.jotformGeneral },
+            { label: "General Application", href: SHARED.applyNonCdl },
           ],
         }),
         relatedSection([
@@ -544,7 +559,7 @@ const pages = [
           details:
             "Competitive hourly wages DOE, paid vacation/sick/holidays, 401(k), and health benefits. Call HR at (575) 941-3311 or apply online / in person at the Derrick Rd office.",
           links: [
-            { label: "Apply Online", href: SHARED.jotformGeneral },
+            { label: "Apply Online", href: SHARED.applyNonCdl },
             { label: "Non-CDL Application", href: SHARED.applyNonCdl },
           ],
         }),
@@ -642,7 +657,7 @@ const pages = [
             "Applications can be picked up at the office, requested from HR, or completed online.",
           links: [
             { label: "Apply Online", href: SHARED.applyNonCdl },
-            { label: "General Application", href: SHARED.jotformGeneral },
+            { label: "General Application", href: SHARED.applyNonCdl },
           ],
         }),
         relatedSection([
@@ -694,7 +709,7 @@ const pages = [
           details:
             "Competitive hourly wages DOE, paid vacation/sick/holidays, 401(k), and health benefits. Call Lance Moore (806) 292-1078 or HR (575) 941-3311, or apply online / in person.",
           links: [
-            { label: "Apply Online", href: SHARED.jotformGeneral },
+            { label: "Apply Online", href: SHARED.applyNonCdl },
             { label: "Non-CDL Application", href: SHARED.applyNonCdl },
           ],
         }),

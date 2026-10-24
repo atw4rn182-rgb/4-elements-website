@@ -3235,6 +3235,51 @@ body.page--hero .page-brands li {
   color: var(--color-amber);
 }
 
+.page-footer__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.15rem 0.85rem;
+  margin-top: 0.75rem;
+}
+
+.page-footer__meta .page-footer__links {
+  margin-top: 0;
+}
+
+.page-footer__social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+.page-footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  color: var(--color-gunsmoke);
+  border-radius: 2px;
+}
+
+.page-footer__social-link svg {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+}
+
+.page-footer__social-link:hover,
+.page-footer__social-link:focus-visible {
+  color: var(--color-amber);
+}
+
+.page-footer__social-link:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 2px;
+}
+
 .home-footer {
   position: relative;
   z-index: 5;
@@ -3255,6 +3300,14 @@ body.page--hero .page-brands li {
 
 .home-footer .page-footer__links {
   margin-top: 0.55rem;
+}
+
+.home-footer .page-footer__meta {
+  margin-top: 0.55rem;
+}
+
+.home-footer .page-footer__meta .page-footer__links {
+  margin-top: 0;
 }
 
 .page-footer .footer-credit,
