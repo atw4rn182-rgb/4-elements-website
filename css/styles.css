@@ -1989,50 +1989,6 @@ body.page--division .page-header .header-office:focus-visible .header-office__nu
   }
 }
 
-.home-header__nav a.header-facebook,
-.page-header__nav a.header-facebook {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 auto;
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  min-height: 40px;
-  margin: 0;
-  padding: 0;
-  border-bottom: 0;
-  color: #1877F2;
-  line-height: 0;
-  text-shadow: none;
-}
-
-.header-facebook svg {
-  display: block;
-  width: 22px;
-  height: 22px;
-}
-
-.home-header__nav a.header-facebook:hover,
-.home-header__nav a.header-facebook:focus-visible,
-.page-header__nav a.header-facebook:hover,
-.page-header__nav a.header-facebook:focus-visible {
-  color: #1877F2;
-  border-bottom-color: transparent;
-}
-
-.header-facebook:focus-visible {
-  outline: 2px solid #F4F7FA;
-  outline-offset: 2px;
-}
-
-/* Homepage wordmark, phone, and language already fill this row. */
-@media (max-width: 479px) {
-  .home-header__nav a.header-facebook {
-    display: none;
-  }
-}
-
 .header-office:focus-visible,
 .home-header__brand:focus-visible,
 .page-header__brand:focus-visible {
