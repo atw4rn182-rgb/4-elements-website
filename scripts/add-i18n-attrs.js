@@ -68,7 +68,7 @@ function markTags(html) {
       attrs = attrs || "";
       if (/data-i18n/i.test(attrs)) return full;
       // Skip empty / utility anchors without visible words later handled by content
-      if (tag === "a" && /header__brand|page-footer__social-link/i.test(attrs)) {
+      if (tag === "a" && /header__brand|header-facebook|page-footer__social-link/i.test(attrs)) {
         return full;
       }
       if (tag === "p" && /home-overview/i.test(attrs)) {
